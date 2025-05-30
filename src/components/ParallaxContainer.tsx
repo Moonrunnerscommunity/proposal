@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import CountdownRibbon from './CountdownRibbon';
+// import CountdownRibbon from './CountdownRibbon';
 import HeroSection from './HeroSection';
 import TeamSection from './TeamSection';
 import CommunicationSection from './CommunicationSection';
