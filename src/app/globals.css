@@ -84,9 +84,11 @@ body, html {
 }
 
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
   font-size: 16px;
   overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
 }
 
 body {
@@ -94,8 +96,9 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   line-height: 1.6;
-  min-height: 100vh;
+  min-height: 100%;
   overflow-x: hidden;
+  overflow-y: visible;
 }
 
 /* Responsive Typography - only set defaults, let Tailwind utilities override */
@@ -511,7 +514,7 @@ a:focus {
 
 /* Smooth scrolling for internal links */
 [id] {
-  scroll-margin-top: 2rem;
+  /* scroll-margin-top: 2rem; */
 }
 
 /* Print styles */

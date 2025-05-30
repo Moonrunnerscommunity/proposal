@@ -1,15 +1,18 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 const WhatsNextSection = () => {
-  const [scrollY, setScrollY] = useState(0);
+  // Temporarily disable scroll listener to test scroll stopping issue
+  // const [scrollY, setScrollY] = useState(0);
+  
+  // useEffect(() => {
+  //   const handleScroll = () => setScrollY(window.scrollY);
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, []);
 
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const scrollY = 0; // Temporary static value
 
   const possibilities = [
     {
