@@ -17,7 +17,7 @@ const TeamMemberCard = ({ name, wolfName, image, bio, role, twitter, walletAddre
 
   return (
     <div className="team-member-card glass p-6 rounded-lg hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 h-full flex flex-col">
-      <div className="relative w-48 h-48 mx-auto mb-4">
+      <div className="relative w-64 h-64 mx-auto mb-4">
         <Image
           src={image}
           alt={`${name} NFT`}

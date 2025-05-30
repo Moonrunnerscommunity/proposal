@@ -1,0 +1,1 @@
+// (Remove all code from this file, as the feedback modal will be handled in HeroSection.tsx) 
