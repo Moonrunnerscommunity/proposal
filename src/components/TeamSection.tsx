@@ -140,14 +140,14 @@ export default function TeamSection() {
       discord: 'julianne'
     },
     { 
-      name: '612', 
-      wolfName: 'The Watcher',
-      image: '/team/612.png', 
-      bio: 'Our technically inclined wolf who watches over digital infrastructure. Technical architect building the future while managing blockchain tech, smart contracts, website security, and keeping the lights on.',
+      name: '612crypto', 
+      wolfName: 'Full Stack Wolf',
+      image: '/team/612crypto.png', 
+      bio: 'A web developer with over 15 years of experience, blending technical expertise with the collaborative spirit of the pack. He ensures that every aspect of the Moonrunners’ web presence is seamless, secure, and ready to scale.',
       role: 'Development Lead',
       twitter: '612crypto_eth',
-      opensea: 'https://opensea.io/612dev',
-      discord: '612dev'
+      opensea: 'https://opensea.io/0xf39ceb8ab0de75dca31e988fd59d53cc009803e4',
+      discord: '612crypto_eth'
     },
     { 
       name: 'CryptoDave', 
