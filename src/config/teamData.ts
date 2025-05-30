@@ -17,8 +17,6 @@ export const packLeadership: TeamMember[] = [
         bio: 'A builder and operator with over 5 years of experience growing and operating a successful family business, plus a six-figure exit from a DJ company he started in high school. This pragmatic visionary has capitalized on multiple trends including the sneaker and trading card markets, and now focuses heavily on equities investing with strong returns. A jack-of-all-trades with deep roots in Moonrunners, he\'s focused on rebuilding the brand with sustainable Web2 cashflows and long-term community upside, ready to support every role and volunteer effort needed to protect and grow the pack.',
         role: 'Business & Partnerships',
         twitter: 'kshove_',
-        walletAddress: 'kshove',
-        discord: 'kshove'
   },
   { 
     name: 'Cartel', 
@@ -36,21 +34,19 @@ export const wolfCouncil: TeamMember[] = [
   { 
     name: 'Kaladin', 
     wolfName: 'The Lore Keeper',
-    image: '/team/lit.svg', 
+    image: '/team/kaladin.png', 
     bio: 'The original writer of the Moonrunners lore and creator of the Moonrunners universe, Kaladin returns to the pack to bring us new adventures and crazy stories.',
     role: 'Content & Narrative',
     twitter: 'KaladinNFT',
-    walletAddress: 'kaladin',
-    discord: 'kaladin'
   },
   { 
     name: 'CryptoPicaroon', 
     wolfName: 'The Puzzle Master',
-    image: '/team/picaroon.svg', 
+    image: '/team/picaroon.png', 
     bio: 'Master of mysteries and keeper of secrets. This cunning wolf designs intricate puzzles, hidden challenges, and cryptic riddles that test the wit and wisdom of the pack while guarding our most treasured knowledge.',
     role: 'Puzzle Design',
     twitter: 'captainpicaroon',
-    discord: 'captainpicaroon'
+    discord: 'CryptoPicaroon'
   },
   { 
     name: 'Julianne', 
@@ -59,8 +55,6 @@ export const wolfCouncil: TeamMember[] = [
     bio: 'The voice of the pack in the digital realm. Leads howls on Twitter, rallies Discord discussions, greets newcomers warmly, and ensures all communications resonate with camaraderie and inclusivity.',
     role: 'Community Relations',
     twitter: 'JM_Sadowski',
-    walletAddress: 'julianne',
-    discord: 'julianne'
   },
   { 
     name: '612crypto', 
@@ -78,14 +72,12 @@ export const wolfCouncil: TeamMember[] = [
     image: '/team/fin.svg', 
     bio: 'Keeps the pack\'s resources secure and sustainable. Financial strategist managing treasury, planning economic strategies, and ensuring we have the resources needed for our journey while maintaining transparency.',
     role: 'Financial Planning',
-    twitter: 'dave_fin',
-    walletAddress: 'davefin',
-    discord: 'davefin'
+    twitter: '0xcryptodave',
   },
   { 
     name: 'Hodler', 
     wolfName: 'The Pack Strategist',
-    image: '/team/hodler.svg', 
+    image: '/team/hodler.png', 
     bio: 'Long-term strategist focused on sustainable growth and value creation. This wise wolf thinks several seasons ahead, ensuring the pack\'s decisions today benefit future generations of Moonrunners.',
     role: 'Strategic Advisor',
     twitter: 'HodlerWW'
@@ -101,7 +93,7 @@ export const wolfCouncil: TeamMember[] = [
   { 
     name: 'DedicatedDad.eth', 
     wolfName: 'The Shadow Guardian',
-    image: '/team/dedicateddad.svg', 
+    image: '/team/dedicateddad.png', 
     bio: 'A veteran pack member who\'s been guarding the shadows for years. This security-minded wolf stays "in the weeds" to protect against hackers and social engineering attacks. Supports Discord infrastructure while remaining deliberately invisible to threats.',
     role: 'Security & Discord Ops',
     walletAddress: 'dedicateddad.eth',
