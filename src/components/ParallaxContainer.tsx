@@ -7,6 +7,7 @@ import TeamSection from './TeamSection';
 import CommunicationSection from './CommunicationSection';
 import OperationalSection from './OperationalSection';
 import WhatsNextSection from './WhatsNextSection';
+import ThatsAllFolksSection from './ThatsAllFolksSection';
 
 export default function ParallaxContainer() {
   return (
@@ -66,6 +67,9 @@ export default function ParallaxContainer() {
         
         {/* What's Next Section */}
         <WhatsNextSection />
+        
+        {/* That's All Folks Section */}
+        <ThatsAllFolksSection />
       </div>
     </div>
   );

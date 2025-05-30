@@ -49,9 +49,8 @@ export const wolfCouncil: TeamMember[] = [
     image: '/team/picaroon.svg', 
     bio: 'Master of mysteries and keeper of secrets. This cunning wolf designs intricate puzzles, hidden challenges, and cryptic riddles that test the wit and wisdom of the pack while guarding our most treasured knowledge.',
     role: 'Puzzle Design',
-    twitter: 'cryptopicaroon',
-    walletAddress: 'cryptopicaroon',
-    discord: 'cryptopicaroon'
+    twitter: 'captainpicaroon',
+    discord: 'captainpicaroon'
   },
   { 
     name: 'Julianne', 
@@ -89,9 +88,7 @@ export const wolfCouncil: TeamMember[] = [
     image: '/team/hodler.svg', 
     bio: 'Long-term strategist focused on sustainable growth and value creation. This wise wolf thinks several seasons ahead, ensuring the pack\'s decisions today benefit future generations of Moonrunners.',
     role: 'Strategic Advisor',
-    twitter: 'hodler_nft',
-    walletAddress: 'hodler',
-    discord: 'hodler'
+    twitter: 'HodlerWW'
   },
   { 
     name: 'ExplorerDavid', 

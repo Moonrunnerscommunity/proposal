@@ -25,12 +25,24 @@ export default function HeroSection() {
               />
             </div>
 
+            <div className="w-full flex justify-center mb-6 sm:mb-8 lg:mb-12 transition-all duration-1000 delay-200">
+              <div className="relative w-1/2 rounded-lg p-4">
+                <div className="absolute inset-0 bg-purple-800/60 rounded-lg"></div>
+                <div className="relative z-10 text-red-100 font-medium text-center">
+                  <strong>This is a Final Draft Proposal</strong><br />
+                  <p className="text-sm ">We are still gathering content and testing links. Content is subject to change.</p>
+                </div>
+              </div>
+            </div>
+
             {/* Title - responsive typography */}
             <div className="mb-6 sm:mb-8 lg:mb-12 w-full flex justify-center transition-all duration-1000 delay-300">
               <h1 className="text-responsive-3xl font-bold text-white leading-tight text-center">
                 🐺 Community Takeover Proposal 🌙
               </h1>
             </div>
+
+
 
             {/* Vision content with glass morphism */}
             <div className="mb-4 lg:mb-8 w-full flex justify-center transition-all duration-1000 delay-600">

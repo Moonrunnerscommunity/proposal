@@ -16,7 +16,7 @@ const DomainsSection = () => {
       name: 'moonrunners.ai', 
       transferred: true, 
       label: 'This Site',
-      accounts: ['GoDaddy', 'Vercel']
+      accounts: ['GoDaddy', 'Vercel', 'Github']
     },
     { 
       name: 'moonrunners.io', 

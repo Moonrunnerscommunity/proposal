@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { CheckIcon, XMarkIcon, ExclamationTriangleIcon, NoSymbolIcon, ArrowTopRightOnSquareIcon, ClipboardIcon } from '@heroicons/react/24/outline';
+import { CheckIcon, XMarkIcon, ExclamationTriangleIcon, NoSymbolIcon, ClipboardIcon } from '@heroicons/react/24/outline';
 
 interface Contract {
   collection: string;
@@ -27,7 +27,7 @@ const ContractsSection = () => {
       currentOwner: 'Antix.eth',
       contractAddress: '0x1485297e942ce64e0870ece60179dfda34b4c625',
       transferred: false,
-      imageUrl: '/nft-moonrunners.svg',
+      imageUrl: '/collections/moonrunners.png',
       openseaUrl: 'https://opensea.io/collection/moonrunnersnft'
     },
     {
@@ -37,7 +37,7 @@ const ContractsSection = () => {
       currentOwner: 'Antix.eth',
       contractAddress: '0x717c6dd66be92e979001aee2ee169aaa8d6d4361',
       transferred: false,
-      imageUrl: '/nft-dragonhorde.svg',
+      imageUrl: '/collections/dragonhorde.png',
       openseaUrl: 'https://opensea.io/collection/moonrunners-dragonhorde-official'
     },
     {
@@ -47,7 +47,7 @@ const ContractsSection = () => {
       currentOwner: 'Antix.eth',
       contractAddress: '0xb6d460ac51b93bca63b694f099c4a8b3b1cf73b4',
       transferred: false,
-      imageUrl: '/nft-weapons.svg',
+      imageUrl: '/collections/secrets.gif',
       openseaUrl: 'https://opensea.io/collection/moonrunners-secrets-of-primordia'
     },
     {
@@ -57,7 +57,7 @@ const ContractsSection = () => {
       currentOwner: 'Antix.eth',
       contractAddress: '0x4fdF87d4Edae3Fe323b8F6dF502CCac6c8B4ba28',
       transferred: false,
-      imageUrl: '/nft-history.svg',
+      imageUrl: '/collections/history.gif',
       openseaUrl: 'https://opensea.io/collection/moonrunners-history-of-primordia'
     },
     {
@@ -68,7 +68,7 @@ const ContractsSection = () => {
       contractAddress: '0xfbb87a6a4876820d996a9bbe106e4f73a5e4a71c',
       transferred: false,
       notIncluded: true,
-      imageUrl: '/nft-land.svg',
+      imageUrl: '/collections/primordia_land.gif',
       openseaUrl: 'https://opensea.io/collection/primordia-land'
     }
   ];
@@ -106,7 +106,6 @@ const ContractsSection = () => {
               <th className="text-left p-3 font-medium" style={{ color: 'var(--color-starlight)' }}>Current Owner</th>
               <th className="text-left p-3 font-medium" style={{ color: 'var(--color-starlight)' }}>Contract</th>
               <th className="text-center p-3 font-medium" style={{ color: 'var(--color-starlight)' }}>Status</th>
-              <th className="text-center p-3 font-medium" style={{ color: 'var(--color-starlight)' }}>Actions</th>
             </tr>
           </thead>
           <tbody className="divide-y" style={{ borderColor: 'rgba(138, 111, 183, 0.2)' }}>
@@ -143,19 +142,43 @@ const ContractsSection = () => {
                         {contract.collection.charAt(0)}
                       </div>
                     </div>
-                    <span className={`font-medium ${contract.notIncluded ? 'text-gray-400' : ''}`} style={{ color: contract.notIncluded ? undefined : 'var(--color-light-purple)' }}>
+                    <a
+                      href={contract.openseaUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`font-medium hover:underline transition-colors ${
+                        contract.notIncluded 
+                          ? 'text-gray-400' 
+                          : 'text-purple-300 hover:text-blue-400'
+                      }`}
+                    >
                       {contract.collection}
-                    </span>
+                    </a>
                   </div>
                 </td>
-                <td className={`p-3 ${contract.notIncluded ? 'text-gray-400' : ''}`} style={{ color: contract.notIncluded ? undefined : 'var(--foreground)' }}>{contract.description}</td>
-                <td className={`p-3 text-center font-mono ${contract.notIncluded ? 'text-gray-400' : ''}`} style={{ color: contract.notIncluded ? undefined : 'var(--color-accent-gold)' }}>{contract.items.toLocaleString()}</td>
-                <td className={`p-3 font-mono text-xs ${contract.notIncluded ? 'text-gray-400' : ''}`} style={{ color: contract.notIncluded ? undefined : 'var(--foreground)' }}>{contract.currentOwner}</td>
+                <td className={`p-3 ${contract.notIncluded ? 'text-gray-400' : 'text-gray-300'}`}>
+                  {contract.description}
+                </td>
+                <td className={`p-3 text-center font-mono ${contract.notIncluded ? 'text-gray-400' : 'text-green-500'}`}>
+                  {contract.items.toLocaleString()}
+                </td>
+                <td className={`p-3 font-mono text-xs ${contract.notIncluded ? 'text-gray-400' : 'text-gray-300'}`}>
+                  {contract.currentOwner}
+                </td>
                 <td className="p-3">
                   <div className="flex items-center gap-2">
-                    <span className={`font-mono text-xs ${contract.notIncluded ? 'text-gray-400' : ''}`} style={{ color: contract.notIncluded ? undefined : 'var(--foreground)' }}>
+                    <a
+                      href={`https://etherscan.io/address/${contract.contractAddress}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`font-mono text-xs hover:underline transition-colors ${
+                        contract.notIncluded 
+                          ? 'text-gray-400' 
+                          : 'text-gray-300 hover:text-blue-400'
+                      }`}
+                    >
                       {contract.contractAddress.substring(0, 8)}...{contract.contractAddress.substring(34)}
-                    </span>
+                    </a>
                     <button
                       onClick={() => handleCopyContract(contract.contractAddress)}
                       className={`flex items-center justify-center w-6 h-6 border rounded transition-colors ${contract.notIncluded ? 'bg-gray-800/30 hover:bg-gray-700/30 border-gray-600/30' : 'bg-gray-800/50 hover:bg-gray-700/50 border-gray-500/30'}`}
@@ -190,28 +213,6 @@ const ContractsSection = () => {
                     )}
                   </div>
                 </td>
-                <td className="p-3">
-                  <div className="flex items-center gap-1">
-                    <a
-                      href={`https://etherscan.io/address/${contract.contractAddress}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`flex items-center justify-center w-7 h-7 border rounded transition-colors ${contract.notIncluded ? 'bg-gray-900/30 hover:bg-gray-800/50 border-gray-600/30' : 'bg-blue-900/30 hover:bg-blue-800/50 border-blue-500/30'}`}
-                      title="View on Etherscan"
-                    >
-                      <ArrowTopRightOnSquareIcon className={`w-3 h-3 ${contract.notIncluded ? 'text-gray-500' : 'text-blue-400'}`} />
-                    </a>
-                    <a
-                      href={contract.openseaUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`flex items-center justify-center w-7 h-7 border rounded transition-colors ${contract.notIncluded ? 'bg-gray-900/30 hover:bg-gray-800/50 border-gray-600/30' : 'bg-blue-900/30 hover:bg-blue-800/50 border-blue-500/30'}`}
-                      title="View on OpenSea"
-                    >
-                      <span className={`text-xs font-bold ${contract.notIncluded ? 'text-gray-500' : 'text-blue-400'}`}>OS</span>
-                    </a>
-                  </div>
-                </td>
               </tr>
             ))}
           </tbody>
@@ -221,4 +222,4 @@ const ContractsSection = () => {
   );
 };
 
-export default ContractsSection; 
+export default ContractsSection;
