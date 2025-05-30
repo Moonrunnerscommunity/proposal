@@ -1,6 +1,34 @@
 export const config = {
   runtime: 'edge', // Specify edge runtime
 };
+interface NftTrait {
+  trait_type: string;
+  value: string | number | boolean;
+  display_type?: string | null;
+}
+
+// Simplified based on fields actually used from OpenSea's nft object
+interface OpenSeaNft {
+  name?: string | null;
+  display_image_url?: string | null;
+  description?: string | null;
+  traits?: NftTrait[];
+  collection?: string | null; // This is the collection slug
+}
+
+interface OpenSeaSingleNftApiResponse {
+  nft: OpenSeaNft | null;
+}
+
+// This is the structure we are building for our client-side consumption
+interface ClientNftMetadata {
+  name: string;
+  image?: string | null;
+  description?: string | null;
+  traits: NftTrait[];
+  collectionSlug?: string | null; // from OpenSea's nft.collection
+  tokenId: string;
+}
 
 export async function GET(req: Request): Promise<Response> {
   const url = new URL(req.url);
@@ -39,7 +67,7 @@ export async function GET(req: Request): Promise<Response> {
     dragonhorde: '0x6b5483b55b362697000d8774d8ea9c4429b261bb',
   };
 
-  const metadataResult: { primordia: Record<string, any>; moonrunners: Record<string, any>; dragonhorde: Record<string, any> } = {
+  const metadataResult: { primordia: Record<string, ClientNftMetadata>; moonrunners: Record<string, ClientNftMetadata>; dragonhorde: Record<string, ClientNftMetadata> } = {
     primordia: {},
     moonrunners: {},
     dragonhorde: {},
@@ -55,7 +83,7 @@ export async function GET(req: Request): Promise<Response> {
       }
 
       console.log(`[API Route /api/opensea-proxy] Fetching metadata for ${collectionName} tokens:`, tokenIds);
-      const collectionMetadata: Record<string, any> = {};
+      const collectionMetadata: Record<string, ClientNftMetadata> = {};
 
       for (const tokenId of tokenIds) {
         try {
@@ -68,7 +96,7 @@ export async function GET(req: Request): Promise<Response> {
             continue;
           }
 
-          const data = await response.json();
+          const data = await response.json() as OpenSeaSingleNftApiResponse;
           if (data.nft) {
             const nft = data.nft;
             collectionMetadata[tokenId] = {
@@ -76,7 +104,7 @@ export async function GET(req: Request): Promise<Response> {
               image: nft.display_image_url,
               description: nft.description,
               traits: nft.traits || [],
-              collection: nft.collection,
+              collectionSlug: nft.collection, // Renamed for clarity
               tokenId: tokenId,
             };
           }

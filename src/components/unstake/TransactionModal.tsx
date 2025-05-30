@@ -21,8 +21,7 @@ export function TransactionModal({
   transactionHash,
   status,
   errorMessage,
-  nftCount = 0,
-  gasEstimate = '0.015 ETH'
+  nftCount = 0
 }: TransactionModalProps) {
   const [showRetry, setShowRetry] = useState(false)
 
@@ -90,9 +89,9 @@ export function TransactionModal({
           {/* Error State */}
           {status === 'error' && (
             <div>
-              <DialogHeader className="mb-4">
+              <DialogHeader className="mb-4 overflow-hidden">
                 <DialogTitle className="text-xl font-bold text-center">Transaction Failed</DialogTitle>
-                <DialogDescription className="text-slate-600 text-center">
+                <DialogDescription className="text-slate-600 text-left whitespace-pre-wrap break-all max-h-48 overflow-y-auto">
                   {errorMessage || 'The transaction was rejected or failed to process.'}
                 </DialogDescription>
               </DialogHeader>
