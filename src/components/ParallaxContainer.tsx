@@ -11,8 +11,8 @@ import WhatsNextSection from './WhatsNextSection';
 export default function ParallaxContainer() {
   return (
     <div className="relative w-full">
-      {/* Countdown Ribbon - Fixed at top */}
-      <CountdownRibbon />
+      {/* Countdown Ribbon - Fixed at top  -- Uncomment when vote goes live */}
+      {/* <CountdownRibbon /> */}
       
       {/* Background layer */}
       <div className="fixed inset-0 z-0">

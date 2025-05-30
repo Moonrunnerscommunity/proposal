@@ -54,7 +54,7 @@ export default function HeroSection() {
 
             {/* Call to action button - single submit vote button */}
             <div className="mb-16 sm:mb-20 lg:mb-24 w-full flex justify-center transition-all duration-1000 delay-900">
-              <button className="btn btn-primary px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-semibold">
+              <button onClick={() => window.open('https://discord.gg/SC3TFQrKwf', '_blank')} className="btn btn-primary px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-semibold">
                 💬 Join Discord
               </button>
             </div>

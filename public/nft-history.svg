@@ -1,0 +1,32 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="32" cy="32" r="30" fill="#2D1B69" stroke="#8A6FB7" stroke-width="2"/>
+  
+  <!-- Ancient Book/Scroll -->
+  <rect x="18" y="16" width="28" height="32" rx="2" fill="#3B2F72" stroke="#FFD700" stroke-width="1"/>
+  
+  <!-- Book Pages -->
+  <rect x="20" y="18" width="24" height="28" rx="1" fill="#F5F5DC" opacity="0.9"/>
+  
+  <!-- Text Lines -->
+  <line x1="23" y1="22" x2="38" y2="22" stroke="#2D1B69" stroke-width="1.5" opacity="0.7"/>
+  <line x1="23" y1="26" x2="35" y2="26" stroke="#2D1B69" stroke-width="1.5" opacity="0.7"/>
+  <line x1="23" y1="30" x2="40" y2="30" stroke="#2D1B69" stroke-width="1.5" opacity="0.7"/>
+  <line x1="23" y1="34" x2="33" y2="34" stroke="#2D1B69" stroke-width="1.5" opacity="0.7"/>
+  <line x1="23" y1="38" x2="37" y2="38" stroke="#2D1B69" stroke-width="1.5" opacity="0.7"/>
+  <line x1="23" y1="42" x2="31" y2="42" stroke="#2D1B69" stroke-width="1.5" opacity="0.7"/>
+  
+  <!-- Ancient Rune/Symbol in center -->
+  <circle cx="32" cy="32" r="6" fill="none" stroke="#FFD700" stroke-width="2" opacity="0.8"/>
+  <path d="M32 28L34 32L32 36L30 32Z" fill="#FFD700" opacity="0.6"/>
+  
+  <!-- Mystical Sparkles around the book -->
+  <circle cx="16" cy="20" r="1" fill="#E8E3F0" opacity="0.8"/>
+  <circle cx="48" cy="24" r="1.5" fill="#E8E3F0" opacity="0.7"/>
+  <circle cx="14" cy="44" r="1" fill="#E8E3F0" opacity="0.6"/>
+  <circle cx="50" cy="40" r="1" fill="#E8E3F0" opacity="0.9"/>
+  
+  <!-- Small decorative elements -->
+  <path d="M12 32L14 30L12 28L10 30Z" fill="#8A6FB7" opacity="0.5"/>
+  <path d="M52 32L54 30L52 28L50 30Z" fill="#8A6FB7" opacity="0.5"/>
+</svg> 

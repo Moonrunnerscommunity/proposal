@@ -23,14 +23,13 @@ const TeamMemberCard = ({ name, wolfName, image, bio, role, twitter, opensea, di
 
   return (
     <div className="team-member-card glass p-6 rounded-lg hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
-      <div className="relative w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4">
+      <div className="relative w-48 h-48 mx-auto mb-4">
         <Image
           src={image}
           alt={`${name} NFT`}
           fill
           className="pixelated-image object-cover rounded-lg border-2 border-purple-400/30"
           unoptimized
-          sizes="(max-width: 640px) 96px, 128px"
         />
       </div>
       <h4 className="text-lg font-bold text-white text-center mb-1">{wolfName}</h4>
@@ -93,9 +92,9 @@ export default function TeamSection() {
       image: '/team/cartel.png', 
       bio: 'A seasoned pack leader with over two decades of experience navigating the digital wilderness. This Alpha has guided teams of 40+ wolves through complex technological terrain, successfully launching disruptive innovations that generated over $100M in value. Expert in emerging technologies like AI, Web3, and immersive media, she forges strategic alliances across vast digital territories while building scalable platforms that transform entire ecosystems.',
       role: 'Strategy',
-      twitter: 'CartelsNFT',
-      opensea: 'https://opensea.io/CartelsNFT',
-      discord: 'cartels'
+      twitter: 'carteldebt',
+      opensea: 'https://opensea.io/https://opensea.io/0x96c38410f41d196a47cbb456c51d0ea2f2ef9816',
+      discord: 'carteldebt'
     },
     { 
       name: 'Kshove', 
@@ -114,9 +113,9 @@ export default function TeamSection() {
       name: 'Kaladin', 
       wolfName: 'The Lore Keeper',
       image: '/team/lit.svg', 
-      bio: 'Our wise storyteller who guards and grows the Moonrunners story across all forms. Writes scripts, creates puzzles, oversees art style, and ensures everything feels "Moonrunner-y" while bridging our past with our future.',
+      bio: 'The original writer of the Moonrunners lore and creator of the Moonrunners universe, Kaladin returns to the pack to help reignite the pack and bring back the glory days of the Moonrunners.',
       role: 'Content & Narrative',
-      twitter: 'kaladin_nft',
+      twitter: 'KaladinNFT',
       opensea: 'https://opensea.io/kaladin',
       discord: 'kaladin'
     },
@@ -133,20 +132,20 @@ export default function TeamSection() {
     { 
       name: 'Julianne', 
       wolfName: 'The Howler',
-      image: '/team/julianne.svg', 
+      image: '/team/julianne.png', 
       bio: 'The voice of the pack in the digital realm. Leads howls on Twitter, rallies Discord discussions, greets newcomers warmly, and ensures all communications resonate with camaraderie and inclusivity.',
       role: 'Community Relations',
-      twitter: 'julianne_nft',
+      twitter: 'JM_Sadowski',
       opensea: 'https://opensea.io/julianne',
       discord: 'julianne'
     },
     { 
       name: '612', 
       wolfName: 'The Watcher',
-      image: '/team/dev.svg', 
+      image: '/team/612.png', 
       bio: 'Our technically inclined wolf who watches over digital infrastructure. Technical architect building the future while managing blockchain tech, smart contracts, website security, and keeping the lights on.',
       role: 'Development Lead',
-      twitter: '612dev',
+      twitter: '612crypto_eth',
       opensea: 'https://opensea.io/612dev',
       discord: '612dev'
     },
@@ -179,7 +178,7 @@ export default function TeamSection() {
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20 transition-all duration-1000">
+        <div className="text-center mb-10 sm:mb-16 lg:mb-12 transition-all duration-1000">
           <h2 className="text-responsive-3xl font-bold text-white mb-6">
             🐺 Wolves of Many Talents 🌙
           </h2>
@@ -187,9 +186,6 @@ export default function TeamSection() {
             <p className="text-lg text-gray-200 leading-relaxed mb-4">
               Think of our team as the <span className="text-gradient font-semibold">Wolf Council</span>, each with a special role to play in protecting and providing for the pack. 
               We&apos;re keeping things agile - a small band of dedicated Moonrunners rather than a big corporate crew - so every role counts.
-            </p>
-            <p className="text-base text-purple-300 italic">
-              &quot;Here&apos;s the lineup of our key roles, described in our own community&apos;s terms...&quot;
             </p>
           </div>
         </div>
@@ -284,7 +280,7 @@ export default function TeamSection() {
         </div>
 
         {/* Decorative bottom element */}
-        <div className="text-center mt-16 sm:mt-20 transition-all duration-1000 delay-1200">
+        <div className="text-center mt-16 sm:mt-20 transition-all duration-1000 delay-1200 mb-0">
           <div className="glass p-6 max-w-xl mx-auto">
             <p className="text-lg text-gray-300 mb-2">
               Together, we hunt as one pack
@@ -295,19 +291,6 @@ export default function TeamSection() {
 
       </div>
 
-      {/* Decorative corner elements */}
-      <div className="absolute top-8 left-8 opacity-20">
-        <div className="w-12 h-12 border-l-2 border-t-2 border-purple-400"></div>
-      </div>
-      <div className="absolute top-8 right-8 opacity-20">
-        <div className="w-12 h-12 border-r-2 border-t-2 border-purple-400"></div>
-      </div>
-      <div className="absolute bottom-8 left-8 opacity-20">
-        <div className="w-12 h-12 border-l-2 border-b-2 border-purple-400"></div>
-      </div>
-      <div className="absolute bottom-8 right-8 opacity-20">
-        <div className="w-12 h-12 border-r-2 border-b-2 border-purple-400"></div>
-      </div>
     </section>
   );
 } 

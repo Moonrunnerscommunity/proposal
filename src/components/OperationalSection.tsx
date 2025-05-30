@@ -46,7 +46,7 @@ const OperationalSection = () => {
     {
       collection: 'Moonrunners',
       description: 'Original collection of 10,000 unique Moonrunners NFTs with moon-based mechanics',
-      items: 9200,
+      items: 9997,
       currentOwner: 'Antix.eth',
       contractAddress: '0x1485297e942ce64e0870ece60179dfda34b4c625',
       transferred: false,
@@ -56,7 +56,7 @@ const OperationalSection = () => {
     {
       collection: 'Dragonhorde',
       description: 'Arcane Dragons resurrected in the Alchemy Lab from Primordia\'s ancient past',
-      items: 2800,
+      items: 2311,
       currentOwner: 'Antix.eth',
       contractAddress: '0x717c6dd66be92e979001aee2ee169aaa8d6d4361',
       transferred: false,
@@ -66,7 +66,7 @@ const OperationalSection = () => {
     {
       collection: 'Secrets of Primordia',
       description: 'Weapons and artifacts with dual utility - burn for blood or reroll Dragonhorde',
-      items: 15000,
+      items: 12800,
       currentOwner: 'Antix.eth',
       contractAddress: '0xb6d460ac51b93bca63b694f099c4a8b3b1cf73b4',
       transferred: false,
@@ -74,15 +74,25 @@ const OperationalSection = () => {
       openseaUrl: 'https://opensea.io/collection/moonrunners-secrets-of-primordia'
     },
     {
+      collection: 'History of Primordia',
+      description: 'Lore and storytelling NFTs documenting the ancient tales and chronicles of Primordia',
+      items: 233,
+      currentOwner: 'Antix.eth',
+      contractAddress: '0x4fdF87d4Edae3Fe323b8F6dF502CCac6c8B4ba28',
+      transferred: false,
+      imageUrl: '/nft-history.svg',
+      openseaUrl: 'https://opensea.io/collection/moonrunners-history-of-primordia'
+    },
+    {
       collection: 'Primordia Land',
       description: 'Digital land parcels with quarterly USDC yield from real-world businesses',
-      items: 8088,
+      items: 2888,
       currentOwner: 'Antix.eth',
-      contractAddress: '0x8e4f3c6a7b2d9c5e8f1a3b6c9d2e5f8a1b4c7e0d',
+      contractAddress: '0xfbb87a6a4876820d996a9bbe106e4f73a5e4a71c',
       transferred: false,
       notIncluded: true,
       imageUrl: '/nft-land.svg',
-      openseaUrl: 'https://opensea.io/collection/moonrunners-primordia-land'
+      openseaUrl: 'https://opensea.io/collection/primordia-land'
     }
   ];
 
@@ -121,21 +131,21 @@ const OperationalSection = () => {
   return (
     <section className="section relative">
       <div className="fixed-width">
-        <div className="glass p-8 rounded-lg">
-          <h2 className="text-responsive-2xl font-bold text-center mb-8 text-gradient">
-            Operational Details
+        {/* Section Header */}
+        <div className="text-center mb-10 sm:mb-16 lg:mb-12 transition-all duration-1000">
+          <h2 className="text-responsive-3xl font-bold text-white mb-6">
+            ⚙️ Operational Details 📋
           </h2>
+          <div className="glass p-6 sm:p-8 max-w-4xl mx-auto">
+            <p className="text-lg text-gray-200 leading-relaxed mb-4">
+              This <span className="text-gradient font-semibold">Comprehensive Checklist</span>, tracks all critical asset transfers and provides a transparent view of the handover process, ensuring leadership accountability and community confidence.
+            </p>
+          </div>
+        </div>
+
+        <div className="glass p-8 rounded-lg">
           
           <div className="space-y-8">
-            <h3 className="text-responsive-xl font-semibold mb-6" style={{ color: 'var(--color-starlight)' }}>
-              Handover Checklist
-            </h3>
-            
-            <div className="mb-8 p-6 rounded-lg" style={{ backgroundColor: 'rgba(138, 111, 183, 0.1)', border: '1px solid rgba(138, 111, 183, 0.2)' }}>
-              <p className="text-sm leading-relaxed" style={{ color: 'var(--foreground)' }}>
-                This comprehensive checklist tracks all critical assets, accounts, and operational components that must be successfully transferred to ensure a smooth community takeover. Each item represents a vital piece of the Moonrunners ecosystem, from financial controls and digital assets to communication channels and technical infrastructure. By maintaining transparent visibility into the handover process, we ensure accountability, build community confidence, and guarantee that no essential element is overlooked during this important transition.
-              </p>
-            </div>
 
             {/* Multisig Wallet Section */}
             <div className="space-y-4">
@@ -438,7 +448,7 @@ const OperationalSection = () => {
                               href={`https://etherscan.io/address/${contract.contractAddress}`}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className={`flex items-center justify-center w-7 h-7 border rounded transition-colors ${contract.notIncluded ? 'bg-gray-900/30 hover:bg-gray-800/50 border-gray-600/30 pointer-events-none' : 'bg-blue-900/30 hover:bg-blue-800/50 border-blue-500/30'}`}
+                              className={`flex items-center justify-center w-7 h-7 border rounded transition-colors ${contract.notIncluded ? 'bg-gray-900/30 hover:bg-gray-800/50 border-gray-600/30' : 'bg-blue-900/30 hover:bg-blue-800/50 border-blue-500/30'}`}
                               title="View on Etherscan"
                             >
                               <ArrowTopRightOnSquareIcon className={`w-3 h-3 ${contract.notIncluded ? 'text-gray-500' : 'text-blue-400'}`} />
@@ -447,7 +457,7 @@ const OperationalSection = () => {
                               href={contract.openseaUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className={`flex items-center justify-center w-7 h-7 border rounded transition-colors ${contract.notIncluded ? 'bg-gray-900/30 hover:bg-gray-800/50 border-gray-600/30 pointer-events-none' : 'bg-blue-900/30 hover:bg-blue-800/50 border-blue-500/30'}`}
+                              className={`flex items-center justify-center w-7 h-7 border rounded transition-colors ${contract.notIncluded ? 'bg-gray-900/30 hover:bg-gray-800/50 border-gray-600/30' : 'bg-blue-900/30 hover:bg-blue-800/50 border-blue-500/30'}`}
                               title="View on OpenSea"
                             >
                               <span className={`text-xs font-bold ${contract.notIncluded ? 'text-gray-500' : 'text-blue-400'}`}>OS</span>

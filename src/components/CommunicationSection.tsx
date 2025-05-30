@@ -120,7 +120,7 @@ const CommunicationSection = () => {
             {/* Social Links */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <a 
-                href="https://discord.gg/moonrunners" 
+                href="https://discord.gg/SC3TFQrKwf" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-indigo-600/40 hover:bg-indigo-600/60 border border-indigo-400/30 hover:border-indigo-300/60 px-6 py-3 rounded-lg text-white font-semibold transition-all duration-300 hover:transform hover:scale-105 flex items-center justify-center gap-2"
@@ -128,7 +128,7 @@ const CommunicationSection = () => {
                 <span>💬</span> Join Discord
               </a>
               <a 
-                href="https://twitter.com/moonrunners" 
+                href="https://twitter.com/moonrunnersnft" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-blue-600/40 hover:bg-blue-600/60 border border-blue-400/30 hover:border-blue-300/60 px-6 py-3 rounded-lg text-white font-semibold transition-all duration-300 hover:transform hover:scale-105 flex items-center justify-center gap-2"
