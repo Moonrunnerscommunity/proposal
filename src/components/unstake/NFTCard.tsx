@@ -1,6 +1,7 @@
 import { Card } from '@/components/unstake/ui/card'
 import { Checkbox } from '@/components/unstake/ui/checkbox'
 import { ImageIcon } from 'lucide-react'
+import Image from 'next/image';
 import type { StakedNFTData } from '../../shared/schema'
 
 interface NFTCardProps {
@@ -28,10 +29,14 @@ export function NFTCard({ nft, isSelected, onSelectionChange }: NFTCardProps) {
     >
       <div className="relative">
         {nft.image ? (
-          <img
+          <Image
             src={nft.image}
             alt={nft.name}
+            width={0} // This gets overridden by CSS
+            height={192}
             className="w-full h-48 object-cover"
+            priority
+            unoptimized
             onError={(e) => {
               const target = e.target as HTMLImageElement
               target.style.display = 'none'

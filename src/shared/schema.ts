@@ -1,4 +1,4 @@
-import { pgTable, text, serial, integer, boolean, jsonb } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, jsonb } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -44,12 +44,12 @@ export interface StakedNFTData {
   collection: 'primordia' | 'moonrunners' | 'dragonhorde';
   name: string;
   image?: string;
-  metadata?: any;
+  metadata?: Record<string, unknown>;
 }
 
 export interface ContractInfo {
   address: string;
-  abi: any[];
+  abi: ReadonlyArray<Record<string, unknown>>;
   readMethod: string;
   writeMethod: string;
 }

@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { useReadContract } from 'wagmi'
 import { CONTRACTS } from '@/lib/web3'
 import { getContractConfig } from '@/lib/contracts'
-import type { StakedNFTData } from '../../shared/schema'
+import type { StakedNFTData } from '../shared/schema'
 
 export function useStakedNFTs(userAddress?: string) {
   // Fetch Primordia Land NFTs

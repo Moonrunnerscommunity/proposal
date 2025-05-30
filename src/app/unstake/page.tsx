@@ -15,9 +15,9 @@ import { CONTRACTS } from '@/lib/web3'
 import { getContractConfig } from '@/lib/contracts'
 import { Wallet, Boxes } from 'lucide-react'
 
-export default function unstakePage() {
+export default function UnstakePage() {
   const { address, isConnected } = useAppKitAccount()
-  const { data: returnedHash, writeContractAsync, isPending: isWriteContractPending, error: writeContractError } = useWriteContract()
+  const { writeContractAsync } = useWriteContract()
   const { toast } = useToast()
 
   const [transactionHash, setTransactionHash] = useState<string>()
@@ -87,14 +87,15 @@ export default function unstakePage() {
         description: "Your unstake transaction has been submitted. Please wait for confirmation.",
       })
 
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('unstake failed:', error)
       setTransactionStatus('error')
-      setErrorMessage(error.message || 'Transaction failed. Please try again.')
+      const message = error instanceof Error ? error.message : String(error);
+      setErrorMessage(message || 'Transaction failed. Please try again.')
 
       toast({
         title: "Transaction Failed",
-        description: error.message || "Failed to unstake NFTs. Please try again.",
+        description: message || "Failed to unstake NFTs. Please try again.",
         variant: "destructive",
       })
     }
@@ -213,7 +214,7 @@ export default function unstakePage() {
                 </div>
                 <h3 className="text-2xl font-bold text-foreground mb-4">No Staked NFTs Found</h3>
                 <p className="text-muted-foreground mb-8">
-                  We couldn't find any staked NFTs associated with your wallet address. If you believe this is an error, please try refreshing the page.
+                  We couldn&apos;t find any staked NFTs associated with your wallet address. If you believe this is an error, please try refreshing the page.
                 </p>
               </div>
             </div>
@@ -254,7 +255,6 @@ export default function unstakePage() {
               <TabsContent value="primordia">
                 <NFTGrid
                   title="Primordia Land"
-                  contractAddress={CONTRACTS.PRIMORDIA.address}
                   nfts={primordia}
                   onUnstake={(tokenIds) => handleUnstake(tokenIds, CONTRACTS.PRIMORDIA.address)}
                   isLoading={isLoading}
@@ -264,7 +264,6 @@ export default function unstakePage() {
               <TabsContent value="moonrunners">
                 <NFTGrid
                   title="Moonrunners"
-                  contractAddress={CONTRACTS.MOONRUNNERS_DRAGONHORDE.address}
                   nfts={moonrunners}
                   onUnstake={(tokenIds) => handleUnstake(tokenIds, CONTRACTS.MOONRUNNERS_DRAGONHORDE.address, 'moonrunners')}
                   isLoading={isLoading}
@@ -274,7 +273,6 @@ export default function unstakePage() {
               <TabsContent value="dragonhorde">
                 <NFTGrid
                   title="Dragonhorde"
-                  contractAddress={CONTRACTS.MOONRUNNERS_DRAGONHORDE.address}
                   nfts={dragonhorde}
                   onUnstake={(tokenIds) => handleUnstake(tokenIds, CONTRACTS.MOONRUNNERS_DRAGONHORDE.address, 'dragonhorde')}
                   isLoading={isLoading}

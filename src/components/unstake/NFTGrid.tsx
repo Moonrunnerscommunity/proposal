@@ -1,19 +1,18 @@
 import { useState } from 'react'
 import { Button } from '@/components/unstake/ui/button'
 import { Card, CardContent } from '@/components/unstake/ui/card'
-import { CircleCheck, CheckSquare, Unlock } from 'lucide-react'
+import { CheckSquare, Unlock } from 'lucide-react'
 import { NFTCard } from '@/components/unstake/NFTCard'
 import type { StakedNFTData } from '../../shared/schema'
 
 interface NFTGridProps {
   title: string
-  contractAddress: string
   nfts: StakedNFTData[]
   onUnstake: (tokenIds: string[]) => void
   isLoading?: boolean
 }
 
-export function NFTGrid({ title, contractAddress, nfts, onUnstake, isLoading }: NFTGridProps) {
+export function NFTGrid({ title, nfts, onUnstake, isLoading }: NFTGridProps) {
   const [selectedTokenIds, setSelectedTokenIds] = useState<Set<string>>(new Set())
 
   const handleSelectionChange = (tokenId: string, selected: boolean) => {
@@ -39,10 +38,6 @@ export function NFTGrid({ title, contractAddress, nfts, onUnstake, isLoading }: 
       onUnstake(Array.from(selectedTokenIds))
       setSelectedTokenIds(new Set())
     }
-  }
-
-  const formatContractAddress = (address: string) => {
-    return `${address.slice(0, 6)}...${address.slice(-4)}`
   }
 
   if (nfts.length === 0 && !isLoading) {
