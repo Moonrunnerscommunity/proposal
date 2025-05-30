@@ -98,67 +98,134 @@ const WhatsNextSection = () => {
         <div className="mb-16">
           <div className="text-center mb-12">
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 pixel-text">
-              Timeline
+              Timeline ⏰✨
             </h3>
-            <p className="text-lg text-purple-200 max-w-2xl mx-auto">
-              Our roadmap to bringing the Moonrunners vision to life
-            </p>
+            <div className="max-w-3xl mx-auto space-y-4">
+              <p className="text-lg text-purple-200">
+                Our <em>very loose</em> roadmap to bringing the Moonrunners vision to life. 🚀
+              </p>
+              <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4 text-yellow-200">
+                <div className="flex items-center justify-center mb-2">
+                  <span className="text-2xl mr-2">⚠️</span>
+                  <span className="font-semibold">Heads Up!</span>
+                  <span className="text-2xl ml-2">⚠️</span>
+                </div>
+                <p className="text-sm leading-relaxed">
+                  We're still figuring a lot of this out! 🤔 This timeline represents our general attack plan, 
+                  but things <strong>will definitely change</strong> as we learn and adapt. 
+                  Consider this more of a "vibe check" than a concrete commitment. 😅
+                </p>
+              </div>
+              <div className="flex items-center justify-center space-x-2 text-sm text-purple-300">
+                <span>🎯</span>
+                <span>Roadmap will be solidified in the first 90 days</span>
+                <span>🎯</span>
+              </div>
+            </div>
           </div>
 
-          <div className="max-w-4xl mx-auto space-y-8">
-            {/* 90 Days */}
+          <div className="max-w-4xl mx-auto space-y-8 relative">
+            {/* Visual indicator line */}
+            <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500/50 to-cyan-500/30"></div>
+            
+            {/* 90 Days - Solid planning */}
             <div className="relative group">
-              <div className="bg-black/30 backdrop-blur-sm border border-purple-500/30 rounded-xl p-6 hover:border-purple-400/50 transition-all duration-300">
+              <div className="absolute left-6 top-8 w-5 h-5 bg-purple-500 rounded-full border-4 border-white/20 animate-pulse"></div>
+              <div className="ml-16 bg-black/30 backdrop-blur-sm border-2 border-purple-500/40 rounded-xl p-6 hover:border-purple-400/60 transition-all duration-300">
                 <div className="flex flex-col md:flex-row md:items-center gap-4">
                   <div className="flex-shrink-0">
-                    <div className="bg-gradient-to-r from-purple-600 to-blue-600 px-4 py-2 rounded-full text-white font-bold text-sm border-2 border-white/20">
-                      First 90 Days
+                    <div className="bg-gradient-to-r from-purple-600 to-blue-600 px-4 py-2 rounded-full text-white font-bold text-sm border-2 border-white/20 relative">
+                      First 90 Days 🎯
+                      <div className="absolute -top-2 -right-2 text-lg">✨</div>
                     </div>
                   </div>
                   <div className="flex-grow">
-                    <p className="text-purple-200 leading-relaxed">
-                      Engage community, stabilize expectations, relaunch lore, reboot social media, 
-                      beta test video game (if feasible).
+                    <p className="text-purple-200 leading-relaxed mb-2">
+                      <strong>Solidify the plan!</strong> 📋 Engage community, stabilize expectations, relaunch lore, 
+                      reboot social media, beta test video game (if feasible). 🎮
                     </p>
+                    <div className="text-xs text-purple-300 flex items-center">
+                      <span className="mr-2">━━━</span>
+                      <span>Solid planning phase</span>
+                      <span className="ml-2">━━━</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* 6 Months */}
+            {/* Transition indicator */}
+            <div className="flex items-center justify-center my-8">
+              <div className="flex items-center space-x-4 text-purple-300 bg-black/20 rounded-full px-6 py-3 border border-purple-500/30">
+                <span className="text-sm">━━━</span>
+                <span className="text-xs">ROADMAP SOLIDIFIES</span>
+                <span className="text-sm">┅┅┅</span>
+              </div>
+            </div>
+
+            {/* 6 Months - More flexible */}
             <div className="relative group">
-              <div className="bg-black/30 backdrop-blur-sm border border-blue-500/30 rounded-xl p-6 hover:border-blue-400/50 transition-all duration-300">
+              <div className="absolute left-6 top-8 w-5 h-5 bg-blue-500/70 rounded-full border-4 border-white/10"></div>
+              <div className="ml-16 bg-black/20 backdrop-blur-sm border border-blue-500/30 border-dashed rounded-xl p-6 hover:border-blue-400/50 transition-all duration-300">
                 <div className="flex flex-col md:flex-row md:items-center gap-4">
                   <div className="flex-shrink-0">
-                    <div className="bg-gradient-to-r from-blue-600 to-cyan-600 px-4 py-2 rounded-full text-white font-bold text-sm border-2 border-white/20">
-                      First 6 Months
+                    <div className="bg-gradient-to-r from-blue-600 to-cyan-600 px-4 py-2 rounded-full text-white font-bold text-sm border-2 border-white/20 relative">
+                      First 6 Months 🤞
+                      <div className="absolute -top-2 -right-2 text-lg">💭</div>
                     </div>
                   </div>
                   <div className="flex-grow">
-                    <p className="text-purple-200 leading-relaxed">
-                      Reboot web properties, NFT.NYC event, merch store launch, complete novel draft, 
-                      research toys/games, market aggressively, possible video game release.
+                    <p className="text-purple-200 leading-relaxed mb-2">
+                      <em>Probably:</em> Reboot web properties, NFT.NYC event 🏙️, merch store launch 👕, 
+                      complete novel draft 📖, research toys/games 🧸, market aggressively 📢, 
+                      possible video game release? 🎮✨
                     </p>
+                    <div className="text-xs text-blue-300 flex items-center">
+                      <span className="mr-2">┅┅┅</span>
+                      <span>Flexible timeline (things might shift!)</span>
+                      <span className="ml-2">┅┅┅</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* 12 Months */}
+            {/* 12 Months - Very flexible */}
             <div className="relative group">
-              <div className="bg-black/30 backdrop-blur-sm border border-cyan-500/30 rounded-xl p-6 hover:border-cyan-400/50 transition-all duration-300">
+              <div className="absolute left-6 top-8 w-5 h-5 bg-cyan-500/50 rounded-full border-4 border-white/10"></div>
+              <div className="ml-16 bg-black/20 backdrop-blur-sm border border-cyan-500/30 border-dashed rounded-xl p-6 hover:border-cyan-400/50 transition-all duration-300">
                 <div className="flex flex-col md:flex-row md:items-center gap-4">
                   <div className="flex-shrink-0">
-                    <div className="bg-gradient-to-r from-cyan-600 to-teal-600 px-4 py-2 rounded-full text-white font-bold text-sm border-2 border-white/20">
-                      First 12 Months
+                    <div className="bg-gradient-to-r from-cyan-600 to-teal-600 px-4 py-2 rounded-full text-white font-bold text-sm border-2 border-white/20 relative">
+                      First 12 Months 🌙
+                      <div className="absolute -top-2 -right-2 text-lg">🤷‍♂️</div>
                     </div>
                   </div>
                   <div className="flex-grow">
-                    <p className="text-purple-200 leading-relaxed">
-                      Host DragonCon event, release novel, launch toys in time for holidays, 
-                      develop tabletop game, explore audiobook production (like Soundbooth Theater!)
+                    <p className="text-purple-200 leading-relaxed mb-2">
+                      <em>Maybe:</em> Host DragonCon event 🐉, release novel 📚, launch toys for holidays 🎁, 
+                      develop tabletop game 🎲, explore audiobook production (like Soundbooth Theater!) 🎧✨
                     </p>
+                    <div className="text-xs text-cyan-300 flex items-center">
+                      <span className="mr-2">┅┅┅</span>
+                      <span>Very flexible (who knows what we'll discover!)</span>
+                      <span className="ml-2">┅┅┅</span>
+                    </div>
                   </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Future beyond */}
+            <div className="text-center mt-8">
+              <div className="text-purple-300/60 text-sm space-y-2">
+                <div className="flex items-center justify-center space-x-2">
+                  <span>✨</span>
+                  <span>Beyond that... the sky's the limit!</span>
+                  <span>🚀</span>
+                </div>
+                <div className="text-xs">
+                  (We'll figure it out as we go! 😊)
                 </div>
               </div>
             </div>

@@ -17,7 +17,6 @@ export default function HeroSection() {
                 src="/moonrunners.svg"
                 alt="Moonrunners Logo"
                 className="pixelated-image w-full h-auto max-h-32 sm:max-h-48 md:max-h-56 lg:max-h-64 max-w-2xl"
-                style={{margin:'0 0 -50px 0'}}
               />
             </div>
 
@@ -29,7 +28,7 @@ export default function HeroSection() {
             </div>
 
             {/* Vision content with glass morphism */}
-            <div className="mb-8 sm:mb-10 lg:mb-12 w-full flex justify-center transition-all duration-1000 delay-600">
+            <div className="mb-4 lg:mb-8 w-full flex justify-center transition-all duration-1000 delay-600">
               <div className="glass p-6 sm:p-8 lg:p-8 rounded-lg sm:rounded-xl w-full max-w-4xl">
                 
                 {/* Main vision text */}
@@ -53,7 +52,7 @@ export default function HeroSection() {
             </div>
 
             {/* Call to action button - single submit vote button */}
-            <div className="mb-16 sm:mb-20 lg:mb-24 w-full flex justify-center transition-all duration-1000 delay-900">
+            <div className="mb-20 lg:mb-26 w-full flex justify-center transition-all duration-1000 delay-900">
               <button onClick={() => window.open('https://discord.gg/SC3TFQrKwf', '_blank')} className="btn btn-primary px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-semibold">
                 💬 Join Discord
               </button>
