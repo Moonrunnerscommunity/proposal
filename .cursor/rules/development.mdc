@@ -1,0 +1,29 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+- **Development Server Management:**
+  - **NEVER start development servers** (npm run dev, yarn dev, etc.) - the user will start these themselves
+  - **NEVER run background processes** that the user should control
+  - **NEVER assume the user wants servers running** - always let them decide when to start/stop services
+  - Only suggest starting servers in plain text, never execute the commands
+
+- **Development Workflow:**
+  - Focus on code implementation and file creation/editing
+  - Let the user control their development environment
+  - Provide suggestions for testing but don't execute them
+  - If verification is needed, suggest the user run the appropriate commands
+
+- **Command Execution Guidelines:**
+  - **DO:** Run commands that gather information (ls, cat, grep, etc.)
+  - **DO:** Run build commands when explicitly requested
+  - **DO:** Install dependencies when working on package.json changes
+  - **DON'T:** Start long-running processes
+  - **DON'T:** Start servers, watchers, or development tools
+  - **DON'T:** Run commands that might interfere with user's workflow
+
+- **Testing and Verification:**
+  - Suggest testing approaches rather than executing them
+  - Let the user run their own tests and provide feedback
+  - Focus on code quality and structure rather than runtime verification

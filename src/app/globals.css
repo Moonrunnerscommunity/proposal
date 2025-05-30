@@ -1,0 +1,585 @@
+@import "tailwindcss";
+
+/* Brand Color Variables */
+:root {
+  --background: #1C0D36;
+  --foreground: #c2bec9;
+  
+  /* Brand Colors - Dark purple, night/moon theme */
+  --color-dark-purple: #2e1a47;
+  --color-purple: #4a2b7b;
+  --color-light-purple: #8a6fb7;
+  --color-night-blue: #0f1a2e;
+  --color-moon-glow: #f9f7e8;
+  --color-forest-green: #1e3b2c;
+  --color-accent-gold: #ffd700;
+  
+  /* Additional brand colors for the fantasy theme */
+  --color-deep-purple: #1C0D36;
+  --color-shadow-purple: #0A051B;
+  --color-mystic-blue: #2D4A87;
+  --color-starlight: #E8E3F0;
+  
+  /* Responsive font sizes */
+  --font-xs: 0.75rem;    /* 12px */
+  --font-sm: 0.875rem;   /* 14px */
+  --font-base: 1rem;     /* 16px */
+  --font-lg: 1.125rem;   /* 18px */
+  --font-xl: 1.25rem;    /* 20px */
+  --font-2xl: 1.5rem;    /* 24px */
+  --font-3xl: 1.875rem;  /* 30px */
+  --font-4xl: 2.25rem;   /* 36px */
+  --font-5xl: 3rem;      /* 48px */
+  --font-6xl: 3.75rem;   /* 60px */
+  
+  /* Spacing scale */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+  --space-3xl: 4rem;     /* 64px */
+  --space-4xl: 6rem;     /* 96px */
+  
+  /* Container widths */
+  --container-xs: 100%;
+  --container-sm: 100%;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1200px;
+  --container-2xl: 1400px;
+  
+  /* Border radius */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Base reset - less aggressive to not interfere with Tailwind utilities */
+* {
+  box-sizing: border-box;
+}
+
+/* Only reset margin/padding on specific elements that need it */
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Responsive Typography - only set defaults, let Tailwind utilities override */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--color-starlight);
+}
+
+/* Base font sizes - can be overridden by Tailwind utilities */
+h1 {
+  font-size: var(--font-3xl);
+}
+
+h2 {
+  font-size: var(--font-2xl);
+}
+
+h3 {
+  font-size: var(--font-xl);
+}
+
+h4 {
+  font-size: var(--font-lg);
+}
+
+p {
+  color: var(--foreground);
+}
+
+/* Responsive Typography - Mobile First */
+@media (min-width: 640px) {
+  h1 {
+    font-size: var(--font-4xl);
+  }
+  h2 {
+    font-size: var(--font-3xl);
+  }
+  h3 {
+    font-size: var(--font-2xl);
+  }
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: var(--font-5xl);
+  }
+  h2 {
+    font-size: var(--font-4xl);
+  }
+  h3 {
+    font-size: var(--font-3xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: var(--font-6xl);
+  }
+  h2 {
+    font-size: var(--font-5xl);
+  }
+}
+
+/* Container System */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: var(--container-sm);
+    padding: 0 var(--space-lg);
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: var(--container-md);
+    padding: 0 var(--space-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: var(--container-lg);
+    padding: 0 var(--space-2xl);
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: var(--container-xl);
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: var(--container-2xl);
+  }
+}
+
+/* Fixed width container for main content */
+.fixed-width {
+  width: 100%;
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+@media (min-width: 640px) {
+  .fixed-width {
+    padding: 0 var(--space-lg);
+  }
+}
+
+@media (min-width: 768px) {
+  .fixed-width {
+    padding: 0 var(--space-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .fixed-width {
+    padding: 0 var(--space-2xl);
+  }
+}
+
+@media (min-width: 1280px) {
+  .fixed-width {
+    max-width: 1200px;
+    padding: 0 var(--space-xl);
+  }
+}
+
+/* Section spacing */
+.section {
+  padding: var(--space-4xl) 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-2xl) 0;
+  }
+}
+
+/* Pixelated image rendering for parallax assets */
+.parallax-image {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Custom utility for pixelated rendering */
+.image-pixelated {
+  image-rendering: pixelated !important;
+  image-rendering: -moz-crisp-edges !important;
+  image-rendering: crisp-edges !important;
+}
+
+/* Pixelated rendering for logos and other images */
+.pixelated-image {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* Ensure full height container for parallax */
+.parallax-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Responsive parallax adjustments */
+@media (max-width: 768px) {
+  .parallax-container {
+    /* Reduce parallax intensity on mobile for better performance */
+  }
+}
+
+/* Hero Section Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.animate-fade-in-up-delay-1 {
+  animation: fadeInUp 1s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up-delay-2 {
+  animation: fadeInUp 1s ease-out 0.6s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up-delay-3 {
+  animation: fadeInUp 1s ease-out 0.9s forwards;
+  opacity: 0;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Custom backdrop blur for better browser support */
+.backdrop-blur-\[1px\] {
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Enhanced button styling */
+button {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-purple), var(--color-light-purple));
+  color: white;
+  border-color: var(--color-light-purple);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--color-light-purple), var(--color-purple));
+  box-shadow: 0 4px 12px rgba(138, 111, 183, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-light-purple);
+  border-color: var(--color-light-purple);
+}
+
+.btn-secondary:hover {
+  background: var(--color-light-purple);
+  color: var(--color-deep-purple);
+}
+
+/* Custom gradient text support for older browsers */
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-light-purple), var(--color-accent-gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Glass morphism effects */
+.glass {
+  background: rgba(28, 13, 54, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(138, 111, 183, 0.2);
+  border-radius: var(--radius-lg);
+}
+
+.glass-dark {
+  background: rgba(10, 5, 27, 0.9);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(138, 111, 183, 0.1);
+  border-radius: var(--radius-lg);
+}
+
+/* Responsive utilities */
+.show-mobile {
+  display: block;
+}
+
+.show-tablet {
+  display: none;
+}
+
+.show-desktop {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .show-mobile {
+    display: none;
+  }
+  .show-tablet {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .show-tablet {
+    display: none;
+  }
+  .show-desktop {
+    display: block;
+  }
+}
+
+/* Responsive text sizes */
+.text-responsive-xl {
+  font-size: var(--font-2xl);
+}
+
+.text-responsive-2xl {
+  font-size: var(--font-3xl);
+}
+
+.text-responsive-3xl {
+  font-size: var(--font-4xl);
+}
+
+@media (min-width: 640px) {
+  .text-responsive-xl {
+    font-size: var(--font-3xl);
+  }
+  .text-responsive-2xl {
+    font-size: var(--font-4xl);
+  }
+  .text-responsive-3xl {
+    font-size: var(--font-5xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-responsive-xl {
+    font-size: var(--font-4xl);
+  }
+  .text-responsive-2xl {
+    font-size: var(--font-5xl);
+  }
+  .text-responsive-3xl {
+    font-size: var(--font-6xl);
+  }
+}
+
+/* Focus states for accessibility */
+button:focus,
+a:focus {
+  outline: 2px solid var(--color-accent-gold);
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling for internal links */
+[id] {
+  scroll-margin-top: 2rem;
+}
+
+/* Print styles */
+@media print {
+  .parallax-container,
+  .parallax-image {
+    display: none;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+}
+
+/* Countdown Timer Styles */
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(45, 74, 135, 0.2);
+  border: 1px solid rgba(138, 111, 183, 0.3);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.countdown-unit:hover {
+  background: rgba(45, 74, 135, 0.3);
+  border-color: rgba(255, 215, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+.countdown-number {
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--color-moon-glow);
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  margin-bottom: 0.5rem;
+}
+
+.countdown-label {
+  font-size: 0.575rem;
+  font-weight: 600;
+  color: var(--color-light-purple);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Responsive countdown styles */
+@media (min-width: 640px) {
+  .countdown-number {
+    font-size: 3rem;
+  }
+  
+  .countdown-label {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .countdown-number {
+    font-size: 3rem;
+  }
+  
+  .countdown-unit {
+    padding: 1.5rem;
+  }
+}

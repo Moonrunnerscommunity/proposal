@@ -1,0 +1,6 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <rect width="128" height="128" fill="#2e1a47"/>
+  <circle cx="64" cy="64" r="40" fill="#4a2b7b"/>
+  <text x="64" y="72" text-anchor="middle" fill="#f9f7e8" font-family="monospace" font-size="12" font-weight="bold">JUL</text>
+  <text x="64" y="100" text-anchor="middle" fill="#8a6fb7" font-family="monospace" font-size="16">🐺</text>
+</svg> 

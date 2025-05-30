@@ -1,0 +1,60 @@
+One-page promotional website proposal for a community vote on the takeover of the Moonrunners NFT collection.
+
+Features & Requirements:
+
+- Parallax vertical scrolling effect using assets from src/public/parallax:
+    - bg.png: full-size background
+    - moon.png: positioned at the top
+    - clouds.png: middle layer
+    - mountains.png: bottom layer
+    - All images are pixelated style
+- Use the Moonrunners SVG logo from the public folder
+- Pixelated, retro, fantasy, mystical, and gaming-inspired design
+- Brand colors: dark purples, moon/nighttime, mountains, forests, wolves
+- Tone: lore-driven, succinct, meme-culture, genuine, community-focused
+
+Sections (in order):
+
+1. Vision (Hero Section)
+    - Title: "Moonrunners Community Takeover Proposal"
+    - Copy: "Our vision is to revitalize Moonrunners as an engaging and dynamic, community-driven initiative. We aim to rekindle excitement, deepen community involvement, amplify storytelling, and ensure strong continuity of the Moonrunners brand. TLDR: Protect the Pack. Make Moonrunners fun again!"
+    - Visuals: Hero section with bold fonts, high contrast, and strong color usage to highlight key concepts.
+
+2. Team
+    - Two groups: "On The Hook" and "Behind The Scenes"
+    - On The Hook: Biz (Cartel), Ops (Kshove)
+    - Behind The Scenes: Lit (Kaladin), Fin (Dave), Dev (612), Julianne, Hodler
+    - Each member: show wolf NFT image, name, and short bio/profile
+    - Layout: Boxes or org chart style, fun sub-headings for each group
+
+3. Operational
+    - Checklist/audit trail for handover
+    - Multisig Wallet: display address, link out, list all addresses on it (in a green box or similar)
+    - Email address: display and link out (in a box)
+    - Domains: list all domains to be transferred, with checkmarks for completed transfers
+    - Contracts: list each ETH contract (collection, description, # of items, current owner)
+    - Discord: list name/ID and current owner
+    - Twitter: list name/ID and current follows
+    - Visuals: Professional, technical, official documentation style
+
+4. Communication
+    - Commitments:
+        - Daily greetings (gms)
+        - Weekly Discord communication
+        - Monthly community virtual events
+        - Quarterly business updates
+    - Visuals: Schedule or timeline, use icons/emojis for engagement
+    - Copy: Emphasize transparency, frequent updates, community participation, and staying true to Moonrunners' ethos
+
+5. What's Next
+    - Briefly mention that there are many ideas for the future, but avoid overcommitting
+    - Visuals: Simple, forward-looking
+
+6. Call To Action
+    - Encourage community participation in the vote and engagement with the proposal
+    - Visuals: Prominent, clear, and motivating
+
+All requirements above should be implemented in a single, visually engaging, scrollable web page. Use assets and branding as specified. Each section should be clearly separated and visually distinct, following the overall brand and tone guidelines.
+
+
+

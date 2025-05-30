@@ -1,0 +1,99 @@
+One page promotional website to serve as a proposal for a community vote for a takeover of an NFT collection.
+
+Page has a cool parallax vertical scrolling effect using the assets in the src/public/parallax folder. The bg.png is the fullsize background. The moon is at the top, the clouds are toward the middle, the mountains at the bottom. Everything is a pixelated image.
+
+Title of the page:
+Moonrunners Community Takeover Proposal
+
+You can use the Moonrunners svg logo image from the public folder.
+
+Sections we need on this page:
+
+- Vision
+- Team
+    - On The Hook
+    - Behind The Scenes
+- Operational
+- Communication
+- What's Next
+- Call To Action
+
+Overall brand and vibes
+
+Brand:
+- steal from moonrunners.io
+- brand is dark purples, moon, night time, mountains, nature forests, wolves
+- pixelated, nfts, fantasy, mystical, fun, gaming, retro, digital
+- tone is lore, story, narrative driven, but twitter heavy so succinct, funny, meme culture
+- no pandering, genuine people, connection, community 
+
+Sections:
+
+*** Vision:
+
+Copy:
+
+Our vision is to revitalize Moonrunners as an engaging and dynamic, community-driven initiative. We aim to rekindle excitement, deepen community involvement, amplify storytelling, and ensure strong continuity of the Moonrunners brand.
+TLDR: Protect the Pack. Make Moonrunners fun again!
+
+Visuals:
+
+Make this a sort of hero section, with big bold fonts and colors. use contrasts and bolds to make concepts stand out.
+
+*** Team:
+
+Some of our team members are on the hook to sign actual contracts in the real world, and will therefore take on some amount of legal liability. They'll also be paying money out of pocket, and doing other necessary administrative activities. We are calling those the One the Hook people. They necessarily had to doxx to lawyers and the previous collection owners.
+
+Other members have volunteered to contribute time, effort, and skills to the collection's transition but didn't want to go full real world. We still consider them a vital part of the pack!
+
+On the Hook:
+- Biz: Cartel
+- Ops: Kshove
+
+Behind the Scenes:
+- Lit: Kaladin
+- Fin: Dave
+- Dev: 612
+- Julianne
+- Hodler
+
+Visuals for the team section:
+- I want boxes and I want to show the actual wolf NFT for each person, with their name and a short bio/profile like an org chart or a team page on a business website.
+- Fun little sub-headings for the groupings
+
+*** Operational:
+Visual: Real technical, professional, everything is official and well documented.
+
+Copy (make it better): This section can be used as a checklist / audit trail for tracking the handover.
+
+- Multisig Wallet: Need to show it and link out to it and make it look like it stands out and it's a little item, maybe in a green box or something. Looks legit. Maybe list out all the addresses that are on it too.
+- Email address: Need to show it and link out to it. Should put it in a box too.
+- Domains: We can list out all the domains that need to be transferred our that we have with checks for when they're successfully transferred.
+- Contracts: List each ETH contract to every collection + description, # of items, current owner, etc.
+- Discord: List Name/ID + current owner.
+- Twitter: List Name/ID + current follows?
+
+*** Communication:
+Visual: Idk, some sort of schedule, icons emojis make it fun.
+
+We need to commit to when/how we'll communicate. I originally said:
+We plan to lead Moonrunners by:
+Prioritizing transparent, frequent, and meaningful community engagement to rebuild trust and enthusiasm.
+Encouraging active participation from the community through collaborative decision-making processes.
+Ensuring clear and consistent communication about the project's direction, progress, and milestones.
+Staying true to Moonrunners' original ethos and values while innovating responsibly to drive sustainable growth and excitement.
+
+At MINIMUM:
+- Daily gms
+- Weekly communication on Discord
+- Monthly community virtual events
+- Quarterly business updates
+
+What's Next:
+idk, we have a ton of ideas but don't want to over commit.
+
+Call to Action
+Maybe I've written too much
+
+
+

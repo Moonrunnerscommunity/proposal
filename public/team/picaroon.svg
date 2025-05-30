@@ -1,0 +1,40 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="#2e1a47" stroke="#8a6fb7" stroke-width="2"/>
+  
+  <!-- Pirate hat -->
+  <ellipse cx="64" cy="45" rx="25" ry="8" fill="#1C0D36"/>
+  <rect x="39" y="35" width="50" height="20" rx="3" fill="#1C0D36"/>
+  
+  <!-- Skull and crossbones (simplified) -->
+  <circle cx="64" cy="55" r="12" fill="#f9f7e8"/>
+  
+  <!-- Eye sockets -->
+  <circle cx="59" cy="52" r="3" fill="#1C0D36"/>
+  <circle cx="69" cy="52" r="3" fill="#1C0D36"/>
+  
+  <!-- Nose -->
+  <polygon points="64,58 61,63 67,63" fill="#1C0D36"/>
+  
+  <!-- Crossbones -->
+  <g transform="translate(64,75) rotate(45)">
+    <rect x="-12" y="-1" width="24" height="2" fill="#f9f7e8"/>
+    <circle cx="-12" cy="0" r="2" fill="#f9f7e8"/>
+    <circle cx="12" cy="0" r="2" fill="#f9f7e8"/>
+  </g>
+  <g transform="translate(64,75) rotate(-45)">
+    <rect x="-12" y="-1" width="24" height="2" fill="#f9f7e8"/>
+    <circle cx="-12" cy="0" r="2" fill="#f9f7e8"/>
+    <circle cx="12" cy="0" r="2" fill="#f9f7e8"/>
+  </g>
+  
+  <!-- Puzzle piece overlay -->
+  <g transform="translate(90,40)" fill="#ffd700" opacity="0.8">
+    <rect x="0" y="0" width="12" height="12"/>
+    <circle cx="12" cy="6" r="3"/>
+    <circle cx="6" cy="0" r="3"/>
+  </g>
+  
+  <!-- Decorative border -->
+  <circle cx="64" cy="64" r="58" fill="none" stroke="#ffd700" stroke-width="1" stroke-dasharray="4,4"/>
+</svg> 
