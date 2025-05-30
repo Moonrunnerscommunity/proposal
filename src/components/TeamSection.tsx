@@ -16,7 +16,7 @@ const TeamMemberCard = ({ name, wolfName, image, bio, role, twitter, walletAddre
   const etherscanUrl = walletAddress ? `https://etherscan.io/address/${walletAddress}` : undefined;
 
   return (
-    <div className="team-member-card glass p-6 rounded-lg hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
+    <div className="team-member-card glass p-6 rounded-lg hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 h-full flex flex-col">
       <div className="relative w-48 h-48 mx-auto mb-4">
         <Image
           src={image}
@@ -29,7 +29,7 @@ const TeamMemberCard = ({ name, wolfName, image, bio, role, twitter, walletAddre
       <h4 className="text-lg font-bold text-white text-center mb-1">{wolfName}</h4>
       <p className="text-xl font-bold !text-yellow-400 text-center mb-1">{name}</p>
       <p className="text-sm !text-white font-semibold text-center mb-3">{role}</p>
-      <p className="text-sm text-gray-300 text-center leading-relaxed mb-4">{bio}</p>
+      <p className="text-sm text-gray-300 text-center leading-relaxed mb-4 flex-1">{bio}</p>
       
       {/* Social Links */}
       <div className="flex justify-center space-x-3 mt-4">

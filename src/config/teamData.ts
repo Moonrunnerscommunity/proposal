@@ -10,6 +10,16 @@ export interface TeamMember {
 }
 
 export const packLeadership: TeamMember[] = [
+    { 
+        name: 'Kshove', 
+        wolfName: 'Operations Wolf',
+        image: '/team/kshove.png', 
+        bio: 'A builder and operator with over 5 years of experience growing and operating a successful family business, plus a six-figure exit from a DJ company he started in high school. This pragmatic visionary has capitalized on multiple trends including the sneaker and trading card markets, and now focuses heavily on equities investing with strong returns. A jack-of-all-trades with deep roots in Moonrunners, he\'s focused on rebuilding the brand with sustainable Web2 cashflows and long-term community upside, ready to support every role and volunteer effort needed to protect and grow the pack.',
+        role: 'Business & Partnerships',
+        twitter: 'kshove_',
+        walletAddress: 'kshove',
+        discord: 'kshove'
+  },
   { 
     name: 'Cartel', 
     wolfName: 'Strategy Wolf',
@@ -20,16 +30,6 @@ export const packLeadership: TeamMember[] = [
     walletAddress: '0x96C38410F41D196a47cBB456C51d0EA2f2Ef9816',
     discord: 'carteldebt'
   },
-  { 
-    name: 'Kshove', 
-    wolfName: 'Operations Wolf',
-    image: '/team/ops.svg', 
-    bio: 'Our protective, guiding leader who coordinates the whole pack. With years of real-world business experience, they navigate both wilderness and civilization while ensuring smooth execution of all initiatives.',
-    role: 'Business & Partnerships',
-    twitter: 'kshove_io',
-    walletAddress: 'kshove',
-    discord: 'kshove'
-  }
 ];
 
 export const wolfCouncil: TeamMember[] = [
