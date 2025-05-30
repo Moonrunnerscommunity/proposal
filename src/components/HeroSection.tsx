@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 export default function HeroSection() {
   return (
     <section className="hero-section relative min-h-screen flex items-center justify-center z-50 w-full">
@@ -13,10 +15,13 @@ export default function HeroSection() {
             
             {/* Logo - responsive sizing */}
             <div className="mb-0 w-full flex justify-center transition-all duration-1000">
-              <img
+              <Image
                 src="/moonrunners.svg"
                 alt="Moonrunners Logo"
+                width={512}
+                height={256}
                 className="pixelated-image w-full h-auto max-h-32 sm:max-h-48 md:max-h-56 lg:max-h-64 max-w-2xl"
+                priority
               />
             </div>
 

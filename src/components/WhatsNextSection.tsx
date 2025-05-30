@@ -111,9 +111,9 @@ const WhatsNextSection = () => {
                   <span className="text-2xl ml-2">⚠️</span>
                 </div>
                 <p className="text-sm leading-relaxed">
-                  We're still figuring a lot of this out! 🤔 This timeline represents our general attack plan, 
+                  We&apos;re still figuring a lot of this out! 🤔 This timeline represents our general attack plan, 
                   but things <strong>will definitely change</strong> as we learn and adapt. 
-                  Consider this more of a "vibe check" than a concrete commitment. 😅
+                  Consider this more of a &quot;vibe check&quot; than a concrete commitment. 😅
                 </p>
               </div>
               <div className="flex items-center justify-center space-x-2 text-sm text-purple-300">
@@ -208,7 +208,7 @@ const WhatsNextSection = () => {
                     </p>
                     <div className="text-xs text-cyan-300 flex items-center">
                       <span className="mr-2">┅┅┅</span>
-                      <span>Very flexible (who knows what we'll discover!)</span>
+                      <span>Very flexible (who knows what we&apos;ll discover!)</span>
                       <span className="ml-2">┅┅┅</span>
                     </div>
                   </div>
@@ -221,11 +221,11 @@ const WhatsNextSection = () => {
               <div className="text-purple-300/60 text-sm space-y-2">
                 <div className="flex items-center justify-center space-x-2">
                   <span>✨</span>
-                  <span>Beyond that... the sky's the limit!</span>
+                  <span>Beyond that... the sky&apos;s the limit!</span>
                   <span>🚀</span>
                 </div>
                 <div className="text-xs">
-                  (We'll figure it out as we go! 😊)
+                  (We&apos;ll figure it out as we go! 😊)
                 </div>
               </div>
             </div>

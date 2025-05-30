@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { CheckIcon, XMarkIcon, ArrowTopRightOnSquareIcon, EnvelopeIcon, ClipboardIcon, ExclamationTriangleIcon, NoSymbolIcon } from '@heroicons/react/24/outline';
 
 interface Domain {
@@ -379,9 +380,11 @@ const OperationalSection = () => {
                         <td className="p-3">
                           <div className="flex items-center gap-3">
                             <div className={`w-8 h-8 rounded flex items-center justify-center overflow-hidden ${contract.notIncluded ? 'bg-gray-700' : 'bg-gray-800'}`}>
-                              <img 
+                              <Image 
                                 src={contract.imageUrl} 
                                 alt={`${contract.collection} NFT`}
+                                width={32}
+                                height={32}
                                 className={`w-full h-full object-cover ${contract.notIncluded ? 'opacity-50' : ''}`}
                                 onError={(e) => {
                                   // Fallback to initial if image fails to load
