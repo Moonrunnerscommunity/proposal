@@ -46,12 +46,12 @@ const WhatsNextSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white pixel-text">
-            What's Next
+            What&apos;s Next
           </h2>
           <div className="max-w-3xl mx-auto">
             <p className="text-lg md:text-2xl text-purple-200 leading-relaxed mb-8">
               The future of Moonrunners holds many exciting possibilities. While we have numerous ideas 
-              for expanding and enhancing the project, we're committed to moving forward thoughtfully 
+              for expanding and enhancing the project, we&apos;re committed to moving forward thoughtfully 
               and with community input every step of the way.
             </p>
           </div>

@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 interface TeamMember {
@@ -112,7 +111,7 @@ export default function TeamSection() {
 
   const wolfCouncil: TeamMember[] = [
     { 
-      name: 'Lit (Kaladin)', 
+      name: 'Kaladin', 
       wolfName: 'The Lore Keeper',
       image: '/team/lit.svg', 
       bio: 'Our wise storyteller who guards and grows the Moonrunners story across all forms. Writes scripts, creates puzzles, oversees art style, and ensures everything feels "Moonrunner-y" while bridging our past with our future.',
@@ -142,7 +141,7 @@ export default function TeamSection() {
       discord: 'julianne'
     },
     { 
-      name: 'Dev (612)', 
+      name: '612', 
       wolfName: 'The Watcher',
       image: '/team/dev.svg', 
       bio: 'Our technically inclined wolf who watches over digital infrastructure. Technical architect building the future while managing blockchain tech, smart contracts, website security, and keeping the lights on.',
@@ -152,7 +151,7 @@ export default function TeamSection() {
       discord: '612dev'
     },
     { 
-      name: 'Fin (Dave)', 
+      name: 'CryptoDave', 
       wolfName: 'The Pack Treasurer',
       image: '/team/fin.svg', 
       bio: 'Keeps the pack\'s resources secure and sustainable. Financial strategist managing treasury, planning economic strategies, and ensuring we have the resources needed for our journey while maintaining transparency.',
@@ -187,10 +186,10 @@ export default function TeamSection() {
           <div className="glass p-6 sm:p-8 max-w-4xl mx-auto">
             <p className="text-lg text-gray-200 leading-relaxed mb-4">
               Think of our team as the <span className="text-gradient font-semibold">Wolf Council</span>, each with a special role to play in protecting and providing for the pack. 
-              We're keeping things agile - a small band of dedicated Moonrunners rather than a big corporate crew - so every role counts.
+              We&apos;re keeping things agile - a small band of dedicated Moonrunners rather than a big corporate crew - so every role counts.
             </p>
             <p className="text-base text-purple-300 italic">
-              "Here's the lineup of our key roles, described in our own community's terms..."
+              &quot;Here&apos;s the lineup of our key roles, described in our own community&apos;s terms...&quot;
             </p>
           </div>
         </div>
@@ -248,7 +247,7 @@ export default function TeamSection() {
           <div className="glass p-8 max-w-4xl mx-auto">
             <p className="text-lg text-gray-200 leading-relaxed mb-6">
               Beyond the core team, we know many of you will chip in however you can - and we welcome it! 
-              We'll set up a <span className="text-gradient font-semibold">"Pack Support Squad"</span> - a group of reliable community volunteers who can take on small tasks.
+              We&apos;ll set up a <span className="text-gradient font-semibold">&quot;Pack Support Squad&quot;</span> - a group of reliable community volunteers who can take on small tasks.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm text-gray-300">
@@ -279,7 +278,7 @@ export default function TeamSection() {
             </div>
             
             <p className="text-base text-purple-300 mt-6 italic text-center">
-              "The pack thrives only when every member's contribution is valued."
+              &quot;The pack thrives only when every member&apos;s contribution is valued.&quot;
             </p>
           </div>
         </div>

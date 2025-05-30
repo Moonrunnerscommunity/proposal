@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { CheckIcon, XMarkIcon, ArrowTopRightOnSquareIcon, EnvelopeIcon, GlobeAltIcon, ClipboardIcon, ExclamationTriangleIcon, NoSymbolIcon } from '@heroicons/react/24/outline';
+import { CheckIcon, XMarkIcon, ArrowTopRightOnSquareIcon, EnvelopeIcon, ClipboardIcon, ExclamationTriangleIcon, NoSymbolIcon } from '@heroicons/react/24/outline';
 
 interface Domain {
   name: string;
@@ -22,26 +22,9 @@ interface Contract {
   openseaUrl: string;
 }
 
-interface MultisigAddress {
-  address: string;
-  label: string;
-}
-
 const OperationalSection = () => {
-  const [copiedAddress, setCopiedAddress] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedContract, setCopiedContract] = useState<string | null>(null);
-
-  // Sample data - would typically come from props or API
-  const multisigWallet = {
-    address: '0x742d35cc6bb7e4b4a4f8e3c5d6e7f8a9b0c1d2e3',
-    etherscanUrl: 'https://etherscan.io/address/0x742d35cc6bb7e4b4a4f8e3c5d6e7f8a9b0c1d2e3',
-    addresses: [
-      { address: '0xa1b2c3d4e5f6789012345678901234567890abcd', label: 'Admin 1' },
-      { address: '0xb2c3d4e5f6789012345678901234567890abcdef', label: 'Admin 2' },
-      { address: '0xc3d4e5f6789012345678901234567890abcdef01', label: 'Community Lead' },
-    ] as MultisigAddress[]
-  };
 
   const email = 'communitymoonrunners@gmail.com';
 
@@ -115,16 +98,6 @@ const OperationalSection = () => {
     url: 'https://x.com/MoonrunnersNFT'
   };
 
-  const handleCopyAddress = async () => {
-    try {
-      await navigator.clipboard.writeText(multisigWallet.address);
-      setCopiedAddress(true);
-      setTimeout(() => setCopiedAddress(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy address:', err);
-    }
-  };
-
   const handleCopyEmail = async () => {
     try {
       await navigator.clipboard.writeText(email);
@@ -167,53 +140,33 @@ const OperationalSection = () => {
             {/* Multisig Wallet Section */}
             <div className="space-y-4">
               <h4 className="text-lg font-semibold mb-6 flex items-center gap-2" style={{ color: 'var(--color-starlight)' }}>
-                <CheckIcon className="w-5 h-5 text-green-500" />
+                <XMarkIcon className="w-5 h-5 text-red-500" />
                 Multisig Wallet
               </h4>
               
               <div className="grid md:grid-cols-2 gap-6">
-                {/* Left Column - Wallet Details (Green Theme) */}
-                <div className="bg-green-900/30 border-2 border-green-500/50 rounded-lg p-6 backdrop-blur-sm space-y-4">
+                {/* Left Column - Wallet Details (Red Theme for Not Set Up) */}
+                <div className="bg-red-900/30 border-2 border-red-500/50 rounded-lg p-6 backdrop-blur-sm space-y-4">
                   <div className="flex items-center gap-2">
-                    <div className="font-mono text-sm text-green-200 bg-green-950/50 p-3 rounded border flex-1">
-                      {multisigWallet.address}
+                    <div className="font-mono text-sm text-red-200 bg-red-950/50 p-3 rounded border flex-1 text-center">
+                      Not Set Up Yet
                     </div>
-                    <button
-                      onClick={handleCopyAddress}
-                      className="flex items-center justify-center w-10 h-10 bg-green-800/50 hover:bg-green-700/50 border border-green-500/30 rounded transition-colors"
-                      title="Copy address"
-                    >
-                      {copiedAddress ? (
-                        <CheckIcon className="w-4 h-4 text-green-300" />
-                      ) : (
-                        <ClipboardIcon className="w-4 h-4 text-green-400" />
-                      )}
-                    </button>
+                    <div className="flex items-center justify-center w-10 h-10 bg-red-800/50 border border-red-500/30 rounded">
+                      <XMarkIcon className="w-4 h-4 text-red-400" />
+                    </div>
                   </div>
-                  {copiedAddress && (
-                    <div className="text-green-300 text-xs">
-                      Address copied to clipboard!
-                    </div>
-                  )}
-                  <a 
-                    href={multisigWallet.etherscanUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors"
-                  >
-                    <ArrowTopRightOnSquareIcon className="w-4 h-4" />
-                    View on Etherscan
-                  </a>
+                  <div className="text-red-300 text-xs">
+                    Multisig wallet configuration pending
+                  </div>
+                  <div className="inline-flex items-center gap-2 text-red-400 opacity-50 cursor-not-allowed">
+                    <NoSymbolIcon className="w-4 h-4" />
+                    Etherscan unavailable
+                  </div>
                   <div className="mt-4">
-                    <h5 className="text-green-300 font-medium mb-2">Authorized Addresses:</h5>
-                    <ul className="space-y-2">
-                      {multisigWallet.addresses.map((addr, index) => (
-                        <li key={index} className="flex items-center justify-between bg-green-950/30 p-2 rounded text-sm">
-                          <span className="font-mono text-green-200">{addr.address}</span>
-                          <span className="text-green-400 text-xs">{addr.label}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <h5 className="text-red-300 font-medium mb-2">Authorized Addresses:</h5>
+                    <div className="bg-red-950/30 p-4 rounded text-sm text-center text-red-400 italic">
+                      No addresses configured yet
+                    </div>
                   </div>
                 </div>
 
