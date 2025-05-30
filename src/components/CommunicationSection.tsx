@@ -40,27 +40,20 @@ const CommunicationSection = () => {
   
   return (
     <section className="relative min-h-screen flex items-center justify-center py-20 px-4 z-50">
-      {/* Subtle parallax background effect */}
-      <div 
-        className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/10 to-transparent"
-        style={{ transform: `translateY(${scrollY * 0.1}px)` }}
-      ></div>
       
       <div className="max-w-6xl mx-auto w-full relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white pixel-text">
-            Communication Commitments
-          </h2>
-          <div className="max-w-4xl mx-auto">
-            <p className="text-lg md:text-xl text-purple-200 leading-relaxed mb-4">
-              We believe in transparency, frequent updates, and meaningful community participation.
-            </p>
-            <p className="text-lg md:text-xl text-purple-200 leading-relaxed">
-              Our communication strategy stays true to the <span className="text-yellow-300 font-semibold">Moonrunners ethos</span> while keeping everyone informed and engaged.
-            </p>
-          </div>
+
+      {/* Section Header */}
+      <div className="text-center mb-10 sm:mb-16 lg:mb-12 transition-all duration-1000">
+        <h2 className="text-responsive-3xl font-bold text-white mb-6">
+          💬 Communication Commitments 📢
+        </h2>
+        <div className="p-6 sm:p-8 max-w-4xl mx-auto">
+        <p className="text-2xl text-purple-200 leading-relaxed mb-4">
+              We believe in transparency, frequent updates, and meaningful community participation. Our communication strategy stays true to the <span className="text-gradient font-semibold">Moonrunners Ethos</span> while keeping everyone informed and engaged.
+          </p>
         </div>
+      </div>
 
         {/* Timeline Container */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
@@ -70,23 +63,23 @@ const CommunicationSection = () => {
           {commitments.map((item, index) => (
             <div 
               key={item.period} 
-              className="relative group"
+              className="relative group h-full flex flex-col"
               style={{ 
                 animationDelay: `${index * 200}ms`,
                 transform: `translateY(${Math.sin((scrollY + index * 100) * 0.001) * 5}px)`
               }}
             >
               {/* Timeline Item */}
-              <div className="bg-black/40 backdrop-blur-sm border border-purple-500/30 rounded-lg p-6 hover:border-purple-400/60 transition-all duration-300 hover:transform hover:scale-105 relative">
+              <div className="bg-black/40 backdrop-blur-sm border border-purple-500/30 rounded-lg p-6 hover:border-purple-400/60 transition-all duration-300 hover:transform hover:scale-105 relative flex-1 flex flex-col">
                 {/* Icon Circle */}
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto border-2 border-purple-400/50 group-hover:border-purple-300 transition-colors">
                   <span className="text-2xl">{item.icon}</span>
                 </div>
                 
                 {/* Content */}
-                <div className="text-center">
+                <div className="text-center flex-1 flex flex-col justify-center">
                   <h3 className="text-xl font-bold text-white mb-2">
-                    <span className="text-purple-300">{item.period}:</span> {item.title}
+                    <span className="text-purple-300">{item.period}:</span><br />{item.title}
                   </h3>
                   <p className="text-purple-200 text-sm leading-relaxed">
                     {item.description}

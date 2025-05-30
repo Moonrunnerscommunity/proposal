@@ -1,25 +1,19 @@
 'use client';
 
 import Image from 'next/image';
+import { TeamMember, packLeadership, wolfCouncil } from '../config/teamData';
 
-interface TeamMember {
-  name: string;
-  wolfName: string;
-  image: string;
-  bio: string;
-  role: string;
-  twitter?: string;
-  opensea?: string;
-  discord?: string;
-}
-
-const TeamMemberCard = ({ name, wolfName, image, bio, role, twitter, opensea, discord }: TeamMember) => {
+const TeamMemberCard = ({ name, wolfName, image, bio, role, twitter, walletAddress, discord }: TeamMember) => {
   // Disable animations temporarily to test parallax
   // const [isLoaded, setIsLoaded] = useState(false);
 
   // useEffect(() => {
   //   setIsLoaded(true);
   // }, []);
+
+  // Auto-generate OpenSea and Etherscan URLs from wallet address
+  const openSeaUrl = walletAddress ? `https://opensea.io/${walletAddress}` : undefined;
+  const etherscanUrl = walletAddress ? `https://etherscan.io/address/${walletAddress}` : undefined;
 
   return (
     <div className="team-member-card glass p-6 rounded-lg hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
@@ -33,7 +27,7 @@ const TeamMemberCard = ({ name, wolfName, image, bio, role, twitter, opensea, di
         />
       </div>
       <h4 className="text-lg font-bold text-white text-center mb-1">{wolfName}</h4>
-      <p className="text-base font-semibold !text-yellow-400 text-center mb-1">{name}</p>
+      <p className="text-xl font-bold !text-yellow-400 text-center mb-1">{name}</p>
       <p className="text-sm !text-white font-semibold text-center mb-3">{role}</p>
       <p className="text-sm text-gray-300 text-center leading-relaxed mb-4">{bio}</p>
       
@@ -52,9 +46,9 @@ const TeamMemberCard = ({ name, wolfName, image, bio, role, twitter, opensea, di
             </svg>
           </a>
         )}
-        {opensea && (
+        {openSeaUrl && (
           <a 
-            href={opensea} 
+            href={openSeaUrl} 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-purple-400 hover:text-purple-300 transition-colors"
@@ -62,6 +56,19 @@ const TeamMemberCard = ({ name, wolfName, image, bio, role, twitter, opensea, di
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 0C5.374 0 0 5.374 0 12s5.374 12 12 12 12-5.374 12-12S18.626 0 12 0zM5.92 12.403l.051-.081 3.123-4.884a.107.107 0 01.187.014c.52 1.169.972 2.623.76 3.528-.088.372-.335.876-.614 1.342a2.405 2.405 0 01-.117.199.106.106 0 01-.09.051H6.013a.106.106 0 01-.093-.169zm13.914 1.68a.109.109 0 01-.065.101c-.243.103-1.07.485-1.414.962-.878 1.222-1.548 2.97-3.048 2.97H9.053a4.019 4.019 0 01-4.013-4.028v-.072c0-.058.048-.106.106-.106h3.485c.067 0 .118.058.112.125-.031.435.069.745.213.909.144.164.356.220.669.220.313 0 .549-.085.709-.304.160-.219.242-.615.242-1.075v-.341h-1.761a.107.107 0 01-.106-.106v-.688c0-.058.048-.106.106-.106h1.761v-1.643h1.222v1.643h.674c.058 0 .106.048.106.106v.688a.107.107 0 01-.106.106h-.674v.341c0 .196.016.357.096.640.069.283.212.458.413.458s.344-.175.413-.458c.08-.283.096-.444.096-.64v-.341h-.554a.107.107 0 01-.106-.106v-.688c0-.058.048-.106.106-.106h.554v-.851c0-.058.048-.106.106-.106h.727c.058 0 .106.048.106.106v.851h.727c.058 0 .106.048.106.106v.688a.107.107 0 01-.106.106h-.727v.341c0 .435.082.831.242 1.075.16.219.396.304.709.304.313 0 .525-.056.669-.22.144-.164.244-.474.213-.909a.112.112 0 01.112-.125h3.485c.058 0 .106.048.106.106v.072c0 .8-.244 1.536-.65 2.152z"/>
+            </svg>
+          </a>
+        )}
+        {etherscanUrl && (
+          <a 
+            href={etherscanUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-green-400 hover:text-green-300 transition-colors"
+            title="View on Etherscan"
+          >
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
             </svg>
           </a>
         )}
@@ -85,92 +92,6 @@ export default function TeamSection() {
   //   setIsLoaded(true);
   // }, []);
 
-  const packLeadership: TeamMember[] = [
-    { 
-      name: 'Cartel', 
-      wolfName: 'Alpha Wolf',
-      image: '/team/cartel.png', 
-      bio: 'A seasoned pack leader with over two decades of experience navigating the digital wilderness. This Alpha has guided teams of 40+ wolves through complex technological terrain, successfully launching disruptive innovations that generated over $100M in value. Expert in emerging technologies like AI, Web3, and immersive media, she forges strategic alliances across vast digital territories while building scalable platforms that transform entire ecosystems.',
-      role: 'Strategy',
-      twitter: 'carteldebt',
-      opensea: 'https://opensea.io/https://opensea.io/0x96c38410f41d196a47cbb456c51d0ea2f2ef9816',
-      discord: 'carteldebt'
-    },
-    { 
-      name: 'Kshove', 
-      wolfName: 'Alpha Wolf',
-      image: '/team/ops.svg', 
-      bio: 'Our protective, guiding leader who coordinates the whole pack. With years of real-world business experience, they navigate both wilderness and civilization while ensuring smooth execution of all initiatives.',
-      role: 'Operations',
-      twitter: 'kshove_io',
-      opensea: 'https://opensea.io/kshove',
-      discord: 'kshove'
-    }
-  ];
-
-  const wolfCouncil: TeamMember[] = [
-    { 
-      name: 'Kaladin', 
-      wolfName: 'The Lore Keeper',
-      image: '/team/lit.svg', 
-      bio: 'The original writer of the Moonrunners lore and creator of the Moonrunners universe, Kaladin returns to the pack to help reignite the pack and bring back the glory days of the Moonrunners.',
-      role: 'Content & Narrative',
-      twitter: 'KaladinNFT',
-      opensea: 'https://opensea.io/kaladin',
-      discord: 'kaladin'
-    },
-    { 
-      name: 'CryptoPicaroon', 
-      wolfName: 'The Puzzle Master',
-      image: '/team/picaroon.svg', 
-      bio: 'Master of mysteries and keeper of secrets. This cunning wolf designs intricate puzzles, hidden challenges, and cryptic riddles that test the wit and wisdom of the pack while guarding our most treasured knowledge.',
-      role: 'Puzzle Design',
-      twitter: 'cryptopicaroon',
-      opensea: 'https://opensea.io/cryptopicaroon',
-      discord: 'cryptopicaroon'
-    },
-    { 
-      name: 'Julianne', 
-      wolfName: 'The Howler',
-      image: '/team/julianne.png', 
-      bio: 'The voice of the pack in the digital realm. Leads howls on Twitter, rallies Discord discussions, greets newcomers warmly, and ensures all communications resonate with camaraderie and inclusivity.',
-      role: 'Community Relations',
-      twitter: 'JM_Sadowski',
-      opensea: 'https://opensea.io/julianne',
-      discord: 'julianne'
-    },
-    { 
-      name: '612crypto', 
-      wolfName: 'Full Stack Wolf',
-      image: '/team/612crypto.png', 
-      bio: 'A web developer with over 15 years of experience, blending technical expertise with the collaborative spirit of the pack. He ensures that every aspect of the Moonrunners’ web presence is seamless, secure, and ready to scale.',
-      role: 'Development Lead',
-      twitter: '612crypto_eth',
-      opensea: 'https://opensea.io/0xf39ceb8ab0de75dca31e988fd59d53cc009803e4',
-      discord: '612crypto_eth'
-    },
-    { 
-      name: 'CryptoDave', 
-      wolfName: 'The Pack Treasurer',
-      image: '/team/fin.svg', 
-      bio: 'Keeps the pack\'s resources secure and sustainable. Financial strategist managing treasury, planning economic strategies, and ensuring we have the resources needed for our journey while maintaining transparency.',
-      role: 'Financial Planning',
-      twitter: 'dave_fin',
-      opensea: 'https://opensea.io/davefin',
-      discord: 'davefin'
-    },
-    { 
-      name: 'Hodler', 
-      wolfName: 'The Pack Strategist',
-      image: '/team/hodler.svg', 
-      bio: 'Long-term strategist focused on sustainable growth and value creation. This wise wolf thinks several seasons ahead, ensuring the pack\'s decisions today benefit future generations of Moonrunners.',
-      role: 'Strategic Advisor',
-      twitter: 'hodler_nft',
-      opensea: 'https://opensea.io/hodler',
-      discord: 'hodler'
-    }
-  ];
-
   return (
     <section className="team-section relative min-h-screen py-16 sm:py-20 lg:py-24">
       {/* No background overlay - let parallax show through completely */}
@@ -185,7 +106,7 @@ export default function TeamSection() {
           <div className="glass p-6 sm:p-8 max-w-4xl mx-auto">
             <p className="text-lg text-gray-200 leading-relaxed mb-4">
               Think of our team as the <span className="text-gradient font-semibold">Wolf Council</span>, each with a special role to play in protecting and providing for the pack. 
-              We&apos;re keeping things agile - a small band of dedicated Moonrunners rather than a big corporate crew - so every role counts.
+              We&apos;re keeping things agile - a small band of dedicated Moonrunners rather than a big corporate crew - so <strong className="text-white">every role counts</strong>.
             </p>
           </div>
         </div>
@@ -276,16 +197,6 @@ export default function TeamSection() {
             <p className="text-base text-purple-300 mt-6 italic text-center">
               &quot;The pack thrives only when every member&apos;s contribution is valued.&quot;
             </p>
-          </div>
-        </div>
-
-        {/* Decorative bottom element */}
-        <div className="text-center mt-16 sm:mt-20 transition-all duration-1000 delay-1200 mb-0">
-          <div className="glass p-6 max-w-xl mx-auto">
-            <p className="text-lg text-gray-300 mb-2">
-              Together, we hunt as one pack
-            </p>
-            <div className="text-2xl">🐺🌙✨</div>
           </div>
         </div>
 

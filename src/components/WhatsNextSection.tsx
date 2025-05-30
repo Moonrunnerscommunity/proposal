@@ -39,46 +39,39 @@ const WhatsNextSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center py-20 px-4 z-50">
-      {/* Subtle parallax background effect */}
-      <div 
-        className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-900/10 to-transparent"
-        style={{ transform: `translateY(${scrollY * 0.03}px)` }}
-      ></div>
       
       <div className="max-w-5xl mx-auto w-full relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white pixel-text">
-            What&apos;s Next
-          </h2>
-          <div className="max-w-3xl mx-auto">
-            <p className="text-lg md:text-2xl text-purple-200 leading-relaxed mb-8">
-              The future of Moonrunners holds many exciting possibilities. While we have numerous ideas 
-              for expanding and enhancing the project, we&apos;re committed to moving forward thoughtfully 
-              and with community input every step of the way.
-            </p>
-          </div>
+      {/* Section Header */}
+      <div className="text-center mb-10 sm:mb-16 lg:mb-12 transition-all duration-1000">
+        <h2 className="text-responsive-3xl font-bold text-white mb-6">
+          🌟 What&apos;s Next ✨
+        </h2>
+        <div className="p-6 sm:p-8 max-w-4xl mx-auto">
+        <p className="text-2xl text-purple-200 leading-relaxed mb-4">
+              The future is bright, and while we have <span className="text-gradient font-semibold">a million ideas</span> for expanding and enhancing Moonrunners, we&apos;re committed to moving forward thoughtfully and with community input every step of the way.
+          </p>
         </div>
+      </div>
 
         {/* Floating Possibilities */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {possibilities.map((item, index) => (
             <div 
               key={item.title}
-              className="relative group"
+              className="relative group h-full flex flex-col"
               style={{ 
                 animationDelay: `${index * 200}ms`,
                 transform: `translateY(${Math.sin((scrollY + index * 200) * 0.002) * 8}px)`
               }}
             >
-              <div className="bg-black/30 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-8 hover:border-purple-400/40 transition-all duration-500 hover:transform hover:scale-105 group-hover:bg-black/40">
+              <div className="bg-black/30 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-8 hover:border-purple-400/40 transition-all duration-500 hover:transform hover:scale-105 group-hover:bg-black/40 flex-1 flex flex-col">
                 {/* Floating Icon */}
                 <div className="text-6xl mb-6 text-center group-hover:animate-pulse">
                   {item.icon}
                 </div>
                 
                 {/* Content */}
-                <div className="text-center">
+                <div className="text-center flex-1 flex flex-col justify-center">
                   <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-purple-300 transition-colors">
                     {item.title}
                   </h3>
@@ -132,7 +125,7 @@ const WhatsNextSection = () => {
             <div className="relative group">
               <div className="absolute left-6 top-8 w-5 h-5 bg-purple-500 rounded-full border-4 border-white/20 animate-pulse"></div>
               <div className="ml-16 bg-black/30 backdrop-blur-sm border-2 border-purple-500/40 rounded-xl p-6 hover:border-purple-400/60 transition-all duration-300">
-                <div className="flex flex-col md:flex-row md:items-center gap-4">
+                <div className="flex flex-col md:flex-row md:items-center gap-8">
                   <div className="flex-shrink-0">
                     <div className="bg-gradient-to-r from-purple-600 to-blue-600 px-4 py-2 rounded-full text-white font-bold text-sm border-2 border-white/20 relative">
                       First 90 Days 🎯
@@ -167,7 +160,7 @@ const WhatsNextSection = () => {
             <div className="relative group">
               <div className="absolute left-6 top-8 w-5 h-5 bg-blue-500/70 rounded-full border-4 border-white/10"></div>
               <div className="ml-16 bg-black/20 backdrop-blur-sm border border-blue-500/30 border-dashed rounded-xl p-6 hover:border-blue-400/50 transition-all duration-300">
-                <div className="flex flex-col md:flex-row md:items-center gap-4">
+                <div className="flex flex-col md:flex-row md:items-center gap-8">
                   <div className="flex-shrink-0">
                     <div className="bg-gradient-to-r from-blue-600 to-cyan-600 px-4 py-2 rounded-full text-white font-bold text-sm border-2 border-white/20 relative">
                       First 6 Months 🤞
@@ -177,7 +170,7 @@ const WhatsNextSection = () => {
                   <div className="flex-grow">
                     <p className="text-purple-200 leading-relaxed mb-2">
                       <em>Probably:</em> Reboot web properties, NFT.NYC event 🏙️, merch store launch 👕, 
-                      complete novel draft 📖, research toys/games 🧸, market aggressively 📢, 
+                      launch a Patreon 📖, research toys/games 🧸, market aggressively 📢, 
                       possible video game release? 🎮✨
                     </p>
                     <div className="text-xs text-blue-300 flex items-center">
@@ -194,7 +187,7 @@ const WhatsNextSection = () => {
             <div className="relative group">
               <div className="absolute left-6 top-8 w-5 h-5 bg-cyan-500/50 rounded-full border-4 border-white/10"></div>
               <div className="ml-16 bg-black/20 backdrop-blur-sm border border-cyan-500/30 border-dashed rounded-xl p-6 hover:border-cyan-400/50 transition-all duration-300">
-                <div className="flex flex-col md:flex-row md:items-center gap-4">
+                <div className="flex flex-col md:flex-row md:items-center gap-8">
                   <div className="flex-shrink-0">
                     <div className="bg-gradient-to-r from-cyan-600 to-teal-600 px-4 py-2 rounded-full text-white font-bold text-sm border-2 border-white/20 relative">
                       First 12 Months 🌙
@@ -203,7 +196,7 @@ const WhatsNextSection = () => {
                   </div>
                   <div className="flex-grow">
                     <p className="text-purple-200 leading-relaxed mb-2">
-                      <em>Maybe:</em> Host DragonCon event 🐉, release novel 📚, launch toys for holidays 🎁, 
+                      <em>Maybe:</em> Host DragonCon event 🐉, complete a novel draft📚, launch toys for holidays 🎁, 
                       develop tabletop game 🎲, explore audiobook production (like Soundbooth Theater!) 🎧✨
                     </p>
                     <div className="text-xs text-cyan-300 flex items-center">

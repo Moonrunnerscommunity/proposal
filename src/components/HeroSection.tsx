@@ -37,17 +37,17 @@ export default function HeroSection() {
               <div className="glass p-6 sm:p-8 lg:p-8 rounded-lg sm:rounded-xl w-full max-w-4xl">
                 
                 {/* Main vision text */}
-                <p className="text-base text-md text-gray-200 leading-relaxed text-center mb-4">
-                  Our vision is to revitalize Moonrunners as an engaging and dynamic, 
+                <p className="text-base text-lg text-gray-200 leading-relaxed text-center mb-8">
+                  We want to bring the Moonrunners back as an engaging, dynamic, 
                   <span className="text-gradient font-semibold"> community-driven initiative</span>. 
-                  We aim to rekindle excitement, deepen community involvement, amplify storytelling, 
-                  and ensure strong continuity of the Moonrunners brand.
+                  We aim to rekindle excitement, amplify storytelling, 
+                  and ensure continuity of the Moonrunners brand.
                 </p>
                 
                 {/* TLDR - standout text */}
                 <div className="relative flex justify-center">
                   <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-white text-center">
-                    <span className="text-gradient">TLDR:</span> Protect the Pack. Make Moonrunners fun again!
+                    <span className="text-gradient">Protect the Pack At All Costs. <br />Make Moonrunners Fun Again!</span>
                   </p>
                   {/* Decorative elements */}
                   <div className="absolute -top-2 -left-2 w-4 h-4 border-l-2 border-t-2 border-yellow-400 opacity-60"></div>

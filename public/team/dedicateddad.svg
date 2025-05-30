@@ -1,0 +1,64 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="#1a1a2e" stroke="#8a6fb7" stroke-width="2"/>
+  
+  <!-- Hood/Shadow cloak -->
+  <path d="M40,35 Q64,25 88,35 L88,55 Q64,45 40,55 Z" fill="#0f0f23"/>
+  <path d="M42,37 Q64,28 86,37 L86,53 Q64,47 42,53 Z" fill="#16213e"/>
+  
+  <!-- Face (partially hidden in shadow) -->
+  <ellipse cx="64" cy="65" rx="16" ry="18" fill="#f9f7e8" opacity="0.8"/>
+  
+  <!-- Eyes (intense, watchful) -->
+  <circle cx="58" cy="62" r="2.5" fill="#2e1a47"/>
+  <circle cx="70" cy="62" r="2.5" fill="#2e1a47"/>
+  <circle cx="58" cy="61" r="0.8" fill="#87ceeb"/>
+  <circle cx="70" cy="61" r="0.8" fill="#87ceeb"/>
+  
+  <!-- Nose (subtle) -->
+  <line x1="64" y1="65" x2="64" y2="68" stroke="#2e1a47" stroke-width="1" opacity="0.6"/>
+  
+  <!-- Mouth (serious, determined) -->
+  <line x1="60" y1="72" x2="68" y2="72" stroke="#2e1a47" stroke-width="1.5"/>
+  
+  <!-- Shield emblem -->
+  <g transform="translate(90,45)">
+    <path d="M0,0 L6,0 L6,8 L3,12 L0,8 Z" fill="#4a4a4a"/>
+    <path d="M1,1 L5,1 L5,7 L3,10 L1,7 Z" fill="#6a6a6a"/>
+    <circle cx="3" cy="4" r="1.5" fill="#ffd700"/>
+  </g>
+  
+  <!-- Discord logo -->
+  <g transform="translate(20,85)" fill="#5865f2" opacity="0.8">
+    <circle cx="0" cy="0" r="8"/>
+    <circle cx="-2" cy="-2" r="1.5" fill="#ffffff"/>
+    <circle cx="2" cy="-2" r="1.5" fill="#ffffff"/>
+    <path d="M-3,2 Q0,4 3,2" stroke="#ffffff" stroke-width="1" fill="none"/>
+  </g>
+  
+  <!-- Surveillance/monitoring symbols -->
+  <g transform="translate(25,40)" fill="#ffd700" opacity="0.6">
+    <circle cx="0" cy="0" r="3" fill="none" stroke="#ffd700" stroke-width="1"/>
+    <circle cx="0" cy="0" r="1" fill="#ffd700"/>
+    <line x1="-6" y1="-6" x2="-3" y2="-3" stroke="#ffd700" stroke-width="1"/>
+    <line x1="6" y1="-6" x2="3" y2="-3" stroke="#ffd700" stroke-width="1"/>
+  </g>
+  
+  <!-- Lock symbol (security) -->
+  <g transform="translate(95,85)">
+    <rect x="-3" y="0" width="6" height="8" rx="1" fill="#4a4a4a"/>
+    <path d="M-2,-2 Q0,-4 2,-2 L2,0 L-2,0 Z" fill="none" stroke="#4a4a4a" stroke-width="1.5"/>
+    <circle cx="0" cy="3" r="1" fill="#ffd700"/>
+  </g>
+  
+  <!-- Stealth particles/shadows -->
+  <g opacity="0.3">
+    <circle cx="35" cy="75" r="1" fill="#8a6fb7"/>
+    <circle cx="42" cy="82" r="0.8" fill="#8a6fb7"/>
+    <circle cx="85" cy="72" r="1.2" fill="#8a6fb7"/>
+    <circle cx="78" cy="88" r="0.9" fill="#8a6fb7"/>
+  </g>
+  
+  <!-- Decorative border -->
+  <circle cx="64" cy="64" r="58" fill="none" stroke="#ffd700" stroke-width="1" stroke-dasharray="2,6" opacity="0.7"/>
+</svg> 

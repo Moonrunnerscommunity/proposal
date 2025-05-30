@@ -1,0 +1,53 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="#2e1a47" stroke="#8a6fb7" stroke-width="2"/>
+  
+  <!-- Explorer hat/cap -->
+  <ellipse cx="64" cy="40" rx="22" ry="10" fill="#8B4513"/>
+  <rect x="42" y="35" width="44" height="15" rx="7" fill="#8B4513"/>
+  
+  <!-- Hat badge/compass -->
+  <circle cx="64" cy="42" r="6" fill="#ffd700"/>
+  <circle cx="64" cy="42" r="4" fill="#2e1a47"/>
+  <line x1="64" y1="38" x2="64" y2="46" stroke="#ffd700" stroke-width="1"/>
+  <line x1="60" y1="42" x2="68" y2="42" stroke="#ffd700" stroke-width="1"/>
+  
+  <!-- Face -->
+  <circle cx="64" cy="65" r="18" fill="#f9f7e8"/>
+  
+  <!-- Eyes -->
+  <circle cx="58" cy="62" r="2" fill="#2e1a47"/>
+  <circle cx="70" cy="62" r="2" fill="#2e1a47"/>
+  
+  <!-- Mustache -->
+  <ellipse cx="64" cy="68" rx="6" ry="2" fill="#8B4513"/>
+  
+  <!-- Mouth -->
+  <path d="M58,72 Q64,76 70,72" stroke="#2e1a47" stroke-width="1.5" fill="none"/>
+  
+  <!-- Telescope -->
+  <g transform="translate(95,35) rotate(45)">
+    <rect x="0" y="-2" width="16" height="4" fill="#4a4a4a"/>
+    <rect x="0" y="-1" width="12" height="2" fill="#6a6a6a"/>
+    <circle cx="16" cy="0" r="3" fill="#2e1a47"/>
+    <circle cx="16" cy="0" r="2" fill="#87ceeb"/>
+  </g>
+  
+  <!-- Art palette -->
+  <g transform="translate(20,90)">
+    <ellipse cx="0" cy="0" rx="12" ry="8" fill="#f9f7e8"/>
+    <circle cx="-4" cy="-2" r="2" fill="#ff6b6b"/>
+    <circle cx="2" cy="-3" r="2" fill="#4ecdc4"/>
+    <circle cx="4" cy="2" r="2" fill="#ffd93d"/>
+    <circle cx="-6" cy="3" r="1.5" fill="#6c5ce7"/>
+  </g>
+  
+  <!-- Mathematical symbols (continuum mechanics reference) -->
+  <g transform="translate(25,45)" fill="#ffd700" opacity="0.7">
+    <text x="0" y="0" font-family="serif" font-size="8">∂</text>
+    <text x="6" y="0" font-family="serif" font-size="8">∇</text>
+  </g>
+  
+  <!-- Decorative border -->
+  <circle cx="64" cy="64" r="58" fill="none" stroke="#ffd700" stroke-width="1" stroke-dasharray="4,4"/>
+</svg> 

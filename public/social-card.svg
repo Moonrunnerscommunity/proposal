@@ -1,0 +1,112 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient backgrounds -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f23;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#1a1a3a;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#2d1b69;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e1e3f;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Text gradients -->
+    <linearGradient id="titleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8a6fb7;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#4fb3d9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8a6fb7;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffed4a;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Glow filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Stars pattern -->
+    <pattern id="stars" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="30" r="1" fill="#8a6fb7" opacity="0.4"/>
+      <circle cx="80" cy="70" r="1.5" fill="#4fb3d9" opacity="0.6"/>
+      <circle cx="60" cy="20" r="1" fill="#ffd700" opacity="0.5"/>
+      <circle cx="30" cy="80" r="1" fill="#8a6fb7" opacity="0.3"/>
+      <circle cx="90" cy="40" r="1.5" fill="#4fb3d9" opacity="0.4"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Stars overlay -->
+  <rect width="1200" height="630" fill="url(#stars)" opacity="0.3"/>
+  
+  <!-- Main content container -->
+  <g transform="translate(60, 60)">
+    
+    <!-- Left side - Wolf emoji and decorative elements -->
+    <g transform="translate(0, 150)">
+      <!-- Large wolf emoji -->
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="180" fill="#8a6fb7" filter="url(#glow)">🐺</text>
+      
+      <!-- Moon emoji -->
+      <text x="200" y="-80" font-family="Arial, sans-serif" font-size="100" fill="#ffd700" opacity="0.8">🌙</text>
+      
+      <!-- Decorative elements -->
+      <circle cx="100" cy="-150" r="3" fill="#4fb3d9" opacity="0.6"/>
+      <circle cx="250" cy="-30" r="2" fill="#8a6fb7" opacity="0.8"/>
+      <circle cx="180" cy="100" r="2.5" fill="#ffd700" opacity="0.7"/>
+    </g>
+    
+    <!-- Right side - Text content -->
+    <g transform="translate(320, 100)">
+      
+      <!-- Main title -->
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="url(#titleGradient)">
+        MOONRUNNERS
+      </text>
+      
+      <!-- Subtitle -->
+      <text x="0" y="90" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="url(#accentGradient)">
+        Community Takeover
+      </text>
+      
+      <!-- Description line 1 -->
+      <text x="0" y="160" font-family="Arial, sans-serif" font-size="32" fill="#e2e8f0">
+        🐺 Wolves of Many Talents
+      </text>
+      
+      <!-- Description line 2 -->
+      <text x="0" y="210" font-family="Arial, sans-serif" font-size="28" fill="#cbd5e1">
+        Join the pack &amp; shape the future
+      </text>
+      
+      <!-- Call to action -->
+      <g transform="translate(0, 280)">
+        <rect x="0" y="0" width="300" height="60" rx="30" fill="url(#accentGradient)" opacity="0.2" stroke="url(#accentGradient)" stroke-width="2"/>
+        <text x="150" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="url(#accentGradient)" text-anchor="middle">
+          Vote Now! 🗳️
+        </text>
+      </g>
+      
+    </g>
+    
+    <!-- Bottom decorative line -->
+    <line x1="0" y1="500" x2="1080" y2="500" stroke="url(#titleGradient)" stroke-width="2" opacity="0.5"/>
+    
+    <!-- Website URL -->
+    <text x="540" y="540" font-family="Arial, sans-serif" font-size="24" fill="#94a3b8" text-anchor="middle">
+      moonrunners.ai
+    </text>
+    
+  </g>
+  
+  <!-- Corner decorative elements -->
+  <circle cx="50" cy="50" r="20" fill="none" stroke="#8a6fb7" stroke-width="2" opacity="0.3"/>
+  <circle cx="1150" cy="580" r="15" fill="none" stroke="#4fb3d9" stroke-width="2" opacity="0.4"/>
+  
+</svg> 
