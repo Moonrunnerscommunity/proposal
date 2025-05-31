@@ -63,7 +63,7 @@ const ContractsSection = () => {
     },
     {
       collection: 'Primordia Land',
-      description: 'Digital land parcels with quarterly USDC yield from real-world businesses',
+      description: 'Digital land parcels Digital land parcels connected to the "Zoofs" pet supplement company.',
       items: 2888,
       currentOwner: 'Antix.eth',
       contractAddress: '0xfbb87a6a4876820d996a9bbe106e4f73a5e4a71c',

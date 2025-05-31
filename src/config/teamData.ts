@@ -39,7 +39,7 @@ export const wolfCouncil: TeamMember[] = [
     wolfName: 'The Lore Keeper',
     image: '/team/kaladin.png', 
     animatedImage: '/team/live/kaladin.gif',
-    bio: 'The original writer of the Moonrunners lore and creator of the Moonrunners universe, Kaladin returns to the pack to bring us new adventures and crazy stories.',
+    bio: 'One of the original writers of the Moonrunners lore and a loud-mouthed wolf who loves to vibe, Kaladin returns to expand the universe into new and unexpected directions. He also wrote a real life book.',
     role: 'Content & Narrative',
     twitter: 'KaladinNFT',
   },
@@ -75,7 +75,7 @@ export const wolfCouncil: TeamMember[] = [
   { 
     name: 'CryptoDave', 
     wolfName: 'The Pack Treasurer',
-    image: '/team/fin.svg', 
+    image: '/team/cryptodave.png', 
     bio: 'Keeps the pack\'s resources secure and sustainable. Financial strategist managing treasury, planning economic strategies, and ensuring we have the resources needed for our journey while maintaining transparency.',
     role: 'Financial Planning',
     twitter: '0xcryptodave',
