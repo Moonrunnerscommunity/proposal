@@ -38,6 +38,7 @@ export const wolfCouncil: TeamMember[] = [
     name: 'Kaladin', 
     wolfName: 'The Lore Keeper',
     image: '/team/kaladin.png', 
+    animatedImage: '/team/live/kaladin.gif',
     bio: 'The original writer of the Moonrunners lore and creator of the Moonrunners universe, Kaladin returns to the pack to bring us new adventures and crazy stories.',
     role: 'Content & Narrative',
     twitter: 'KaladinNFT',
