@@ -43,12 +43,12 @@ export function NFTGrid({ title, nfts, onUnstake, isLoading }: NFTGridProps) {
   if (nfts.length === 0 && !isLoading) {
     return (
       <Card>
-        <CardContent className="p-8 text-center">
-          <div className="w-16 h-16 bg-slate-200 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Unlock className="w-8 h-8 text-slate-500" />
+        <CardContent>
+          <div>
+            <Unlock />
           </div>
-          <h3 className="text-lg font-semibold text-slate-900 mb-2">No Staked NFTs</h3>
-          <p className="text-slate-600">
+          <h3>No Staked NFTs</h3>
+          <p>
             No staked {title} NFTs found for your wallet address.
           </p>
         </CardContent>
@@ -57,30 +57,30 @@ export function NFTGrid({ title, nfts, onUnstake, isLoading }: NFTGridProps) {
   }
 
   return (
-    <Card>
-      <CardContent className="p-6">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
+    <Card className="glass-dark border border-[rgba(138,111,183,0.15)] shadow-lg mb-8">
+      <CardContent>
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-4">
           <div>
-            <h3 className="text-2xl font-bold">{title}</h3>
+            <h3 className="text-responsive-xl font-bold text-starlight drop-shadow-md tracking-wide">{title}</h3>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 mt-4 sm:mt-0">
+          <div className="flex gap-2 flex-wrap">
             <Button
               variant="outline"
               onClick={handleSelectAll}
-              className="flex items-center space-x-2"
               disabled={nfts.length === 0}
+              className="btn-secondary border border-[rgba(138,111,183,0.3)]"
             >
-              <CheckSquare className="w-4 h-4" />
+              <CheckSquare className="mr-1" />
               <span>{selectedTokenIds.size === nfts.length ? 'Deselect All' : 'Select All'}</span>
             </Button>
 
             <Button
               onClick={handleUnstakeSelected}
               disabled={selectedTokenIds.size === 0}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground flex items-center space-x-2"
+              className="btn-primary border border-[rgba(255,215,0,0.2)]"
             >
-              <Unlock className="w-4 h-4" />
+              <Unlock className="mr-1" />
               <span>Unstake Selected</span>
             </Button>
           </div>
@@ -89,11 +89,11 @@ export function NFTGrid({ title, nfts, onUnstake, isLoading }: NFTGridProps) {
         {isLoading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {[...Array(4)].map((_, i) => (
-              <Card key={i} className="overflow-hidden">
-                <div className="w-full h-48 bg-slate-200 animate-pulse" />
+              <Card key={i} className="overflow-hidden glass-dark border border-[rgba(138,111,183,0.15)] animate-pulse">
+                <div className="w-full h-48 bg-[rgba(138,111,183,0.15)]" />
                 <div className="p-4 space-y-2">
-                  <div className="h-4 bg-slate-200 rounded animate-pulse" />
-                  <div className="h-3 bg-slate-200 rounded w-2/3 animate-pulse" />
+                  <div className="h-4 bg-[rgba(138,111,183,0.15)] rounded" />
+                  <div className="h-3 bg-[rgba(138,111,183,0.10)] rounded w-2/3" />
                 </div>
               </Card>
             ))}
@@ -113,12 +113,10 @@ export function NFTGrid({ title, nfts, onUnstake, isLoading }: NFTGridProps) {
 
         {/* Selection Summary */}
         {nfts.length > 0 && (
-          <div className="mt-6 p-4 rounded-lg border bg-background">
-            <div className="flex items-center justify-center">
-              <span className="text-slate-500">
-                {selectedTokenIds.size} of {nfts.length} NFTs selected
-              </span>
-            </div>
+          <div className="mt-6 flex justify-end">
+            <span className="text-sm text-starlight bg-[rgba(74,43,123,0.2)] px-4 py-2 rounded-lg border border-[rgba(138,111,183,0.15)]">
+              {selectedTokenIds.size} of {nfts.length} NFTs selected
+            </span>
           </div>
         )}
       </CardContent>

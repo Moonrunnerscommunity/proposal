@@ -512,6 +512,19 @@ a:focus {
   outline-offset: 2px;
 }
 
+/* Remove gold outline for tab triggers and .no-outline utility */
+button.tab-trigger:focus,
+.tab-trigger:focus,
+.no-outline:focus {
+  outline: none !important;
+  outline-offset: 0 !important;
+}
+
+.no-outline {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 /* Smooth scrolling for internal links */
 [id] {
   /* scroll-margin-top: 2rem; */
