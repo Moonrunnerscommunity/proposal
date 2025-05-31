@@ -50,6 +50,12 @@ export default function ParallaxContainer() {
         />
       </div>
 
+      <div className="fixed top-6 right-6 sm:top-13 sm:right-15 z-50">
+        <button onClick={() => window.open('/unstake', '_self')} className="rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary hover:bg-primary/90 h-10 btn-primary border border-[rgba(255,215,0,0.2)] text-starlight font-mono px-4 py-2 shadow-md hover:scale-105 transition-transform">
+          Unstaking Portal
+        </button>
+      </div>
+
       {/* Content overlay */}
       <div className="relative z-40">
         {/* Hero Section */}
