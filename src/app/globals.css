@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 
 /* Brand Color Variables */
 :root {

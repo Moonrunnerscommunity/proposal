@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { CheckIcon, XMarkIcon, ExclamationTriangleIcon, NoSymbolIcon, ClipboardIcon } from '@heroicons/react/24/outline';
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 
 interface Contract {
   collection: string;
@@ -84,7 +85,7 @@ const ContractsSection = () => {
   };
 
   return (
-    <div className="glass-dark p-6 rounded-lg">
+    <div className="glass-dark p-4 md:p-6 rounded-lg">
       <h4 className="text-lg font-semibold mb-4 flex items-center gap-2" style={{ color: 'var(--color-starlight)' }}>
         <ExclamationTriangleIcon className="w-5 h-5 text-red-500" />
         Contracts
@@ -96,41 +97,37 @@ const ContractsSection = () => {
         </p>
       </div>
       
-      <div className="overflow-x-auto">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="border-b" style={{ borderColor: 'rgba(138, 111, 183, 0.3)' }}>
-              <th className="text-left p-3 font-medium" style={{ color: 'var(--color-starlight)' }}>Collection</th>
-              <th className="text-left p-3 font-medium" style={{ color: 'var(--color-starlight)' }}>Description</th>
-              <th className="text-center p-3 font-medium" style={{ color: 'var(--color-starlight)' }}>Items</th>
-              <th className="text-left p-3 font-medium" style={{ color: 'var(--color-starlight)' }}>Current Owner</th>
-              <th className="text-left p-3 font-medium" style={{ color: 'var(--color-starlight)' }}>Contract</th>
-              <th className="text-center p-3 font-medium" style={{ color: 'var(--color-starlight)' }}>Status</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y" style={{ borderColor: 'rgba(138, 111, 183, 0.2)' }}>
+      <div className="responsive-table-wrapper">
+        <Table className="w-full text-sm">
+          <Thead>
+            <Tr style={{ borderBottom: '1px solid rgba(138, 111, 183, 0.3)' }}>
+              <Th className="text-left p-3 font-medium" style={{ color: 'var(--color-starlight)' }}>Collection</Th>
+              <Th className="text-left p-3 font-medium" style={{ color: 'var(--color-starlight)' }}>Description</Th>
+              <Th className="text-center p-3 font-medium" style={{ color: 'var(--color-starlight)' }}>Items</Th>
+              <Th className="text-left p-3 font-medium" style={{ color: 'var(--color-starlight)' }}>Current Owner</Th>
+              <Th className="text-left p-3 font-medium" style={{ color: 'var(--color-starlight)' }}>Contract</Th>
+              <Th className="text-center p-3 font-medium" style={{ color: 'var(--color-starlight)' }}>Status</Th>
+            </Tr>
+          </Thead>
+          <Tbody style={{ borderColor: 'rgba(138, 111, 183, 0.2)' }}>
             {contracts.map((contract, index) => (
-              <tr 
+              <Tr 
                 key={index} 
-                className={`transition-colors ${contract.notIncluded ? 'opacity-50' : ''}`}
-                onMouseEnter={(e) => {
-                  if (!contract.notIncluded) {
-                    e.currentTarget.style.backgroundColor = 'rgba(28, 13, 54, 0.5)';
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'transparent';
+                className={`transition-colors contracts-row ${contract.notIncluded ? 'opacity-50' : ''}`}
+                style={{
+                  borderBottom: '1px solid rgba(138, 111, 183, 0.2)'
                 }}
               >
-                <td className="p-3">
-                  <div className="flex items-center gap-3">
-                    <div className={`w-8 h-8 rounded flex items-center justify-center overflow-hidden ${contract.notIncluded ? 'bg-gray-700' : 'bg-gray-800'}`}>
+                <Td className="p-3">
+                  <div className="flex items-center gap-3 mobile-collection-info">
+                    <div className={`w-8 h-8 md:w-8 md:h-8 mobile-image rounded flex items-center justify-center overflow-hidden ${contract.notIncluded ? 'bg-gray-700' : 'bg-gray-800'}`}>
                       <Image 
                         src={contract.imageUrl} 
                         alt={`${contract.collection} NFT`}
                         width={32}
                         height={32}
-                        className={`w-full h-full object-cover ${contract.notIncluded ? 'opacity-50' : ''}`}
+                        className={`w-full h-full pixelated-image object-cover ${contract.notIncluded ? 'opacity-50' : ''}`}
+                        unoptimized
                         onError={(e) => {
                           const target = e.currentTarget as HTMLImageElement;
                           target.style.display = 'none';
@@ -146,7 +143,7 @@ const ContractsSection = () => {
                       href={contract.openseaUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`font-medium hover:underline transition-colors ${
+                      className={`font-medium hover:underline transition-colors mobile-collection-title ${
                         contract.notIncluded 
                           ? 'text-gray-400' 
                           : 'text-purple-300 hover:text-blue-400'
@@ -155,17 +152,17 @@ const ContractsSection = () => {
                       {contract.collection}
                     </a>
                   </div>
-                </td>
-                <td className={`p-3 ${contract.notIncluded ? 'text-gray-400' : 'text-gray-300'}`}>
+                </Td>
+                <Td className={`p-3 mobile-description ${contract.notIncluded ? 'text-gray-400' : 'text-gray-300'}`}>
                   {contract.description}
-                </td>
-                <td className={`p-3 text-center font-mono ${contract.notIncluded ? 'text-gray-400' : 'text-green-500'}`}>
+                </Td>
+                <Td className={`p-3 text-center font-mono ${contract.notIncluded ? 'text-gray-400' : 'text-green-500'}`}>
                   {contract.items.toLocaleString()}
-                </td>
-                <td className={`p-3 font-mono text-xs ${contract.notIncluded ? 'text-gray-400' : 'text-gray-300'}`}>
+                </Td>
+                <Td className={`p-3 font-mono text-xs ${contract.notIncluded ? 'text-gray-400' : 'text-gray-300'}`}>
                   {contract.currentOwner}
-                </td>
-                <td className="p-3">
+                </Td>
+                <Td className="p-3">
                   <div className="flex items-center gap-2">
                     <a
                       href={`https://etherscan.io/address/${contract.contractAddress}`}
@@ -192,9 +189,9 @@ const ContractsSection = () => {
                       )}
                     </button>
                   </div>
-                </td>
-                <td className="p-3 text-center">
-                  <div className="flex items-center justify-center gap-2">
+                </Td>
+                <Td className="p-3 text-center">
+                  <div className="flex items-center justify-center gap-2 mobile-status">
                     {contract.notIncluded ? (
                       <>
                         <NoSymbolIcon className="w-5 h-5 text-gray-500" />
@@ -212,12 +209,144 @@ const ContractsSection = () => {
                       </>
                     )}
                   </div>
-                </td>
-              </tr>
+                </Td>
+              </Tr>
             ))}
-          </tbody>
-        </table>
+          </Tbody>
+        </Table>
       </div>
+
+      <style jsx>{`
+        .contracts-row:hover:not(.opacity-50) {
+          background-color: rgba(28, 13, 54, 0.5) !important;
+        }
+        
+        /* Custom responsive table styles to integrate with existing theme */
+        .responsive-table-wrapper :global(.responsiveTable) {
+          background: transparent;
+          border: none;
+          color: var(--foreground);
+        }
+        
+        .responsive-table-wrapper :global(.responsiveTable tbody tr) {
+          background: transparent !important;
+          border: none !important;
+        }
+        
+        .responsive-table-wrapper :global(.responsiveTable tbody tr:nth-child(even)) {
+          background: transparent !important;
+        }
+        
+        .responsive-table-wrapper :global(.responsiveTable thead) {
+          background: transparent;
+        }
+        
+        /* Mobile view styling */
+        @media (max-width: 40em) {
+          .responsive-table-wrapper :global(.responsiveTable),
+          .responsive-table-wrapper :global(.responsiveTable thead),
+          .responsive-table-wrapper :global(.responsiveTable tbody),
+          .responsive-table-wrapper :global(.responsiveTable th),
+          .responsive-table-wrapper :global(.responsiveTable td),
+          .responsive-table-wrapper :global(.responsiveTable tr) {
+            border: none !important;
+            background: transparent !important;
+          }
+          
+          .responsive-table-wrapper :global(.responsiveTable tbody tr) {
+            border: 1px solid rgba(138, 111, 183, 0.3) !important;
+            border-radius: 8px !important;
+            margin-bottom: 16px !important;
+            padding: 16px !important;
+            background: rgba(138, 111, 183, 0.05) !important;
+          }
+          
+          .responsive-table-wrapper :global(.responsiveTable tbody td) {
+            border: none !important;
+            padding: 12px !important;
+            position: relative;
+            display: block !important;
+            margin-bottom: 8px;
+          }
+          
+          .responsive-table-wrapper :global(.responsiveTable tbody td:before) {
+            content: attr(data-th);
+            display: block !important;
+            font-weight: 600;
+            color: var(--color-starlight);
+            margin-bottom: 6px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            line-height: 1.2;
+          }
+          
+          .responsive-table-wrapper :global(.responsiveTable tbody td > *) {
+            display: block !important;
+            margin-top: 0 !important;
+          }
+          
+          /* Override the library's width calculation for vertical stacking */
+          .responsive-table-wrapper :global(.responsiveTable td .tdBefore) {
+            width: 100% !important;
+            position: relative !important;
+            left: auto !important;
+            display: block !important;
+            margin-bottom: 6px !important;
+          }
+          
+          /* Mobile-specific enhancements */
+          .mobile-image {
+            width: 100% !important;
+            height: auto !important;
+            aspect-ratio: 1 / 1 !important;
+          }
+          
+
+          
+          .mobile-collection-info {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 12px !important;
+            width: 100% !important;
+          }
+          
+          .mobile-collection-title {
+            font-size: 1.25rem !important;
+            font-weight: 700 !important;
+          }
+          
+          .mobile-description {
+            font-size: 1rem !important;
+            line-height: 1.5 !important;
+          }
+          
+          .mobile-status {
+            justify-content: flex-start !important;
+            align-items: center !important;
+          }
+          
+          .mobile-status span {
+            font-size: 0.875rem !important;
+          }
+          
+          /* Keep contract address and copy button inline */
+          .responsive-table-wrapper :global(.responsiveTable tbody td) .flex.items-center.gap-2 {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+          }
+        }
+        
+        /* Ensure pixelated rendering for all contract images */
+        .responsive-table-wrapper img,
+        .responsive-table-wrapper .pixelated-image {
+          image-rendering: pixelated !important;
+          image-rendering: -moz-crisp-edges !important;
+          image-rendering: crisp-edges !important;
+          -ms-interpolation-mode: nearest-neighbor !important;
+        }
+      `}</style>
     </div>
   );
 };

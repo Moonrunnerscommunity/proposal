@@ -10,6 +10,14 @@ const MultisigSection = () => {
   // Get Cartel's data from centralized config
   const cartelData = findTeamMember('Cartel');
 
+  // Helper function to truncate wallet addresses for mobile
+  const truncateAddress = (address: string, startChars: number = 8, endChars: number = 6) => {
+    if (!address) return '';
+    return `${address.substring(0, startChars)}...${address.substring(address.length - endChars)}`;
+  };
+
+  const multisigAddress = '0xf728942638942DF1a31e10722d49C1E758B2F8F1';
+
   const handleCopyWallet = async (walletAddress: string) => {
     try {
       await navigator.clipboard.writeText(walletAddress);
@@ -32,10 +40,10 @@ const MultisigSection = () => {
         <div className="bg-green-900/30 border-2 border-green-500/50 rounded-lg p-6 backdrop-blur-sm space-y-4">
           <div className="flex items-center gap-2">
             <div className="font-mono text-sm text-green-200 bg-green-950/50 p-3 rounded border flex-1">
-              0xf728942638942DF1a31e10722d49C1E758B2F8F1
+              {truncateAddress(multisigAddress, 10, 8)}
             </div>
             <button
-              onClick={() => navigator.clipboard.writeText('0xf728942638942DF1a31e10722d49C1E758B2F8F1')}
+              onClick={() => navigator.clipboard.writeText(multisigAddress)}
               className="flex items-center justify-center w-10 h-10 bg-green-800/50 hover:bg-green-700/50 border border-green-500/30 rounded transition-colors"
               title="Copy wallet address"
             >
@@ -47,7 +55,7 @@ const MultisigSection = () => {
           </div>
           <div className="flex items-center gap-4">
             <a 
-              href="https://app.safe.global/home?safe=eth:0xf728942638942DF1a31e10722d49C1E758B2F8F1"
+              href={`https://app.safe.global/home?safe=eth:${multisigAddress}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors"
@@ -67,7 +75,7 @@ const MultisigSection = () => {
                   <div className="font-medium text-green-200">Cartel</div>
                   <div className="flex items-center gap-2">
                     <div className="font-mono text-xs text-green-400 bg-green-900/30 p-2 rounded flex-1">
-                      {cartelData?.walletAddress || '[Wallet address not found]'}
+                      {truncateAddress(cartelData?.walletAddress || '[Wallet address not found]', 14, 10)}
                     </div>
                     {cartelData?.walletAddress && (
                       <button

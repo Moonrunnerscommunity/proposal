@@ -170,18 +170,11 @@ const ThatsAllFolksSection = () => {
             >
               ❤️
             </button>
-            <span>by the Moonrunners Team</span>
+            <span>by the Moonrunners Community Team</span>
           </div>
           
           <div className="text-purple-400 text-sm space-y-2">
-            <div>© 2025 Moonrunners. All rights reserved.</div>
-            <div className="flex items-center justify-center space-x-4 text-xs">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <span>•</span>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-              <span>•</span>
-              <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
-            </div>
+            <div>© 2025 Moonrunners Community. All rights reserved.</div>
           </div>
 
           {/* Hidden Easter Egg - Only shows when heart is clicked */}

@@ -28,7 +28,7 @@ export default function ParallaxContainer() {
       </div>
 
       {/* Mountains layer - fixed at bottom */}
-      <div className="fixed bottom-[-100px] left-0 right-0 z-10">
+      <div className="fixed sm:bottom-[-100px] bottom-[100px] left-0 right-0 z-10">
         <Image
           src="/parallax/mountains.png"
           alt="Mountains"
@@ -40,7 +40,7 @@ export default function ParallaxContainer() {
       </div>
 
       {/* Clouds layer - fixed at top */}
-      <div className="fixed top-0 left-0 right-0 z-20">
+      <div className="fixed top-5 sm:top-0 left-0 right-0 z-20">
         <Image
           src="/parallax/clouds.png"
           alt="Clouds"

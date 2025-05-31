@@ -1,25 +1,40 @@
 'use client';
 
 import Image from 'next/image';
+import { useState } from 'react';
 import { TeamMember, packLeadership, wolfCouncil } from '../config/teamData';
 
-const TeamMemberCard = ({ name, wolfName, image, bio, role, twitter, walletAddress, discord }: TeamMember) => {
-  // Disable animations temporarily to test parallax
-  // const [isLoaded, setIsLoaded] = useState(false);
+const TeamMemberCard = ({ name, wolfName, image, animatedImage, bio, role, twitter, walletAddress, discord }: TeamMember) => {
+  const [isHovered, setIsHovered] = useState(false);
 
-  // useEffect(() => {
-  //   setIsLoaded(true);
-  // }, []);
+  // Handle hover start
+  const handleMouseEnter = () => {
+    if (animatedImage) {
+      setIsHovered(true);
+    }
+  };
+
+  // Handle hover end
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
 
   // Auto-generate OpenSea and Etherscan URLs from wallet address
   const openSeaUrl = walletAddress ? `https://opensea.io/${walletAddress}` : undefined;
   const etherscanUrl = walletAddress ? `https://etherscan.io/address/${walletAddress}` : undefined;
 
+  // Determine which image to show
+  const currentImage = (isHovered && animatedImage) ? animatedImage : image;
+
   return (
     <div className="team-member-card glass p-6 rounded-lg hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 h-full flex flex-col">
-      <div className="relative w-64 h-64 mx-auto mb-4">
+      <div 
+        className="relative w-64 h-64 mx-auto mb-4"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <Image
-          src={image}
+          src={currentImage}
           alt={`${name} NFT`}
           fill
           className="pixelated-image object-cover rounded-lg border-2 border-purple-400/30"
@@ -55,7 +70,7 @@ const TeamMemberCard = ({ name, wolfName, image, bio, role, twitter, walletAddre
             title="OpenSea Profile"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0C5.374 0 0 5.374 0 12s5.374 12 12 12 12-5.374 12-12S18.626 0 12 0zM5.92 12.403l.051-.081 3.123-4.884a.107.107 0 01.187.014c.52 1.169.972 2.623.76 3.528-.088.372-.335.876-.614 1.342a2.405 2.405 0 01-.117.199.106.106 0 01-.09.051H6.013a.106.106 0 01-.093-.169zm13.914 1.68a.109.109 0 01-.065.101c-.243.103-1.07.485-1.414.962-.878 1.222-1.548 2.97-3.048 2.97H9.053a4.019 4.019 0 01-4.013-4.028v-.072c0-.058.048-.106.106-.106h3.485c.067 0 .118.058.112.125-.031.435.069.745.213.909.144.164.356.220.669.220.313 0 .549-.085.709-.304.160-.219.242-.615.242-1.075v-.341h-1.761a.107.107 0 01-.106-.106v-.688c0-.058.048-.106.106-.106h1.761v-1.643h1.222v1.643h.674c.058 0 .106.048.106.106v.688a.107.107 0 01-.106.106h-.674v.341c0 .196.016.357.096.640.069.283.212.458.413.458s.344-.175.413-.458c.08-.283.096-.444.096-.64v-.341h-.554a.107.107 0 01-.106-.106v-.688c0-.058.048-.106.106-.106h.554v-.851c0-.058.048-.106.106-.106h.727c.058 0 .106.048.106.106v.851h.727c.058 0 .106.048.106.106v.688a.107.107 0 01-.106.106h-.727v.341c0 .435.082.831.242 1.075.16.219.396.304.709.304.313 0 .525-.056.669-.22.144-.164.244-.474.213-.909a.112.112 0 01.112-.125h3.485c.058 0 .106.048.106.106v.072c0 .8-.244 1.536-.65 2.152z"/>
+              <path d="M12 0C5.374 0 0 5.374 0 12s5.374 12 12 12 12-5.374 12-12S18.626 0 12 0zM5.92 12.403l.051-.081 3.123-4.884a.107.107 0 01.187.014c.52 1.169.972 2.623.76 3.528-.088.372-.335.876-.614 1.342a2.405 2.405 0 01-.117.199.106.106 0 01-.09.051H6.013a.106.106 0 01-.093-.169zm13.914 1.68a.109.109 0 01-.065.101c-.243.103-1.07.485-1.414.962-.878 1.222-1.548 2.97-3.048 2.97H9.053a4.019 4.019 0 01-4.013-4.028v-.072c0-.058.048-.106.106-.106h3.485c.067 0 .118.058.112.125-.031.435.069.745.213.909.144.164.356.22.669.22.313 0 .549-.085.709-.304.160-.219.242-.615.242-1.075v-.341h-1.761a.107.107 0 01-.106-.106v-.688c0-.058.048-.106.106-.106h1.761v-1.643h1.222v1.643h.674c.058 0 .106.048.106.106v.688a.107.107 0 01-.106.106h-.674v.341c0 .196.016.357.096.64.069.283.212.458.413.458s.344-.175.413-.458c.08-.283.096-.444.096-.64v-.341h-.554a.107.107 0 01-.106-.106v-.688c0-.058.048-.106.106-.106h.554v-.851c0-.058.048-.106.106-.106h.727c.058 0 .106.048.106.106v.851h.727c.058 0 .106.048.106.106v.688a.107.107 0 01-.106.106h-.727v.341c0 .435.082.831.242 1.075.16.219.396.304.709.304.313 0 .525-.056.669-.22.144-.164.244-.474.213-.909a.112.112 0 01.112-.125h3.485c.058 0 .106.048.106.106v.072c0 .8-.244 1.536-.65 2.152z"/>
             </svg>
           </a>
         )}

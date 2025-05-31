@@ -26,7 +26,7 @@ const EmailSection = () => {
       
       <div className="grid md:grid-cols-2 gap-6">
         {/* Left Column - Email Details (Green Theme) */}
-        <div className="bg-green-900/30 border-2 border-green-500/50 rounded-lg p-6 backdrop-blur-sm space-y-4">
+        <div className="bg-green-900/30 border-2 border-green-500/50 rounded-lg p-4 sm:p-6 backdrop-blur-sm space-y-4">
           <div className="flex items-center gap-2">
             <div className="font-mono text-sm text-green-200 bg-green-950/50 p-3 rounded border flex-1">
               {email}

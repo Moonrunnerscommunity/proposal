@@ -23,23 +23,21 @@ const OperationalSection = () => {
           </div>
         </div>
 
-        <div className="glass p-8 rounded-lg">
-          <div className="space-y-8">
-            {/* Multisig Wallet Section */}
-            <MultisigSection />
+        <div className="space-y-8">
+          {/* Multisig Wallet Section */}
+          <MultisigSection />
 
-            {/* Email Section */}
-            <EmailSection />
+          {/* Email Section */}
+          <EmailSection />
 
-            {/* Domains Section */}
-            <DomainsSection />
+          {/* Domains Section */}
+          <DomainsSection />
 
-            {/* Contracts Section */}
-            <ContractsSection />
+          {/* Contracts Section */}
+          <ContractsSection />
 
-            {/* Social Accounts Section */}
-            <SocialAccountsSection />
-          </div>
+          {/* Social Accounts Section */}
+          <SocialAccountsSection />
         </div>
       </div>
     </section>

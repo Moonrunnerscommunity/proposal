@@ -31,6 +31,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-scroll-parallax": "^3.4.5",
+    "react-super-responsive-table": "^6.0.2",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "viem": "^2.30.5",

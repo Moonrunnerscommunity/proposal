@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import ParallaxProviderWrapper from "@/components/ParallaxProviderWrapper";
+import CountdownRibbon from "@/components/CountdownRibbon";
 import "./globals.css";
 import { AppProviders } from "@/components/unstake/AppProviders";
 
@@ -101,6 +102,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <CountdownRibbon />
         <AppProviders>
           <ParallaxProviderWrapper>
             {children}

@@ -99,7 +99,7 @@ function FeedbackModal({ open, setOpen }: { open: boolean; setOpen: (v: boolean)
           <>
             {/* Suggestions Section */}
             <div className="bg-gray-50/80 rounded-lg p-4 border border-gray-200">
-              <h4 className="text-sm font-bold text-gray-900 mb-2">💭 Need inspiration? Try these topics:</h4>
+              <h4 className="text-sm font-bold  mb-2" style={{ color: 'var(--color-grey-9800)' }}>💭 Need inspiration? Try these topics:</h4>
               <div className="grid grid-cols-2 gap-2 text-xs">
                 {suggestions.map((suggestion, index) => {
                   const text = suggestion.substring(2).trim(); // Remove emoji and space
@@ -207,16 +207,6 @@ export default function HeroSection() {
                 />
               </div>
 
-              <div className="w-full flex justify-center mb-6 sm:mb-8 lg:mb-12 transition-all duration-1000 delay-200">
-                <div className="relative w-1/2 rounded-lg p-4">
-                  <div className="absolute inset-0 bg-purple-800/60 rounded-lg"></div>
-                  <div className="relative z-10 text-red-100 font-medium text-center">
-                    <strong>This is a Final Draft Proposal</strong><br />
-                    <p className="text-sm ">We are still gathering content and testing links. Content is subject to change.</p>
-                  </div>
-                </div>
-              </div>
-
               {/* Title - responsive typography */}
               <div className="mb-6 sm:mb-8 lg:mb-12 w-full flex justify-center transition-all duration-1000 delay-300">
                 <h1 className="text-responsive-3xl font-bold text-white leading-tight text-center">
@@ -244,6 +234,61 @@ export default function HeroSection() {
                     {/* Decorative elements */}
                     <div className="absolute -top-2 -left-2 w-4 h-4 border-l-2 border-t-2 border-yellow-400 opacity-60"></div>
                     <div className="absolute -bottom-2 -right-2 w-4 h-4 border-r-2 border-b-2 border-yellow-400 opacity-60"></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Community Vote Call to Action */}
+              <div className="mb-6 lg:mb-8 w-full flex justify-center transition-all duration-1000 delay-700">
+                <div className="relative w-full max-w-4xl">
+                  {/* Animated border */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 rounded-xl animate-pulse opacity-75"></div>
+                  <div className="relative bg-gray-900/95 backdrop-blur-sm p-6 sm:p-8 rounded-xl border border-yellow-400/30 m-1">
+                    
+                    {/* Urgent header */}
+                    <div className="flex items-center justify-center mb-6">
+                      <div className="flex items-center space-x-3">
+                        <span className="text-2xl animate-bounce">🚨</span>
+                        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-yellow-400 text-center">
+                          COMMUNITY VOTE NEEDED!
+                        </h2>
+                        <span className="text-2xl animate-bounce">🚨</span>
+                      </div>
+                    </div>
+
+                    {/* Vote details */}
+                    <div className="space-y-4 text-center">
+                      <p className="text-base sm:text-lg text-white leading-relaxed">
+                        <span className="font-bold text-green-400">The creators have agreed</span> to transfer the Moonrunners NFT collection 
+                        into the hands of the community — but we need 
+                        <span className="font-bold text-yellow-400 text-xl"> 66.6% of holders</span> to vote YES!
+                      </p>
+                      
+                      <div className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-lg p-4 border border-purple-400/30">
+                        <p className="text-lg sm:text-xl font-bold text-white mb-2">
+                          🗳️ Voting starts <span className="text-yellow-400">Sunday</span>!
+                        </p>
+                        <p className="text-base text-gray-200">
+                          This is <span className="font-semibold text-gradient">our proposal</span>, and we need <span className="font-bold text-yellow-400">YOUR VOTE</span>!
+                        </p>
+                      </div>
+
+                      {/* Urgency message */}
+                      <div className="flex items-center justify-center space-x-2 text-orange-400">
+                        <span className="text-lg">⚡</span>
+                        <p className="text-sm sm:text-base font-semibold">
+                          66.6% is A LOT! Tell your friends, spread the word!
+                        </p>
+                        <span className="text-lg">⚡</span>
+                      </div>
+                    </div>
+
+                    {/* Pack unity message */}
+                    <div className="mt-6 pt-4 border-t border-gray-600/50">
+                      <p className="text-center text-base font-bold text-white">
+                        🐺 <span className="text-gradient">The Pack must unite for this historic moment!</span> 🌙
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
