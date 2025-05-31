@@ -91,7 +91,7 @@ export const wolfCouncil: TeamMember[] = [
   { 
     name: 'ExplorerDavid', 
     wolfName: 'The Adventureneer',
-    image: '/team/explorerdavid.svg', 
+    image: '/team/explorer.png', 
     bio: 'Self-proclaimed "Chief Everything Officer" and creative adventurer who bridges art and technology. This innovative wolf explores the intersection of digital art and continuum mechanics, bringing fresh perspectives and boundless curiosity to every project.',
     role: 'Creative Innovation',
     twitter: 'ExplorerDavid',
