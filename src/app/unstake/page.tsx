@@ -192,7 +192,7 @@ export default function UnstakePage() {
 
         {/* Main Content */}
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="p-6 md:p-10">
+          <div className="glass-dark border border-[rgba(138,111,183,0.18)] shadow-2xl rounded-2xl p-6 md:p-10 backdrop-blur-md">
             {!isConnected ? (
               <div className="flex justify-center items-center min-h-[300px]">
                 <div className="glass-dark border border-[rgba(138,111,183,0.18)] shadow-lg rounded-2xl px-8 py-10 flex flex-col items-center gap-4 max-w-md w-full">
