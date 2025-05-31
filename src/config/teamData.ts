@@ -46,6 +46,7 @@ export const wolfCouncil: TeamMember[] = [
     name: 'CryptoPicaroon', 
     wolfName: 'The Puzzle Master',
     image: '/team/picaroon.png', 
+    animatedImage: '/team/live/picaroon.gif',
     bio: 'Master of mysteries and keeper of secrets. This cunning wolf designs intricate puzzles, hidden challenges, and cryptic riddles that test the wit and wisdom of the pack while guarding our most treasured knowledge.',
     role: 'Puzzle Design',
     twitter: 'captainpicaroon',
