@@ -170,10 +170,27 @@ export default function HeroSection() {
     <Button
       variant="default"
       size="lg"
-      className="shadow-lg bg-gradient-to-r from-purple-600 via-pink-500 via-blue-500 to-cyan-500 text-white px-8 py-3 text-base font-bold rounded-full transition-all duration-300 border-2 border-white/20 hover:scale-105 hover:shadow-xl hover:from-purple-500 hover:via-pink-400 hover:via-blue-400 hover:to-cyan-400"
+      className="min-w-64 shadow-lg bg-gradient-to-r from-purple-600 via-pink-500 via-blue-500 to-cyan-500 text-white px-8 py-3 text-base font-bold rounded-full transition-all duration-300 border-0 hover:scale-105 hover:shadow-xl hover:from-purple-500 hover:via-pink-400 hover:via-blue-400 hover:to-cyan-400"
+      style={{
+        boxShadow: 'inset 0 0 0 2px rgba(255, 255, 255, 0.2), 0 10px 15px -3px rgba(0, 0, 0, 0.1)'
+      }}
       onClick={() => setFeedbackOpen(true)}
     >
       📝 Share Your Feedback
+    </Button>
+  );
+
+  const UnstakeButtonComponent = () => (
+    <Button
+      variant="default"
+      size="lg"
+      className="min-w-64 shadow-lg bg-gradient-to-r from-purple-600 via-pink-500 via-blue-500 to-cyan-500 text-white px-8 py-3 text-base font-bold rounded-full transition-all duration-300 border-0 hover:scale-105 hover:shadow-xl hover:from-purple-500 hover:via-pink-400 hover:via-blue-400 hover:to-cyan-400"
+      style={{
+        boxShadow: 'inset 0 0 0 2px rgba(255, 255, 255, 0.2), 0 10px 15px -3px rgba(0, 0, 0, 0.1)'
+      }}
+      onClick={() => window.open('/unstake', '_self')}
+    >
+      🔓 Unstake Your NFTs
     </Button>
   );
 
@@ -181,8 +198,9 @@ export default function HeroSection() {
     <>
       {/* Fixed/Sticky Button at Top - only visible when scrolled */}
       {isSticky && (
-        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-[11000] transition-all duration-300">
+        <div className="flex flex-wrap gap-3 justify-center fixed top-4 left-1/2 transform -translate-x-1/2 z-[11000] transition-all duration-300">
           <ButtonComponent />
+          <UnstakeButtonComponent />
         </div>
       )}
 
@@ -296,10 +314,11 @@ export default function HeroSection() {
               {/* Call to action button - original position */}
               <div 
                 ref={buttonRef}
-                className="mb-20 lg:mb-26 w-full flex justify-center transition-all duration-1000 delay-900"
+                className="mb-20 lg:mb-26 w-full transition-all duration-1000 delay-900"
               >
-                <div className={`transition-opacity duration-300 ${isSticky ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+                <div className={`flex flex-wrap gap-3 justify-center transition-opacity duration-300 ${isSticky ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
                   <ButtonComponent />
+                  <UnstakeButtonComponent />
                 </div>
               </div>
 

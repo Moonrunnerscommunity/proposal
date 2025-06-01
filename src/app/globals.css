@@ -373,6 +373,13 @@ button:active {
   transform: translateY(0);
 }
 
+.no-outline {
+  outline: none !important;
+  outline-offset: initial !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
