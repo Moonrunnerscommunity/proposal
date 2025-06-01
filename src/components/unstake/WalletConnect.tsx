@@ -22,18 +22,18 @@ export function WalletConnect() {
     return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline" className="flex items-center space-x-2">
+          <Button variant="outline" className="glass border border-[rgba(138,111,183,0.18)] text-starlight font-mono px-4 py-2 shadow-md hover:scale-105 transition-transform">
             <div className="w-2 h-2 bg-green-500 rounded-full" />
             <span className="text-sm font-medium">{formatAddress(address)}</span>
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
-          <DropdownMenuItem onClick={() => open({ view: 'Account' })}>
-            <Wallet className="w-4 h-4 mr-2 cursor-pointer" />
+        <DropdownMenuContent align="end" className="glass-dark border border-[rgba(138,111,183,0.18)] text-starlight shadow-lg">
+          <DropdownMenuItem onClick={() => open({ view: 'Account' })} className="hover:bg-[rgba(74,43,123,0.2)] cursor-pointer">
+            <Wallet className="mr-2" />
             Account
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => disconnect()}>
-            <LogOut className="w-4 h-4 mr-2 cursor-pointer" />
+          <DropdownMenuItem onClick={() => disconnect()} className="hover:bg-[rgba(74,43,123,0.2)] cursor-pointer">
+            <LogOut className="mr-2" />
             Disconnect
           </DropdownMenuItem>
         </DropdownMenuContent>
@@ -44,9 +44,9 @@ export function WalletConnect() {
   return (
     <Button
       onClick={() => open({ view: 'Connect' })}
-      className="bg-primary hover:bg-primary/90 text-primary-foreground flex items-center space-x-2"
+      className="btn-primary border border-[rgba(255,215,0,0.2)] text-starlight font-mono px-4 py-2 shadow-md hover:scale-105 transition-transform"
     >
-      <Wallet className="w-4 h-4" />
+      <Wallet className="mr-2" />
       <span>Connect Wallet</span>
     </Button>
   )
