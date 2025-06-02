@@ -4,6 +4,12 @@ import Image from 'next/image';
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/unstake/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from "@/components/unstake/ui/dialog";
+import { getDiscordLink } from "@/config/socialData";
+
+// --- New Components ---
+import VoteAnnouncementBox from "@/components/VoteAnnouncementBox";
+import VisionBox from "@/components/VisionBox";
+import MissionBox from "@/components/MissionBox";
 
 function FeedbackModal({ open, setOpen }: { open: boolean; setOpen: (v: boolean) => void }) {
   // Your Google Form configuration
@@ -166,11 +172,25 @@ export default function HeroSection() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const ButtonComponent = () => (
+  const discordUrl = getDiscordLink();
+
+  const VoteButton = () => (
+    <a
+      href={discordUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="shadow-lg bg-gradient-to-r from-green-500 via-blue-500 via-purple-500 to-cyan-500 text-white px-8 text-base font-bold rounded-full transition-all duration-300 border-2 border-white/20 hover:scale-105 hover:shadow-xl flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+      style={{ minWidth: 0 }}
+    >
+      <span className="text-2xl">✅</span> Go Vote In Discord
+    </a>
+  );
+
+  const FeedbackButton = () => (
     <Button
-      variant="default"
-      size="lg"
-      className="shadow-lg bg-gradient-to-r from-purple-600 via-pink-500 via-blue-500 to-cyan-500 text-white px-8 py-3 text-base font-bold rounded-full transition-all duration-300 border-2 border-white/20 hover:scale-105 hover:shadow-xl hover:from-purple-500 hover:via-pink-400 hover:via-blue-400 hover:to-cyan-400"
+      variant="outline"
+      size="xl"
+      className="px-8 text-base font-bold rounded-full border-2 border-gray-300 text-gray-700 bg-white hover:bg-gray-100 hover:text-purple-600 transition-all duration-300 flex items-center gap-2"
       onClick={() => setFeedbackOpen(true)}
     >
       📝 Share Your Feedback
@@ -179,10 +199,13 @@ export default function HeroSection() {
 
   return (
     <>
-      {/* Fixed/Sticky Button at Top - only visible when scrolled */}
+      {/* Sticky Buttons at Top */}
       {isSticky && (
         <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-[11000] transition-all duration-300">
-          <ButtonComponent />
+          <div className="flex flex-row gap-4">
+            <VoteButton />
+            <FeedbackButton />
+          </div>
         </div>
       )}
 
@@ -214,105 +237,20 @@ export default function HeroSection() {
                 </h1>
               </div>
 
-              {/* Vision content with glass morphism */}
-              <div className="mb-4 lg:mb-8 w-full flex justify-center transition-all duration-1000 delay-600">
-                <div className="glass p-6 sm:p-8 lg:p-8 rounded-lg sm:rounded-xl w-full max-w-4xl">
-                  
-                  {/* Main vision text */}
-                  <p className="text-base text-lg text-gray-200 leading-relaxed text-center mb-8">
-                    We want to bring the Moonrunners back as an engaging, dynamic, 
-                    <span className="text-gradient font-semibold"> community-driven initiative</span>. 
-                    We aim to rekindle excitement, amplify storytelling, 
-                    and ensure continuity of the Moonrunners brand.
-                  </p>
-                  
-                  {/* TLDR - standout text */}
-                  <div className="relative flex justify-center">
-                    <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-white text-center">
-                      <span className="text-gradient">Protect the Pack At All Costs. <br />Make Moonrunners Fun Again!</span>
-                    </p>
-                    {/* Decorative elements */}
-                    <div className="absolute -top-2 -left-2 w-4 h-4 border-l-2 border-t-2 border-yellow-400 opacity-60"></div>
-                    <div className="absolute -bottom-2 -right-2 w-4 h-4 border-r-2 border-b-2 border-yellow-400 opacity-60"></div>
-                  </div>
-                </div>
-              </div>
+              {/* Vote Announcement Box */}
+              <VoteAnnouncementBox
+                isSticky={isSticky}
+                buttonRef={buttonRef}
+                VoteButton={VoteButton}
+                FeedbackButton={FeedbackButton}
+              />
 
-              {/* Community Vote Call to Action */}
-              <div className="mb-6 lg:mb-8 w-full flex justify-center transition-all duration-1000 delay-700">
-                <div className="relative w-full max-w-4xl">
-                  {/* Animated border */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 rounded-xl animate-pulse opacity-75"></div>
-                  <div className="relative bg-gray-900/95 backdrop-blur-sm p-6 sm:p-8 rounded-xl border border-yellow-400/30 m-1">
-                    
-                    {/* Urgent header */}
-                    <div className="flex items-center justify-center mb-6">
-                      <div className="flex items-center space-x-3">
-                        <span className="text-2xl animate-bounce">🚨</span>
-                        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-yellow-400 text-center">
-                          COMMUNITY VOTE NEEDED!
-                        </h2>
-                        <span className="text-2xl animate-bounce">🚨</span>
-                      </div>
-                    </div>
+              {/* Vision Box */}
+              <VisionBox />
 
-                    {/* Vote details */}
-                    <div className="space-y-4 text-center">
-                      <p className="text-base sm:text-lg text-white leading-relaxed">
-                        <span className="font-bold text-green-400">The creators have agreed</span> to transfer the Moonrunners NFT collection 
-                        into the hands of the community — but we need 
-                        <span className="font-bold text-yellow-400 text-xl"> 66.6% of holders</span> to vote YES!
-                      </p>
-                      
-                      <div className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-lg p-4 border border-purple-400/30">
-                        <p className="text-lg sm:text-xl font-bold text-white mb-2">
-                          🗳️ Voting starts <span className="text-yellow-400">Sunday</span>!
-                        </p>
-                        <p className="text-base text-gray-200">
-                          This is <span className="font-semibold text-gradient">our proposal</span>, and we need <span className="font-bold text-yellow-400">YOUR VOTE</span>!
-                        </p>
-                      </div>
-
-                      {/* Urgency message */}
-                      <div className="flex items-center justify-center space-x-2 text-orange-400">
-                        <span className="text-lg">⚡</span>
-                        <p className="text-sm sm:text-base font-semibold">
-                          66.6% is A LOT! Tell your friends, spread the word!
-                        </p>
-                        <span className="text-lg">⚡</span>
-                      </div>
-                    </div>
-
-                    {/* Pack unity message */}
-                    <div className="mt-6 pt-4 border-t border-gray-600/50">
-                      <p className="text-center text-base font-bold text-white">
-                        🐺 <span className="text-gradient">The Pack must unite for this historic moment!</span> 🌙
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Call to action button - original position */}
-              <div 
-                ref={buttonRef}
-                className="mb-20 lg:mb-26 w-full flex justify-center transition-all duration-1000 delay-900"
-              >
-                <div className={`transition-opacity duration-300 ${isSticky ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-                  <ButtonComponent />
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        {/* Scroll indicator with enhanced styling */}
-        <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-          <div className="flex flex-col items-center space-y-2">
-            <p className="text-xs sm:text-sm text-gray-300 uppercase tracking-wider">Scroll to explore</p>
-            <div className="text-white text-xl sm:text-2xl animate-bounce cursor-pointer hover:text-yellow-400 transition-colors">
-              ↓
+              {/* Mission Box (placeholder) */}
+              <MissionBox />
+              
             </div>
           </div>
         </div>

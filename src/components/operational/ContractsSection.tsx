@@ -4,75 +4,10 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { CheckIcon, XMarkIcon, ExclamationTriangleIcon, NoSymbolIcon, ClipboardIcon } from '@heroicons/react/24/outline';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
-
-interface Contract {
-  collection: string;
-  description: string;
-  items: number;
-  currentOwner: string;
-  contractAddress: string;
-  transferred: boolean;
-  notIncluded?: boolean;
-  imageUrl: string;
-  openseaUrl: string;
-}
+import { contracts, ContractInfo } from '@/config/contractData';
 
 const ContractsSection = () => {
   const [copiedContract, setCopiedContract] = useState<string | null>(null);
-
-  const contracts: Contract[] = [
-    {
-      collection: 'Moonrunners',
-      description: 'Original collection of 10,000 unique Moonrunners NFTs with moon-based mechanics',
-      items: 9997,
-      currentOwner: 'Antix.eth',
-      contractAddress: '0x1485297e942ce64e0870ece60179dfda34b4c625',
-      transferred: false,
-      imageUrl: '/collections/moonrunners.png',
-      openseaUrl: 'https://opensea.io/collection/moonrunnersnft'
-    },
-    {
-      collection: 'Dragonhorde',
-      description: 'Arcane Dragons resurrected in the Alchemy Lab from Primordia\'s ancient past',
-      items: 2311,
-      currentOwner: 'Antix.eth',
-      contractAddress: '0x717c6dd66be92e979001aee2ee169aaa8d6d4361',
-      transferred: false,
-      imageUrl: '/collections/dragonhorde.png',
-      openseaUrl: 'https://opensea.io/collection/moonrunners-dragonhorde-official'
-    },
-    {
-      collection: 'Secrets of Primordia',
-      description: 'Weapons and artifacts with dual utility - burn for blood or reroll Dragonhorde',
-      items: 12800,
-      currentOwner: 'Antix.eth',
-      contractAddress: '0xb6d460ac51b93bca63b694f099c4a8b3b1cf73b4',
-      transferred: false,
-      imageUrl: '/collections/secrets.gif',
-      openseaUrl: 'https://opensea.io/collection/moonrunners-secrets-of-primordia'
-    },
-    {
-      collection: 'History of Primordia',
-      description: 'Lore and storytelling NFTs documenting the ancient tales and chronicles of Primordia',
-      items: 233,
-      currentOwner: 'Antix.eth',
-      contractAddress: '0x4fdF87d4Edae3Fe323b8F6dF502CCac6c8B4ba28',
-      transferred: false,
-      imageUrl: '/collections/history.gif',
-      openseaUrl: 'https://opensea.io/collection/moonrunners-history-of-primordia'
-    },
-    {
-      collection: 'Primordia Land',
-      description: 'Digital land parcels Digital land parcels connected to the "Zoofs" pet supplement company.',
-      items: 2888,
-      currentOwner: 'Antix.eth',
-      contractAddress: '0xfbb87a6a4876820d996a9bbe106e4f73a5e4a71c',
-      transferred: false,
-      notIncluded: true,
-      imageUrl: '/collections/primordia_land.gif',
-      openseaUrl: 'https://opensea.io/collection/primordia-land'
-    }
-  ];
 
   const handleCopyContract = async (contractAddress: string) => {
     try {
@@ -101,7 +36,7 @@ const ContractsSection = () => {
         <Table className="w-full text-sm">
           <Thead>
             <Tr style={{ borderBottom: '1px solid rgba(138, 111, 183, 0.3)' }}>
-              <Th className="text-left p-3 font-medium" style={{ color: 'var(--color-starlight)' }}>Collection</Th>
+              <Th className="text-left p-3 font-medium" style={{ color: 'var(--color-starlight)' }}>Name</Th>
               <Th className="text-left p-3 font-medium" style={{ color: 'var(--color-starlight)' }}>Description</Th>
               <Th className="text-center p-3 font-medium" style={{ color: 'var(--color-starlight)' }}>Items</Th>
               <Th className="text-left p-3 font-medium" style={{ color: 'var(--color-starlight)' }}>Current Owner</Th>
@@ -110,7 +45,7 @@ const ContractsSection = () => {
             </Tr>
           </Thead>
           <Tbody style={{ borderColor: 'rgba(138, 111, 183, 0.2)' }}>
-            {contracts.map((contract, index) => (
+            {contracts.map((contract: ContractInfo, index: number) => (
               <Tr 
                 key={index} 
                 className={`transition-colors contracts-row ${contract.notIncluded ? 'opacity-50' : ''}`}
@@ -121,46 +56,53 @@ const ContractsSection = () => {
                 <Td className="p-3">
                   <div className="flex items-center gap-3 mobile-collection-info">
                     <div className={`w-8 h-8 md:w-8 md:h-8 mobile-image rounded flex items-center justify-center overflow-hidden ${contract.notIncluded ? 'bg-gray-700' : 'bg-gray-800'}`}>
-                      <Image 
-                        src={contract.imageUrl} 
-                        alt={`${contract.collection} NFT`}
-                        width={32}
-                        height={32}
-                        className={`w-full h-full pixelated-image object-cover ${contract.notIncluded ? 'opacity-50' : ''}`}
-                        unoptimized
-                        onError={(e) => {
-                          const target = e.currentTarget as HTMLImageElement;
-                          target.style.display = 'none';
-                          const fallback = target.nextElementSibling as HTMLElement;
-                          if (fallback) fallback.style.display = 'flex';
-                        }}
-                      />
-                      <div className={`w-6 h-6 rounded text-xs text-white flex items-center justify-center font-bold ${contract.notIncluded ? 'bg-gradient-to-br from-gray-500 to-gray-600' : 'bg-gradient-to-br from-purple-400 to-blue-500'}`} style={{ display: 'none' }}>
-                        {contract.collection.charAt(0)}
-                      </div>
+                      {contract.imageUrl ? (
+                        <Image 
+                          src={contract.imageUrl} 
+                          alt={`${contract.name} NFT`}
+                          width={32}
+                          height={32}
+                          className={`w-full h-full pixelated-image object-cover ${contract.notIncluded ? 'opacity-50' : ''}`}
+                          unoptimized
+                          onError={(e) => {
+                            const target = e.currentTarget as HTMLImageElement;
+                            target.style.display = 'none';
+                            const fallback = target.nextElementSibling as HTMLElement;
+                            if (fallback) fallback.style.display = 'flex';
+                          }}
+                        />
+                      ) : (
+                        <div className={`w-6 h-6 rounded text-xs text-white flex items-center justify-center font-bold ${contract.notIncluded ? 'bg-gradient-to-br from-gray-500 to-gray-600' : 'bg-gradient-to-br from-purple-400 to-blue-500'}`}>
+                          {contract.name.charAt(0)}
+                        </div>
+                      )}
                     </div>
-                    <a
-                      href={contract.openseaUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`font-medium hover:underline transition-colors mobile-collection-title ${
-                        contract.notIncluded 
-                          ? 'text-gray-400' 
-                          : 'text-purple-300 hover:text-blue-400'
-                      }`}
-                    >
-                      {contract.collection}
-                    </a>
+                    {contract.openseaUrl ? (
+                      <a
+                        href={contract.openseaUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`font-medium hover:underline transition-colors mobile-collection-title ${
+                          contract.notIncluded 
+                            ? 'text-gray-400' 
+                            : 'text-purple-300 hover:text-blue-400'
+                        }`}
+                      >
+                        {contract.name}
+                      </a>
+                    ) : (
+                      <span className={`font-medium mobile-collection-title ${contract.notIncluded ? 'text-gray-400' : 'text-purple-300'}`}>{contract.name}</span>
+                    )}
                   </div>
                 </Td>
                 <Td className={`p-3 mobile-description ${contract.notIncluded ? 'text-gray-400' : 'text-gray-300'}`}>
-                  {contract.description}
+                  {contract.description || <span className="italic text-gray-500">No description</span>}
                 </Td>
                 <Td className={`p-3 text-center font-mono ${contract.notIncluded ? 'text-gray-400' : 'text-green-500'}`}>
-                  {contract.items.toLocaleString()}
+                  {typeof contract.items === 'number' ? contract.items.toLocaleString() : <span className="italic text-gray-500">—</span>}
                 </Td>
                 <Td className={`p-3 font-mono text-xs ${contract.notIncluded ? 'text-gray-400' : 'text-gray-300'}`}>
-                  {contract.currentOwner}
+                  {contract.currentOwner || <span className="italic text-gray-500">—</span>}
                 </Td>
                 <Td className="p-3">
                   <div className="flex items-center gap-2">
@@ -174,7 +116,7 @@ const ContractsSection = () => {
                           : 'text-gray-300 hover:text-blue-400'
                       }`}
                     >
-                      {contract.contractAddress.substring(0, 8)}...{contract.contractAddress.substring(34)}
+                      {contract.contractAddress.substring(0, 8)}...{contract.contractAddress.substring(contract.contractAddress.length - 6)}
                     </a>
                     <button
                       onClick={() => handleCopyContract(contract.contractAddress)}

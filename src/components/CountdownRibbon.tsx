@@ -1,15 +1,16 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { getDiscordLink } from '../config/socialData';
 
 // Vote configuration
-const VOTE_START_DATE = new Date('2025-06-01T00:00:00'); // Sunday, June 1st
+const VOTE_START_DATE = new Date('2025-06-01T09:08:00'); // Sunday, June 1st
 const VOTE_DURATION_DAYS = 30;
 const VOTE_END_DATE = new Date(VOTE_START_DATE.getTime() + (VOTE_DURATION_DAYS * 24 * 60 * 60 * 1000)); // 30 days from start
 
 // Manual switch to control when voting actually begins
 // Set this to true when you want the countdown to start
-const VOTE_HAS_STARTED = false;
+const VOTE_HAS_STARTED = true;
 
 interface TimeRemaining {
   days: number;
@@ -91,7 +92,12 @@ export default function CountdownRibbon() {
             {timeRemaining.days} days {timeRemaining.hours.toString().padStart(2, '0')} hours {timeRemaining.minutes.toString().padStart(2, '0')} minutes and {timeRemaining.seconds.toString().padStart(2, '0')} seconds
           </span>
           <span className="mx-1">•</span>
-          <a className="font-bold text-green-300 hover:text-green-200 transition-colors cursor-pointer underline">
+          <a
+            href={getDiscordLink()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-bold text-green-300 hover:text-green-200 transition-colors cursor-pointer underline"
+          >
             Vote Now!
           </a>
         </div>
@@ -100,7 +106,7 @@ export default function CountdownRibbon() {
   };
 
   return (
-    <div className="w-full h-6 bg-gradient-to-r from-green-900 via-green-700 to-green-900 border-b border-green-400/30">
+    <div className="w-full h-6 bg-gradient-to-r from-green-900 via-green-700 to-green-900 border-b border-green-400/30" style={{ zIndex: 9999, position: 'relative' }}>
       <div className="flex items-center justify-center h-full px-2">
         {getContent()}
       </div>
