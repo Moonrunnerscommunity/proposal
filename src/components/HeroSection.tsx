@@ -10,6 +10,7 @@ import { getDiscordLink } from "@/config/socialData";
 import VoteAnnouncementBox from "@/components/VoteAnnouncementBox";
 import VisionBox from "@/components/VisionBox";
 import MissionBox from "@/components/MissionBox";
+import UnstakingPortal from "@/components/UnstakingPortal";
 
 function FeedbackModal({ open, setOpen }: { open: boolean; setOpen: (v: boolean) => void }) {
   // Your Google Form configuration
@@ -189,7 +190,7 @@ export default function HeroSection() {
   const FeedbackButton = () => (
     <Button
       variant="outline"
-      size="xl"
+      size="lg"
       className="px-8 text-base font-bold rounded-full border-2 border-gray-300 text-gray-700 bg-white hover:bg-gray-100 hover:text-purple-600 transition-all duration-300 flex items-center gap-2"
       onClick={() => setFeedbackOpen(true)}
     >
@@ -251,6 +252,8 @@ export default function HeroSection() {
               {/* Mission Box (placeholder) */}
               <MissionBox />
               
+              {/* Unstaking Portal */}
+              <UnstakingPortal />
             </div>
           </div>
         </div>

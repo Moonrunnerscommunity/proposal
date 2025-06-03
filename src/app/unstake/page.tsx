@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { useAppKitAccount } from '@reown/appkit/react'
 import { useWriteContract, useWaitForTransactionReceipt } from 'wagmi'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/unstake/ui/tabs'
-import { Badge } from '@/components/unstake/ui/badge'
 import { WalletConnect } from '@/components/unstake/WalletConnect'
 import { NFTGrid } from '@/components/unstake/NFTGrid'
 import { TransactionModal } from '@/components/unstake/TransactionModal'
@@ -164,7 +163,7 @@ export default function UnstakePage() {
       </div>
 
       <div className="relative z-40">
-        <div className="relative z-10 w-full flex justify-center items-center px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 w-full flex justify-center items-center mt-14 px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-6xl mx-auto">
             <div className="text-center flex flex-col items-center">
 
@@ -183,7 +182,7 @@ export default function UnstakePage() {
               {/* Title - responsive typography */}
               <div className="mb-6 sm:mb-8 lg:mb-12 w-full flex justify-center transition-all duration-1000 delay-300">
                 <h1 className="text-responsive-3xl font-bold text-white leading-tight text-center">
-                  unstake Portal
+                  Unstaking Portal
                 </h1>
               </div>
 
@@ -193,93 +192,85 @@ export default function UnstakePage() {
 
         {/* Main Content */}
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          {!isConnected ? (
-            <div className="text-center py-16 glass p-8 rounded-lg">
-              <div className="max-w-md mx-auto">
-                <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Wallet className="text-muted-foreground text-xl" />
+          <div className="glass-dark border border-[rgba(138,111,183,0.18)] shadow-2xl rounded-2xl p-6 md:p-10 backdrop-blur-md">
+            {!isConnected ? (
+              <div className="flex justify-center items-center min-h-[300px]">
+                <div className="glass-dark border border-[rgba(138,111,183,0.18)] shadow-lg rounded-2xl px-8 py-10 flex flex-col items-center gap-4 max-w-md w-full">
+                  <Wallet className="w-14 h-14 text-accent-gold mb-2 animate-float" />
+                  <h3 className="text-xl font-bold text-starlight mb-1">Connect Your Wallet</h3>
+                  <p className="text-[rgba(194,190,201,0.85)] text-center mb-2">
+                    Please connect your wallet to view your staked NFTs and access the unstake portal.
+                  </p>
+                  <div className="mt-2 w-full flex justify-center">
+                    <WalletConnect />
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4">Connect Your Wallet</h3>
-                <p className="text-muted-foreground mb-8">
-                  Please connect your wallet to view your staked NFTs and access the unstake portal.
-                </p>
-                <WalletConnect />
               </div>
-            </div>
-          ) : totalCount === 0 && !isLoading ? (
-            <div className="text-center py-16 glass p-8 rounded-lg">
-              <div className="max-w-md mx-auto">
-                <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Boxes className="text-muted-foreground text-xl" />
+            ) : totalCount === 0 && !isLoading ? (
+              <div className="flex justify-center items-center min-h-[300px]">
+                <div className="glass-dark border border-[rgba(138,111,183,0.18)] shadow-lg rounded-2xl px-8 py-10 flex flex-col items-center gap-4 max-w-md w-full">
+                  <Boxes className="w-14 h-14 text-accent-gold mb-2 animate-float" />
+                  <h3 className="text-xl font-bold text-starlight mb-1">No Staked NFTs Found</h3>
+                  <p className="text-[rgba(194,190,201,0.85)] text-center mb-2">
+                    We couldn&apos;t find any staked NFTs associated with your wallet address. If you believe this is an error, please try refreshing the page.
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4">No Staked NFTs Found</h3>
-                <p className="text-muted-foreground mb-8">
-                  We couldn&apos;t find any staked NFTs associated with your wallet address. If you believe this is an error, please try refreshing the page.
-                </p>
               </div>
-            </div>
-          ) : (
-            <Tabs defaultValue="primordia" className="glass p-6 sm:p-8 lg:p-8 rounded-lg sm:rounded-xl w-full">
-              <div className="border-b border-border mb-8">
-                <TabsList className="grid w-full grid-cols-3 bg-transparent">
+            ) : (
+              <Tabs defaultValue="primordia">
+                <TabsList className="w-full flex flex-col sm:flex-row justify-between overflow-hidden bg-[rgba(44,27,80,0.7)] rounded-xl mb-8 p-0 shadow-md">
                   <TabsTrigger
                     value="primordia"
-                    className="data-[state=active]:border-primary data-[state=active]:text-primary border-b-2 border-transparent"
+                    className="tab-trigger no-outline w-full text-lg font-semibold text-starlight px-4 py-2 transition-colors duration-200 focus:outline-none focus:ring-0 focus:border-0 data-[state=active]:bg-[rgba(74,43,123,0.7)] data-[state=active]:text-accent-gold data-[state=active]:shadow-none data-[state=active]:border-accent-gold border border-transparent hover:bg-[rgba(74,43,123,0.3)]"
                   >
                     Primordia Land
-                    <Badge variant="secondary" className="ml-2">
-                      {primordia.length}
-                    </Badge>
+                    <span className="ml-2 inline-flex items-center justify-center w-5 h-5 rounded-full border border-accent-gold bg-[rgba(28,13,54,0.95)] text-accent-gold font-bold text-sm">{primordia.length}</span>
                   </TabsTrigger>
                   <TabsTrigger
                     value="moonrunners"
-                    className="data-[state=active]:border-primary data-[state=active]:text-primary border-b-2 border-transparent"
+                    className="tab-trigger no-outline w-full text-lg font-semibold text-starlight px-4 py-2 transition-colors duration-200 focus:outline-none focus:ring-0 focus:border-0 data-[state=active]:bg-[rgba(74,43,123,0.7)] data-[state=active]:text-accent-gold data-[state=active]:shadow-none data-[state=active]:border-accent-gold border border-transparent hover:bg-[rgba(74,43,123,0.3)]"
                   >
                     Moonrunners
-                    <Badge variant="secondary" className="ml-2">
-                      {moonrunners.length}
-                    </Badge>
+                    <span className="ml-2 inline-flex items-center justify-center w-5 h-5 rounded-full border border-accent-gold bg-[rgba(28,13,54,0.95)] text-accent-gold font-bold text-sm">{moonrunners.length}</span>
                   </TabsTrigger>
                   <TabsTrigger
                     value="dragonhorde"
-                    className="data-[state=active]:border-primary data-[state=active]:text-primary border-b-2 border-transparent"
+                    className="tab-trigger no-outline w-full text-lg font-semibold text-starlight px-4 py-2 transition-colors duration-200 focus:outline-none focus:ring-0 focus:border-0 data-[state=active]:bg-[rgba(74,43,123,0.7)] data-[state=active]:text-accent-gold data-[state=active]:shadow-none data-[state=active]:border-accent-gold border border-transparent hover:bg-[rgba(74,43,123,0.3)]"
                   >
                     Dragonhorde
-                    <Badge variant="secondary" className="ml-2">
-                      {dragonhorde.length}
-                    </Badge>
+                    <span className="ml-2 inline-flex items-center justify-center w-5 h-5 rounded-full border border-accent-gold bg-[rgba(28,13,54,0.95)] text-accent-gold font-bold text-sm">{dragonhorde.length}</span>
                   </TabsTrigger>
                 </TabsList>
-              </div>
 
-              <TabsContent value="primordia">
-                <NFTGrid
-                  title="Primordia Land"
-                  nfts={primordia}
-                  onUnstake={(tokenIds) => handleUnstake(tokenIds, CONTRACTS.PRIMORDIA.address)}
-                  isLoading={isLoading}
-                />
-              </TabsContent>
+                <TabsContent value="primordia">
+                  <NFTGrid
+                    title="Primordia Land"
+                    nfts={primordia}
+                    onUnstake={(tokenIds) => handleUnstake(tokenIds, CONTRACTS.PRIMORDIA.address)}
+                    isLoading={isLoading}
+                  />
+                </TabsContent>
 
-              <TabsContent value="moonrunners">
-                <NFTGrid
-                  title="Moonrunners"
-                  nfts={moonrunners}
-                  onUnstake={(tokenIds) => handleUnstake(tokenIds, CONTRACTS.MOONRUNNERS_DRAGONHORDE.address, 'moonrunners')}
-                  isLoading={isLoading}
-                />
-              </TabsContent>
+                <TabsContent value="moonrunners">
+                  <NFTGrid
+                    title="Moonrunners"
+                    nfts={moonrunners}
+                    onUnstake={(tokenIds) => handleUnstake(tokenIds, CONTRACTS.MOONRUNNERS_DRAGONHORDE.address, 'moonrunners')}
+                    isLoading={isLoading}
+                  />
+                </TabsContent>
 
-              <TabsContent value="dragonhorde">
-                <NFTGrid
-                  title="Dragonhorde"
-                  nfts={dragonhorde}
-                  onUnstake={(tokenIds) => handleUnstake(tokenIds, CONTRACTS.MOONRUNNERS_DRAGONHORDE.address, 'dragonhorde')}
-                  isLoading={isLoading}
-                />
-              </TabsContent>
-            </Tabs>
-          )}
+                <TabsContent value="dragonhorde">
+                  <NFTGrid
+                    title="Dragonhorde"
+                    nfts={dragonhorde}
+                    onUnstake={(tokenIds) => handleUnstake(tokenIds, CONTRACTS.MOONRUNNERS_DRAGONHORDE.address, 'dragonhorde')}
+                    isLoading={isLoading}
+                  />
+                </TabsContent>
+              </Tabs>
+            )}
+          </div>
         </main>
 
         {/* Transaction Modal */}

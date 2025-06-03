@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import ParallaxProviderWrapper from "@/components/ParallaxProviderWrapper";
 import CountdownRibbon from "@/components/CountdownRibbon";
@@ -15,7 +15,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  colorScheme: 'dark',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#8a6fb7' },
+    { media: '(prefers-color-scheme: dark)', color: '#2d1b69' },
+  ],
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL('https://moonrunners.ai'),
   title: "Moonrunners Community Takeover Proposal | 🐺 Wolves of Many Talents",
   description: "Join the pack! A community-driven proposal to take over the Moonrunners project with our Wolf Council leadership team. Vote now to shape the future of Moonrunners.",
   keywords: ["Moonrunners", "NFT", "Community", "Takeover", "Proposal", "Wolf Council", "Web3", "Cryptocurrency"],
@@ -82,11 +91,6 @@ export const metadata: Metadata = {
   // App-specific metadata
   applicationName: 'Moonrunners Proposal',
   referrer: 'origin-when-cross-origin',
-  colorScheme: 'dark',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#8a6fb7' },
-    { media: '(prefers-color-scheme: dark)', color: '#2d1b69' },
-  ],
   
   // Manifest
   manifest: '/manifest.json', // You might want to create this later
