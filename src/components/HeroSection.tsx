@@ -1,10 +1,8 @@
 'use client';
 
-import Image from 'next/image';
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/unstake/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from "@/components/unstake/ui/dialog";
-import { getDiscordLink } from "@/config/socialData";
 
 // --- New Components ---
 import VisionBox from "@/components/VisionBox";
