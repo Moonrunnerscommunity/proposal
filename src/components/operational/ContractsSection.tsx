@@ -102,7 +102,18 @@ const ContractsSection = () => {
                   {typeof contract.items === 'number' ? contract.items.toLocaleString() : <span className="italic text-gray-500">—</span>}
                 </Td>
                 <Td className={`p-3 font-mono text-xs ${contract.notIncluded ? 'text-gray-400' : 'text-gray-300'}`}>
-                  {contract.currentOwner || <span className="italic text-gray-500">—</span>}
+                  {contract.currentOwner === '0xf728942638942DF1a31e10722d49C1E758B2F8F1' ? (
+                    <a
+                      href="https://app.safe.global/transactions/history?safe=eth:0xf728942638942DF1a31e10722d49C1E758B2F8F1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-green-400 hover:text-green-300 hover:underline transition-colors font-sans font-semibold"
+                    >
+                      Safe ↗
+                    </a>
+                  ) : (
+                    contract.currentOwner || <span className="italic text-gray-500">—</span>
+                  )}
                 </Td>
                 <Td className="p-3">
                   <div className="flex items-center gap-2">

@@ -7,7 +7,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { getDiscordLink } from "@/config/socialData";
 
 // --- New Components ---
-import VoteAnnouncementBox from "@/components/VoteAnnouncementBox";
 import VisionBox from "@/components/VisionBox";
 import MissionBox from "@/components/MissionBox";
 import UnstakingPortal from "@/components/UnstakingPortal";
@@ -157,36 +156,6 @@ function FeedbackModal({ open, setOpen }: { open: boolean; setOpen: (v: boolean)
 
 export default function HeroSection() {
   const [feedbackOpen, setFeedbackOpen] = useState(false);
-  const [isSticky, setIsSticky] = useState(false);
-  const buttonRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (buttonRef.current) {
-        const buttonRect = buttonRef.current.getBoundingClientRect();
-        // If the button's original position has scrolled past the top of the viewport
-        setIsSticky(buttonRect.top <= 16); // 16px = top-4 in Tailwind
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const discordUrl = getDiscordLink();
-
-  const VoteButton = () => (
-    <a
-      href={discordUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="shadow-lg bg-gradient-to-r from-green-500 via-blue-500 via-purple-500 to-cyan-500 text-white px-8 text-base font-bold rounded-full transition-all duration-300 border-2 border-white/20 hover:scale-105 hover:shadow-xl flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-green-400"
-      style={{ minWidth: 0 }}
-    >
-      <span className="text-2xl">✅</span> Go Vote In Discord
-    </a>
-  );
-
   const FeedbackButton = () => (
     <Button
       variant="outline"
@@ -200,15 +169,6 @@ export default function HeroSection() {
 
   return (
     <>
-      {/* Sticky Buttons at Top */}
-      {isSticky && (
-        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-[11000] transition-all duration-300">
-          <div className="flex flex-row gap-4">
-            <VoteButton />
-            <FeedbackButton />
-          </div>
-        </div>
-      )}
 
       <section className="hero-section relative min-h-screen flex items-center justify-center z-50 w-full">
         {/* Background overlay for readability */}
@@ -219,32 +179,10 @@ export default function HeroSection() {
           <div className="w-full max-w-6xl mx-auto">
             <div className="text-center flex flex-col items-center">
               
-              {/* Logo - responsive sizing */}
-              <div className="mb-0 w-full flex justify-center transition-all duration-1000">
-                <Image
-                  src="/moonrunners.svg"
-                  alt="Moonrunners Logo"
-                  width={512}
-                  height={256}
-                  className="pixelated-image w-full h-auto max-h-32 sm:max-h-48 md:max-h-56 lg:max-h-64 max-w-2xl"
-                  priority
-                />
+              {/* Feedback Button */}
+              <div className="mb-8">
+                <FeedbackButton />
               </div>
-
-              {/* Title - responsive typography */}
-              <div className="mb-6 sm:mb-8 lg:mb-12 w-full flex justify-center transition-all duration-1000 delay-300">
-                <h1 className="text-responsive-3xl font-bold text-white leading-tight text-center">
-                  🐺 Community Takeover Proposal 🌙
-                </h1>
-              </div>
-
-              {/* Vote Announcement Box */}
-              <VoteAnnouncementBox
-                isSticky={isSticky}
-                buttonRef={buttonRef}
-                VoteButton={VoteButton}
-                FeedbackButton={FeedbackButton}
-              />
 
               {/* Vision Box */}
               <VisionBox />

@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 // import CountdownRibbon from './CountdownRibbon';
+import HeaderSection from './HeaderSection';
 import HeroSection from './HeroSection';
 import TeamSection from './TeamSection';
 import CommunicationSection from './CommunicationSection';
@@ -53,14 +54,17 @@ export default function ParallaxContainer() {
 
       {/* Content overlay */}
       <div className="relative z-40">
+        {/* Header Section - Moonrunners title and subtitle */}
+        <HeaderSection />
+        
+        {/* Operational Section */}
+        <OperationalSection />
+        
         {/* Hero Section */}
         <HeroSection />
         
         {/* Team Section */}
         <TeamSection />
-        
-        {/* Operational Section */}
-        <OperationalSection />
         
         {/* Communication Section */}
         <CommunicationSection />
