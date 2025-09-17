@@ -525,13 +525,43 @@ a:focus {
   /* scroll-margin-top: 2rem; */
 }
 
+/* Web3 Modal z-index fix - ensure it appears above all content */
+w3m-modal,
+wcm-modal,
+[data-testid="w3m-modal"],
+[data-testid="wcm-modal"],
+appkit-modal,
+[data-testid="appkit-modal"] {
+  z-index: 99999 !important;
+}
+
+/* Ensure modal overlay also has high z-index */
+w3m-overlay,
+wcm-overlay,
+[data-testid="w3m-overlay"],
+[data-testid="wcm-overlay"],
+appkit-overlay,
+[data-testid="appkit-overlay"] {
+  z-index: 99998 !important;
+}
+
+/* Ensure any modal backdrop/container has proper z-index */
+.w3m-container,
+.wcm-container,
+.appkit-container,
+[class*="modal-container"],
+[class*="modal-overlay"],
+[class*="modal-backdrop"] {
+  z-index: 99997 !important;
+}
+
 /* Print styles */
 @media print {
   .parallax-container,
   .parallax-image {
     display: none;
   }
-  
+
   body {
     background: white;
     color: black;

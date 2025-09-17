@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function HeaderSection() {
   return (
-    <section className="relative flex items-center justify-center z-50 w-full pt-8 pb-4">
+    <section className="relative flex items-center justify-center z-40 w-full pt-8 pb-4">
       <div className="relative z-10 w-full flex justify-center items-center px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-6xl mx-auto">
           <div className="text-center flex flex-col items-center">
