@@ -21,6 +21,7 @@ export interface ContractInfo {
   symbol?: string; // Token symbol
   etherscanUrl?: string; // Direct link to Etherscan
   nftImagesDir?: string; // Local path to NFT images (e.g., '/nfts/moonrunners/images')
+  nftImageExt?: string; // Image file extension (default: 'png')
   [key: string]: unknown; // Allow for future extensibility, but avoid 'any'
 }
 
@@ -72,7 +73,8 @@ export const contracts: ContractInfo[] = [
   {
     name: 'Secrets of Primordia',
     description: 'Weapons and artifacts with dual utility - burn for blood or reroll Dragonhorde',
-    items: 12800,
+    items: 12, // 12 unique token types (ERC1155)
+    totalSupply: 12800, // Total copies across all holders
     currentOwner: '0xf728942638942DF1a31e10722d49C1E758B2F8F1',
     contractAddress: '0xb6d460ac51b93bca63b694f099c4a8b3b1cf73b4',
     transferred: true,
@@ -81,7 +83,8 @@ export const contracts: ContractInfo[] = [
     tokenStandard: 'ERC1155',
     verified: true,
     etherscanUrl: 'https://etherscan.io/address/0xb6d460ac51b93bca63b694f099c4a8b3b1cf73b4',
-    nftImagesDir: '/nfts/secrets/images'
+    nftImagesDir: '/nfts/secrets/images',
+    nftImageExt: 'gif'
   },
   {
     name: 'WeaponToBlood',
@@ -112,7 +115,8 @@ export const contracts: ContractInfo[] = [
   {
     name: 'History of Primordia',
     description: 'Not transferred. Will be reproduced if needed in the future.',
-    items: 233,
+    items: 3, // 3 unique NFTs
+    totalSupply: 233, // Total editions
     currentOwner: 'Antix.eth',
     contractAddress: '0x4fdF87d4Edae3Fe323b8F6dF502CCac6c8B4ba28',
     transferred: false,
@@ -127,7 +131,7 @@ export const contracts: ContractInfo[] = [
   {
     name: 'Chronicles of Nogard',
     description: 'Chronicles collection featuring the stories and lore of Nogard',
-    items: 0,
+    items: 1, // Single NFT collection
     currentOwner: '0xf728942638942DF1a31e10722d49C1E758B2F8F1',
     contractAddress: '0xc05ba5529d964a9b2c46ebcd60564a4214ab7ba4',
     transferred: true,
@@ -151,7 +155,8 @@ export const contracts: ContractInfo[] = [
     tokenStandard: 'ERC721',
     verified: true,
     etherscanUrl: 'https://etherscan.io/address/0xfbb87a6a4876820d996a9bbe106e4f73a5e4a71c',
-    nftImagesDir: '/nfts/primordia-land/images'
+    nftImagesDir: '/nfts/primordia-land/images',
+    nftImageExt: 'gif'
   }
 ];
 

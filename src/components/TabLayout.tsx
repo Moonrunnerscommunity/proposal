@@ -98,16 +98,7 @@ const TabLayout: React.FC = () => {
         </nav>
 
         {/* Bottom section */}
-        <div className="p-3 lg:p-4 border-t border-purple-500/30 space-y-2">
-          {/* Experimental link - subtle dark-on-dark */}
-          <a
-            href="/experimental"
-            className="w-full flex items-center justify-center lg:justify-start gap-2 px-3 py-1.5 rounded-lg text-gray-600 hover:text-gray-400 hover:bg-white/5 transition-colors"
-          >
-            <span className="text-sm opacity-50">🧪</span>
-            <span className="hidden lg:block text-xs">Experimental</span>
-          </a>
-
+        <div className="p-3 lg:p-4 border-t border-purple-500/30">
           <a
             href="https://discord.gg/SC3TFQrKwf"
             target="_blank"
