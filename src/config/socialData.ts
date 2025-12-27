@@ -19,7 +19,7 @@ export const contactInfo = {
 export const primarySocials: SocialLink[] = [
   {
     name: 'Discord',
-    url: 'https://discord.gg/SC3TFQrKwf',
+    url: 'https://discord.gg/CNg6gBCF7T',
     icon: '💬',
     description: 'Join our community hub with thousands of active members'
   },

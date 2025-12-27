@@ -71,6 +71,18 @@ const todoItems: TodoItem[] = [
     icon: '🔍'
   },
   {
+    id: '2b',
+    title: 'Repair Moonrunners Wolves',
+    description: 'Fix wolf backgrounds, small-pixelated status trait, and dynamic JSON metadata',
+    icon: '🐺'
+  },
+  {
+    id: '2c',
+    title: 'Moon-Phase Backgrounds',
+    description: 'Stretch goal: Restore moon-phase aligned dynamic backgrounds',
+    icon: '🌙'
+  },
+  {
     id: 3,
     title: 'Cleanup Contracts',
     description: 'Enhanced contract tracking with on-chain data. Remaining: add dynamic RPC info',
@@ -102,71 +114,101 @@ function StatusCell({ complete, current, total }: { complete: boolean; current?:
   if (complete) {
     return (
       <span className="text-green-400 font-medium">
-        ✅ {current?.toLocaleString()}/{total?.toLocaleString()}
+        <span className="sm:hidden">✅</span>
+        <span className="hidden sm:inline">✅ {current?.toLocaleString()}/{total?.toLocaleString()}</span>
       </span>
     );
   }
   if (current !== undefined && total !== undefined && current > 0) {
     return (
       <span className="text-yellow-400 font-medium">
-        🔄 {current.toLocaleString()}/{total.toLocaleString()}
+        <span className="sm:hidden">🔄</span>
+        <span className="hidden sm:inline">🔄 {current.toLocaleString()}/{total.toLocaleString()}</span>
       </span>
     );
   }
-  return <span className="text-gray-400">⏳ Pending</span>;
+  return (
+    <span className="text-gray-400">
+      <span className="sm:hidden">⏳</span>
+      <span className="hidden sm:inline">⏳ Pending</span>
+    </span>
+  );
 }
 
 function SimpleStatus({ complete }: { complete: boolean | 'n/a' }) {
   if (complete === 'n/a') {
-    return <span className="text-gray-500">N/A</span>;
+    return <span className="text-gray-500">—</span>;
   }
   if (complete) {
-    return <span className="text-green-400">✅ Done</span>;
+    return (
+      <span className="text-green-400">
+        <span className="sm:hidden">✅</span>
+        <span className="hidden sm:inline">✅ Done</span>
+      </span>
+    );
   }
-  return <span className="text-gray-400">⏳ Pending</span>;
+  return (
+    <span className="text-gray-400">
+      <span className="sm:hidden">⏳</span>
+      <span className="hidden sm:inline">⏳ Pending</span>
+    </span>
+  );
 }
 
 const TodoListTab: React.FC = () => {
   return (
     <div className="w-full">
       {/* Section Header */}
-      <div className="text-center mb-8">
-        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+      <div className="text-center mb-4 sm:mb-8">
+        <h2 className="text-2xl sm:text-4xl font-bold text-white mb-2 sm:mb-4">
           📋 Priority Todo List
         </h2>
       </div>
 
       {/* Todo Items */}
-      <div className="space-y-4 max-w-4xl mx-auto">
+      <div className="space-y-3 sm:space-y-4 max-w-4xl mx-auto">
         {todoItems.map((item, index) => {
           const isSubItem = typeof item.id === 'string';
           return (
-          <div key={item.id} className={isSubItem ? 'ml-8' : ''}>
+          <div key={item.id} className={isSubItem ? 'ml-2 sm:ml-6' : ''}>
             <div
-              className="glass p-5 rounded-lg border border-purple-500/30 hover:border-purple-400/50 transition-all duration-300 hover:transform hover:scale-[1.02] group"
+              className="glass p-3 sm:p-4 rounded-lg border border-purple-500/30 hover:border-purple-400/50 transition-all duration-300 group"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="flex items-start gap-4">
-                {/* Number Badge */}
-                <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg border-2 border-purple-400/50 group-hover:border-purple-300 transition-colors">
-                  {item.id}
+              {/* Mobile: stacked centered layout, Desktop: horizontal */}
+              <div className="flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left gap-2 sm:gap-3">
+                {/* Number Badge + Status (mobile: same row) */}
+                <div className="flex items-center gap-2 sm:block">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm border-2 border-purple-400/50 group-hover:border-purple-300 transition-colors">
+                    {item.id}
+                  </div>
+                  {/* Status indicator - visible on mobile next to badge */}
+                  <div className="sm:hidden">
+                    {item.completed ? (
+                      <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center" title="Completed">
+                        <span className="text-white text-xs">✓</span>
+                      </div>
+                    ) : (
+                      <div className="w-3 h-3 bg-yellow-400 rounded-full animate-pulse" title="In Progress" />
+                    )}
+                  </div>
                 </div>
 
                 {/* Content */}
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-2xl">{item.icon}</span>
-                    <h3 className="text-xl font-bold text-white group-hover:text-purple-200 transition-colors">
+                  <div className="flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 mb-0.5 sm:mb-1">
+                    <span className="text-lg sm:text-xl">{item.icon}</span>
+                    <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-purple-200 transition-colors leading-tight">
                       {item.title}
                     </h3>
                   </div>
-                  <p className="text-gray-300 text-sm leading-relaxed">
+                  <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
                     {item.description}
                   </p>
                 </div>
 
-                {/* Status indicator */}
-                <div className="flex-shrink-0">
+                {/* Status indicator - desktop only */}
+                <div className="hidden sm:block flex-shrink-0">
                   {item.completed ? (
                     <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center" title="Completed">
                       <span className="text-white text-xs">✓</span>
@@ -180,32 +222,41 @@ const TodoListTab: React.FC = () => {
 
             {/* NFT Collections Sub-table */}
             {item.hasSubtasks && (
-              <div className="mt-2 ml-14 mr-4">
+              <div className="mt-2 sm:ml-6">
                 <div className="glass rounded-lg border border-purple-500/20 overflow-hidden">
-                  <table className="w-full text-sm">
+                  <table className="w-full text-xs sm:text-sm">
                     <thead>
                       <tr className="border-b border-purple-500/20 bg-purple-900/20">
-                        <th className="text-left py-2 px-3 text-purple-300 font-medium">Collection</th>
-                        <th className="text-left py-2 px-3 text-purple-300 font-medium">Download</th>
-                        <th className="text-left py-2 px-3 text-purple-300 font-medium">Upload</th>
-                        <th className="text-left py-2 px-3 text-purple-300 font-medium">Contract</th>
+                        <th className="text-left py-1.5 sm:py-2 px-2 sm:px-3 text-purple-300 font-medium">Collection</th>
+                        <th className="text-center py-1.5 sm:py-2 px-1 sm:px-3 text-purple-300 font-medium">
+                          <span className="sm:hidden">D/L</span>
+                          <span className="hidden sm:inline">Download</span>
+                        </th>
+                        <th className="text-center py-1.5 sm:py-2 px-1 sm:px-3 text-purple-300 font-medium">
+                          <span className="sm:hidden">U/L</span>
+                          <span className="hidden sm:inline">Upload</span>
+                        </th>
+                        <th className="text-center py-1.5 sm:py-2 px-1 sm:px-3 text-purple-300 font-medium">
+                          <span className="sm:hidden">ETH</span>
+                          <span className="hidden sm:inline">Contract</span>
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
                       {collections.map((col) => (
                         <tr key={col.name} className="border-b border-purple-500/10 last:border-0">
-                          <td className="py-2 px-3 text-white font-medium">{col.name}</td>
-                          <td className="py-2 px-3">
+                          <td className="py-1.5 sm:py-2 px-2 sm:px-3 text-white font-medium">{col.name}</td>
+                          <td className="py-1.5 sm:py-2 px-1 sm:px-3 text-center">
                             <StatusCell
                               complete={col.downloadComplete}
                               current={col.downloadCurrent}
                               total={col.downloadTotal}
                             />
                           </td>
-                          <td className="py-2 px-3">
+                          <td className="py-1.5 sm:py-2 px-1 sm:px-3 text-center">
                             <SimpleStatus complete={col.uploadComplete} />
                           </td>
-                          <td className="py-2 px-3">
+                          <td className="py-1.5 sm:py-2 px-1 sm:px-3 text-center">
                             <SimpleStatus complete={col.contractUpdated} />
                           </td>
                         </tr>
@@ -218,42 +269,54 @@ const TodoListTab: React.FC = () => {
 
             {/* Contract Links Sub-table */}
             {item.hasContractLinks && (
-              <div className="mt-2 ml-14 mr-4">
+              <div className="mt-2 sm:ml-6">
                 <div className="glass rounded-lg border border-purple-500/20 overflow-hidden">
-                  <table className="w-full text-sm">
+                  <table className="w-full text-xs sm:text-sm">
                     <thead>
                       <tr className="border-b border-purple-500/20 bg-purple-900/20">
-                        <th className="text-left py-2 px-3 text-purple-300 font-medium">Contract</th>
-                        <th className="text-left py-2 px-3 text-purple-300 font-medium">Status</th>
-                        <th className="text-left py-2 px-3 text-purple-300 font-medium">Links</th>
+                        <th className="text-left py-1.5 sm:py-2 px-2 sm:px-3 text-purple-300 font-medium">Contract</th>
+                        <th className="text-center py-1.5 sm:py-2 px-1 sm:px-3 text-purple-300 font-medium">Status</th>
+                        <th className="text-center py-1.5 sm:py-2 px-1 sm:px-3 text-purple-300 font-medium">Links</th>
                       </tr>
                     </thead>
                     <tbody>
                       {contractLinks.map((contract) => (
                         <tr key={contract.address} className="border-b border-purple-500/10 last:border-0">
-                          <td className="py-2 px-3 text-white font-medium">{contract.name}</td>
-                          <td className="py-2 px-3">
+                          <td className="py-1.5 sm:py-2 px-2 sm:px-3 text-white font-medium">{contract.name}</td>
+                          <td className="py-1.5 sm:py-2 px-1 sm:px-3 text-center">
                             {contract.transferred ? (
-                              <span className="text-green-400">✅ Transferred</span>
+                              <span className="text-green-400">
+                                <span className="sm:hidden">✅</span>
+                                <span className="hidden sm:inline">✅ Transferred</span>
+                              </span>
                             ) : (
-                              <span className="text-gray-400">Not Transferred</span>
+                              <span className="text-gray-400">
+                                <span className="sm:hidden">⏳</span>
+                                <span className="hidden sm:inline">Not Transferred</span>
+                              </span>
                             )}
                           </td>
-                          <td className="py-2 px-3 space-x-2">
-                            <a
-                              href={`/contracts/${contract.address}`}
-                              className="text-purple-400 hover:text-purple-300 underline"
-                            >
-                              Details
-                            </a>
-                            {contract.hasNFTs && (
+                          <td className="py-1.5 sm:py-2 px-1 sm:px-3 text-center">
+                            <div className="flex items-center justify-center gap-2">
                               <a
-                                href={`/nfts/${contract.address}`}
-                                className="text-blue-400 hover:text-blue-300 underline"
+                                href={`/contracts/${contract.address}`}
+                                className="text-purple-400 hover:text-purple-300"
+                                title="Details"
                               >
-                                NFTs
+                                <span className="sm:hidden">📄</span>
+                                <span className="hidden sm:inline underline">Details</span>
                               </a>
-                            )}
+                              {contract.hasNFTs && (
+                                <a
+                                  href={`/contracts/${contract.address}/nfts`}
+                                  className="text-blue-400 hover:text-blue-300"
+                                  title="NFTs"
+                                >
+                                  <span className="sm:hidden">🖼️</span>
+                                  <span className="hidden sm:inline underline">NFTs</span>
+                                </a>
+                              )}
+                            </div>
                           </td>
                         </tr>
                       ))}

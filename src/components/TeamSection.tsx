@@ -1,8 +1,21 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { TeamMember, packLeadership, wolfCouncil } from '../config/teamData';
+
+// Preload animated images in the background
+const preloadImages = (urls: string[]) => {
+  urls.forEach(url => {
+    const img = new window.Image();
+    img.src = url;
+  });
+};
+
+// Get all animated image URLs
+const allAnimatedImages = [...packLeadership, ...wolfCouncil]
+  .map(member => member.animatedImage)
+  .filter((url): url is string => !!url);
 
 const TeamMemberCard = ({ name, wolfName, image, animatedImage, bio, role, twitter, walletAddress, discord }: TeamMember) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -101,12 +114,10 @@ const TeamMemberCard = ({ name, wolfName, image, animatedImage, bio, role, twitt
 };
 
 export default function TeamSection() {
-  // Disable animations temporarily to test parallax
-  // const [isLoaded, setIsLoaded] = useState(false);
-
-  // useEffect(() => {
-  //   setIsLoaded(true);
-  // }, []);
+  // Preload animated GIFs in the background when component mounts
+  useEffect(() => {
+    preloadImages(allAnimatedImages);
+  }, []);
 
   return (
     <section className="team-section relative py-4">

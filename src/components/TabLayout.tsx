@@ -100,7 +100,7 @@ const TabLayout: React.FC = () => {
         {/* Bottom section */}
         <div className="p-3 lg:p-4 border-t border-purple-500/30">
           <a
-            href="https://discord.gg/SC3TFQrKwf"
+            href="https://discord.gg/CNg6gBCF7T"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full flex items-center justify-center lg:justify-start gap-2 px-3 py-2 rounded-lg bg-indigo-600/30 hover:bg-indigo-600/50 text-white transition-colors"

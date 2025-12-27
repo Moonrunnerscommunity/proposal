@@ -7,7 +7,7 @@ const SocialAccountsSection = () => {
   const discordInfo = {
     serverName: 'Moonrunners',
     serverId: '990394615121195068',
-    inviteUrl: 'https://discord.gg/SC3TFQrKwf'
+    inviteUrl: 'https://discord.gg/CNg6gBCF7T'
   };
 
   const twitterInfo = {

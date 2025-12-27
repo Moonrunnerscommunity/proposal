@@ -113,7 +113,7 @@ const CommunicationSection = () => {
             {/* Social Links */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <a 
-                href="https://discord.gg/SC3TFQrKwf" 
+                href="https://discord.gg/CNg6gBCF7T" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-indigo-600/40 hover:bg-indigo-600/60 border border-indigo-400/30 hover:border-indigo-300/60 px-6 py-3 rounded-lg text-white font-semibold transition-all duration-300 hover:transform hover:scale-105 flex items-center justify-center gap-2"
