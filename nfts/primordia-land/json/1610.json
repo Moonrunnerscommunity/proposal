@@ -1,0 +1,28 @@
+{
+  "tokenId": "1610",
+  "name": "Primordia Land #1610",
+  "image": "https://i2c.seadn.io/ethereum/0xfbb87a6a4876820d996a9bbe106e4f73a5e4a71c/195c366775fbb1a5074993e31d6528/73195c366775fbb1a5074993e31d6528.gif",
+  "description": "Primordia, a planet built on fallen empires and dark magic, is letting you in. Built off the success of Moonrunners, we’re giving you a chance to not only be a part of our history, but to explore its virtual depths. Join an exclusive community creating endless value.",
+  "traits": [
+    {
+      "trait_type": "Loot",
+      "display_type": null,
+      "max_value": null,
+      "value": "Dragon Cult Robes"
+    },
+    {
+      "trait_type": "Resource",
+      "display_type": null,
+      "max_value": null,
+      "value": "Giant Topaz"
+    },
+    {
+      "trait_type": "Environment",
+      "display_type": null,
+      "max_value": null,
+      "value": "Stealth"
+    }
+  ],
+  "collectionSlug": "primordia-land",
+  "downloadedAt": "2025-12-27T06:25:16.301Z"
+}

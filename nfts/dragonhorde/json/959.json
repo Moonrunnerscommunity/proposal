@@ -1,0 +1,70 @@
+{
+  "tokenId": "959",
+  "name": "Dragonhorde #959",
+  "image": "https://i2c.seadn.io/ethereum/0x6b5483b55b362697000d8774d8ea9c4429b261bb/61561b27188b3c58199bf7f06b0589f7.png",
+  "description": "Dragonhorde is a collection of arcane Dragons, resurrected in the alchemy lab from Primordia’s ancient past. Being a Dragonhorde holder entitles you to numerous exclusive benefits, experiences, and opportunities including future yield offering unprecedented value. CC0",
+  "traits": [
+    {
+      "trait_type": "Head",
+      "display_type": null,
+      "max_value": null,
+      "value": "Dragonskull"
+    },
+    {
+      "trait_type": "Horns",
+      "display_type": null,
+      "max_value": null,
+      "value": "Striated"
+    },
+    {
+      "trait_type": "Mouth",
+      "display_type": null,
+      "max_value": null,
+      "value": "Open"
+    },
+    {
+      "trait_type": "Scale",
+      "display_type": null,
+      "max_value": null,
+      "value": "Blue"
+    },
+    {
+      "trait_type": "Wings",
+      "display_type": null,
+      "max_value": null,
+      "value": "Open"
+    },
+    {
+      "trait_type": "Wings",
+      "display_type": null,
+      "max_value": null,
+      "value": "Open"
+    },
+    {
+      "trait_type": "Rarity",
+      "display_type": null,
+      "max_value": null,
+      "value": "D1"
+    },
+    {
+      "trait_type": "Eye Style",
+      "display_type": null,
+      "max_value": null,
+      "value": "Angry"
+    },
+    {
+      "trait_type": "Eye color",
+      "display_type": null,
+      "max_value": null,
+      "value": "Yellow"
+    },
+    {
+      "trait_type": "Background",
+      "display_type": null,
+      "max_value": null,
+      "value": "Ancient Dragon Cemetery"
+    }
+  ],
+  "collectionSlug": "moonrunners-dragonhorde-official",
+  "downloadedAt": "2025-12-27T03:45:06.225Z"
+}

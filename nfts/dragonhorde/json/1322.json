@@ -1,0 +1,76 @@
+{
+  "tokenId": "1322",
+  "name": "Dragonhorde #1322",
+  "image": "https://i2c.seadn.io/ethereum/0x6b5483b55b362697000d8774d8ea9c4429b261bb/aa8eaa2d9ac4fc1eb96ce1a3e8ce8faa.png",
+  "description": "Dragonhorde is a collection of arcane Dragons, resurrected in the alchemy lab from Primordia’s ancient past. Being a Dragonhorde holder entitles you to numerous exclusive benefits, experiences, and opportunities including future yield offering unprecedented value. CC0",
+  "traits": [
+    {
+      "trait_type": "Head",
+      "display_type": null,
+      "max_value": null,
+      "value": "Dragonskull"
+    },
+    {
+      "trait_type": "Horns",
+      "display_type": null,
+      "max_value": null,
+      "value": "Heavy"
+    },
+    {
+      "trait_type": "Mouth",
+      "display_type": null,
+      "max_value": null,
+      "value": "Arcane Blaze"
+    },
+    {
+      "trait_type": "Scale",
+      "display_type": null,
+      "max_value": null,
+      "value": "Robot"
+    },
+    {
+      "trait_type": "Wings",
+      "display_type": null,
+      "max_value": null,
+      "value": "Open"
+    },
+    {
+      "trait_type": "Wings",
+      "display_type": null,
+      "max_value": null,
+      "value": "Open"
+    },
+    {
+      "trait_type": "Rarity",
+      "display_type": null,
+      "max_value": null,
+      "value": "D2"
+    },
+    {
+      "trait_type": "Headwear",
+      "display_type": null,
+      "max_value": null,
+      "value": "Eye Patch"
+    },
+    {
+      "trait_type": "Eye Style",
+      "display_type": null,
+      "max_value": null,
+      "value": "Closed"
+    },
+    {
+      "trait_type": "Eye color",
+      "display_type": null,
+      "max_value": null,
+      "value": "Yellow"
+    },
+    {
+      "trait_type": "Background",
+      "display_type": null,
+      "max_value": null,
+      "value": "Battle Graves"
+    }
+  ],
+  "collectionSlug": "moonrunners-dragonhorde-official",
+  "downloadedAt": "2025-12-27T04:11:12.087Z"
+}

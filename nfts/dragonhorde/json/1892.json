@@ -1,0 +1,76 @@
+{
+  "tokenId": "1892",
+  "name": "Dragonhorde #1892",
+  "image": "https://i2c.seadn.io/ethereum/0x6b5483b55b362697000d8774d8ea9c4429b261bb/e0a03733e62b9b25e5ebdd759ce71b75.png",
+  "description": "Dragonhorde is a collection of arcane Dragons, resurrected in the alchemy lab from Primordia’s ancient past. Being a Dragonhorde holder entitles you to numerous exclusive benefits, experiences, and opportunities including future yield offering unprecedented value. CC0",
+  "traits": [
+    {
+      "trait_type": "Head",
+      "display_type": null,
+      "max_value": null,
+      "value": "Dragonskull"
+    },
+    {
+      "trait_type": "Horns",
+      "display_type": null,
+      "max_value": null,
+      "value": "Heavy Pointer"
+    },
+    {
+      "trait_type": "Mouth",
+      "display_type": null,
+      "max_value": null,
+      "value": "Open"
+    },
+    {
+      "trait_type": "Scale",
+      "display_type": null,
+      "max_value": null,
+      "value": "Arctic"
+    },
+    {
+      "trait_type": "Wings",
+      "display_type": null,
+      "max_value": null,
+      "value": "Open"
+    },
+    {
+      "trait_type": "Wings",
+      "display_type": null,
+      "max_value": null,
+      "value": "Open"
+    },
+    {
+      "trait_type": "Rarity",
+      "display_type": null,
+      "max_value": null,
+      "value": "D2"
+    },
+    {
+      "trait_type": "Headwear",
+      "display_type": null,
+      "max_value": null,
+      "value": "Pirate Hat"
+    },
+    {
+      "trait_type": "Eye Style",
+      "display_type": null,
+      "max_value": null,
+      "value": "Tired"
+    },
+    {
+      "trait_type": "Eye color",
+      "display_type": null,
+      "max_value": null,
+      "value": "Purple"
+    },
+    {
+      "trait_type": "Background",
+      "display_type": null,
+      "max_value": null,
+      "value": "Sacrificial Altar"
+    }
+  ],
+  "collectionSlug": "moonrunners-dragonhorde-official",
+  "downloadedAt": "2025-12-27T04:28:38.991Z"
+}

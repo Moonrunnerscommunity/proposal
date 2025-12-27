@@ -1,0 +1,46 @@
+{
+  "tokenId": "766",
+  "name": "Primordia Land #766",
+  "image": "https://i2c.seadn.io/ethereum/0xfbb87a6a4876820d996a9bbe106e4f73a5e4a71c/250563f11f5d4888301ab67859d20e/b9250563f11f5d4888301ab67859d20e.gif",
+  "description": "Primordia, a planet built on fallen empires and dark magic, is letting you in. Built off the success of Moonrunners, we’re giving you a chance to not only be a part of our history, but to explore its virtual depths. Join an exclusive community creating endless value.",
+  "traits": [
+    {
+      "trait_type": "Loot",
+      "display_type": null,
+      "max_value": null,
+      "value": "Oak Totem"
+    },
+    {
+      "trait_type": "Relic",
+      "display_type": null,
+      "max_value": null,
+      "value": "Sacrificial Stone Shrine"
+    },
+    {
+      "trait_type": "Relic",
+      "display_type": null,
+      "max_value": null,
+      "value": "Stack of Books"
+    },
+    {
+      "trait_type": "Relic",
+      "display_type": null,
+      "max_value": null,
+      "value": "Dragon Armor"
+    },
+    {
+      "trait_type": "Resource",
+      "display_type": null,
+      "max_value": null,
+      "value": "Giant Emerald"
+    },
+    {
+      "trait_type": "Environment",
+      "display_type": null,
+      "max_value": null,
+      "value": "Roaming"
+    }
+  ],
+  "collectionSlug": "primordia-land",
+  "downloadedAt": "2025-12-27T05:55:57.718Z"
+}

@@ -1,0 +1,22 @@
+{
+  "tokenId": "2729",
+  "name": "Primordia Land #2729",
+  "image": "https://i2c.seadn.io/ethereum/0xfbb87a6a4876820d996a9bbe106e4f73a5e4a71c/239364d8e6a1c8f8b5368a1d2761b9/15239364d8e6a1c8f8b5368a1d2761b9.gif",
+  "description": "Primordia, a planet built on fallen empires and dark magic, is letting you in. Built off the success of Moonrunners, we’re giving you a chance to not only be a part of our history, but to explore its virtual depths. Join an exclusive community creating endless value.",
+  "traits": [
+    {
+      "trait_type": "Relic",
+      "display_type": null,
+      "max_value": null,
+      "value": "Sacrificial Stone Shrine"
+    },
+    {
+      "trait_type": "Environment",
+      "display_type": null,
+      "max_value": null,
+      "value": "Hunter"
+    }
+  ],
+  "collectionSlug": "primordia-land",
+  "downloadedAt": "2025-12-27T07:01:17.706Z"
+}

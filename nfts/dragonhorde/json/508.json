@@ -1,0 +1,82 @@
+{
+  "tokenId": "508",
+  "name": "Dragonhorde #508",
+  "image": "https://i2c.seadn.io/ethereum/0x6b5483b55b362697000d8774d8ea9c4429b261bb/b6f12ae24f7ad4bd2ab8a081b0688275.png",
+  "description": "Dragonhorde is a collection of arcane Dragons, resurrected in the alchemy lab from Primordia’s ancient past. Being a Dragonhorde holder entitles you to numerous exclusive benefits, experiences, and opportunities including future yield offering unprecedented value. CC0",
+  "traits": [
+    {
+      "trait_type": "Head",
+      "display_type": null,
+      "max_value": null,
+      "value": "Dragonskull"
+    },
+    {
+      "trait_type": "Horns",
+      "display_type": null,
+      "max_value": null,
+      "value": "Heavy"
+    },
+    {
+      "trait_type": "Mouth",
+      "display_type": null,
+      "max_value": null,
+      "value": "Angry"
+    },
+    {
+      "trait_type": "Scale",
+      "display_type": null,
+      "max_value": null,
+      "value": "Zombie"
+    },
+    {
+      "trait_type": "Wings",
+      "display_type": null,
+      "max_value": null,
+      "value": "Open"
+    },
+    {
+      "trait_type": "Wings",
+      "display_type": null,
+      "max_value": null,
+      "value": "Open"
+    },
+    {
+      "trait_type": "Rarity",
+      "display_type": null,
+      "max_value": null,
+      "value": "D3"
+    },
+    {
+      "trait_type": "Outwear",
+      "display_type": null,
+      "max_value": null,
+      "value": "Full Moon Bandana"
+    },
+    {
+      "trait_type": "Headwear",
+      "display_type": null,
+      "max_value": null,
+      "value": "Loki Helmet"
+    },
+    {
+      "trait_type": "Eye Style",
+      "display_type": null,
+      "max_value": null,
+      "value": "Angry"
+    },
+    {
+      "trait_type": "Eye color",
+      "display_type": null,
+      "max_value": null,
+      "value": "Blue"
+    },
+    {
+      "trait_type": "Background",
+      "display_type": null,
+      "max_value": null,
+      "value": "Primordian Valley"
+    }
+  ],
+  "collectionSlug": "moonrunners-dragonhorde-official",
+  "downloadedAt": "2025-12-27T03:30:38.552Z"
+}
