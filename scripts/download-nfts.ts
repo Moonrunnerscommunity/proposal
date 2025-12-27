@@ -37,6 +37,12 @@ const COLLECTIONS: Record<string, {
   outputDir: string;
   name: string;
 }> = {
+  'moonrunners': {
+    contractAddress: '0x1485297e942ce64e0870ece60179dfda34b4c625',
+    maxTokenId: 10000,
+    outputDir: 'moonrunners-fresh',
+    name: 'Moonrunners'
+  },
   'dragonhorde': {
     contractAddress: '0x6b5483b55b362697000d8774d8ea9c4429b261bb',
     maxTokenId: 2311,
@@ -70,12 +76,12 @@ const COLLECTIONS: Record<string, {
 };
 
 // Rate limiting
-const RATE_LIMIT_MS = 300; // 300ms between requests (safer than 250ms)
+const RATE_LIMIT_MS = 100; // 100ms between requests (faster)
 const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 2000;
 
-// Paths
-const PUBLIC_DIR = path.join(__dirname, '..', 'public', 'nfts');
+// Paths - output to gh-pages repo
+const PUBLIC_DIR = path.join(__dirname, '..', '..', 'proposal-gh-pages', 'nfts');
 const CHECKPOINT_DIR = path.join(__dirname, 'download-checkpoints');
 
 interface NftTrait {

@@ -65,7 +65,7 @@ const TabLayout: React.FC = () => {
         <div className="p-3 lg:py-4 lg:px-3 border-b border-purple-500/30 overflow-hidden">
           <div className="flex flex-col items-center text-center w-full">
             <span className="text-2xl lg:text-4xl">🐺</span>
-            <span className="hidden lg:block text-base font-bold text-white mt-1">Moonrunners</span>
+            <span className="hidden lg:block text-base font-bold text-white mt-1">Moonrunners 2.0</span>
             <span className="hidden lg:block text-[10px] text-purple-300 italic">Protect the Pack</span>
           </div>
         </div>

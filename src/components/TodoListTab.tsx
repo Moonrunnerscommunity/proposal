@@ -53,7 +53,7 @@ const todoItems: TodoItem[] = [
   {
     id: 1,
     title: 'Update This Website',
-    description: 'Improve the proposal site with better UX, clearer messaging, and community resources',
+    description: 'Improve this site with better UX, clearer messaging, and community resources',
     icon: '🌐',
     completed: true
   },

@@ -24,7 +24,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://moonrunners.ai'),
-  title: "Moonrunners Community Takeover Proposal | 🐺 Wolves of Many Talents",
+  title: "Moonrunners 2.0 | 🐺 Wolves of Many Talents",
   description: "Join the pack! A community-driven proposal to take over the Moonrunners project with our Wolf Council leadership team. Vote now to shape the future of Moonrunners.",
   keywords: ["Moonrunners", "NFT", "Community", "Takeover", "Proposal", "Wolf Council", "Web3", "Cryptocurrency"],
   authors: [{ name: "Moonrunners Wolf Council" }],
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://moonrunners.ai',
     siteName: 'Moonrunners Community Proposal',
-    title: 'Moonrunners Community Takeover Proposal | 🐺 Wolves of Many Talents',
+    title: 'Moonrunners 2.0 | 🐺 Wolves of Many Talents',
     description: 'Join the pack! A community-driven proposal to take over the Moonrunners project with our Wolf Council leadership team. Vote now to shape the future of Moonrunners.',
     images: [
       {
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@MoonrunnersNFT',
     creator: '@MoonrunnersNFT',
-    title: 'Moonrunners Community Takeover Proposal | 🐺 Wolves of Many Talents',
+    title: 'Moonrunners 2.0 | 🐺 Wolves of Many Talents',
     description: 'Join the pack! A community-driven proposal to take over the Moonrunners project with our Wolf Council leadership team. Vote now! 🗳️',
     images: ['/social-card.svg', '/social-card.png'],
   },

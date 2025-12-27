@@ -1,0 +1,8 @@
+- on the contracts page, separate the contracts by "Collections" and "Miscellaneous" and put collections at the top.
+- make the "all nfts" page a child page of the contracts view
+    - /nfts/0x1485297e942ce64e0870ece60179dfda34b4c625 becomes /contracts/0x1485297e942ce64e0870ece60179dfda34b4c625/nfts
+    - the page retains the contract sidebar and normal page layout
+    - so does an individual nft detail page
+- on the contract page, take out the giant links box and just make them links in the top header but floated top right
+- contract details should be 3 columns
+- all of your headings are massive, but especially on the nft detail page, the name always wraps
