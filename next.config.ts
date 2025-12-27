@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
                 protocol: 'https',
                 hostname: 'i.seadn.io',
             },
+            {
+                protocol: 'https',
+                hostname: 'moonrunnerscommunity.github.io',
+            },
         ],
     },
     devIndicators: false,

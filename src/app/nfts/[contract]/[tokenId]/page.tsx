@@ -1,9 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import fs from 'fs';
-import path from 'path';
-import { findContract } from '@/config/contractData';
+import { findContract, NFT_ASSETS_BASE_URL } from '@/config/contractData';
 import { ArrowLeftIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 
 interface PageProps {
@@ -37,18 +35,18 @@ function TraitCard({ trait }: { trait: { trait_type: string; value: string | num
   );
 }
 
-async function getLocalMetadata(contractAddress: string, tokenId: string): Promise<NftMetadata | null> {
+async function fetchMetadata(contractAddress: string, tokenId: string): Promise<NftMetadata | null> {
   const contract = findContract(contractAddress);
   if (!contract?.nftImagesDir) return null;
 
   // Derive JSON directory from images directory
   const jsonDir = contract.nftImagesDir.replace('/images', '/json');
-  const jsonPath = path.join(process.cwd(), 'public', jsonDir, `${tokenId}.json`);
+  const jsonUrl = `${NFT_ASSETS_BASE_URL}${jsonDir}/${tokenId}.json`;
 
   try {
-    if (fs.existsSync(jsonPath)) {
-      const content = fs.readFileSync(jsonPath, 'utf-8');
-      return JSON.parse(content);
+    const response = await fetch(jsonUrl, { next: { revalidate: 3600 } });
+    if (response.ok) {
+      return await response.json();
     }
   } catch {
     // Fall through to return null
@@ -57,22 +55,11 @@ async function getLocalMetadata(contractAddress: string, tokenId: string): Promi
   return null;
 }
 
-function getLocalImagePath(contractAddress: string, tokenId: string): string | null {
+function getImageUrl(contractAddress: string, tokenId: string): string | null {
   const contract = findContract(contractAddress);
   if (!contract?.nftImagesDir) return null;
 
-  const imagesDir = path.join(process.cwd(), 'public', contract.nftImagesDir);
-
-  // Check for different image formats
-  const extensions = ['png', 'jpg', 'gif', 'webp'];
-  for (const ext of extensions) {
-    const imagePath = path.join(imagesDir, `${tokenId}.${ext}`);
-    if (fs.existsSync(imagePath)) {
-      return `${contract.nftImagesDir}/${tokenId}.${ext}`;
-    }
-  }
-
-  return null;
+  return `${NFT_ASSETS_BASE_URL}${contract.nftImagesDir}/${tokenId}.png`;
 }
 
 export default async function NftPage({ params }: PageProps) {
@@ -83,12 +70,12 @@ export default async function NftPage({ params }: PageProps) {
     notFound();
   }
 
-  // Try to get local metadata
-  const metadata = await getLocalMetadata(contractAddress, tokenId);
-  const localImagePath = getLocalImagePath(contractAddress, tokenId);
+  // Try to get metadata from GitHub Pages
+  const metadata = await fetchMetadata(contractAddress, tokenId);
+  const imageUrl = getImageUrl(contractAddress, tokenId);
 
-  // Determine image source
-  const imageSrc = localImagePath || metadata?.image || null;
+  // Determine image source - prefer local (GitHub Pages), fallback to metadata
+  const imageSrc = imageUrl || metadata?.image || null;
   const name = metadata?.name || `${contract.name} #${tokenId}`;
 
   return (

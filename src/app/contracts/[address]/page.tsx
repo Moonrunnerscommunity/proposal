@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { contracts, findContract, type ContractInfo } from '@/config/contractData';
+import { contracts, findContract, type ContractInfo, NFT_ASSETS_BASE_URL } from '@/config/contractData';
 import { CheckIcon, XMarkIcon, NoSymbolIcon, ArrowLeftIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 import { CopyButton } from '@/components/contracts/CopyButton';
 
@@ -296,7 +296,7 @@ export default async function ContractPage({ params }: PageProps) {
                     className="aspect-square bg-black/20 rounded-lg overflow-hidden hover:ring-2 hover:ring-purple-500 transition-all"
                   >
                     <Image
-                      src={`${contract.nftImagesDir}/${i + 1}.png`}
+                      src={`${NFT_ASSETS_BASE_URL}${contract.nftImagesDir}/${i + 1}.png`}
                       alt={`${contract.name} #${i + 1}`}
                       width={100}
                       height={100}

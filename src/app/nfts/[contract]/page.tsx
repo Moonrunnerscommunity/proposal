@@ -1,9 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import fs from 'fs';
-import path from 'path';
-import { contracts, findContract } from '@/config/contractData';
+import { contracts, findContract, NFT_ASSETS_BASE_URL } from '@/config/contractData';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 
 interface PageProps {
@@ -13,20 +11,24 @@ interface PageProps {
 
 const ITEMS_PER_PAGE = 100;
 
-function getAvailableImages(imagesDir: string): string[] {
-  const fullPath = path.join(process.cwd(), 'public', imagesDir);
+// Known token ranges for each collection (since we can't scan external URLs)
+const COLLECTION_TOKEN_RANGES: Record<string, { start: number; end: number }> = {
+  '0x1485297e942ce64e0870ece60179dfda34b4c625': { start: 1, end: 10000 }, // Moonrunners
+  '0x6b5483b55b362697000d8774d8ea9c4429b261bb': { start: 1, end: 2311 },  // Dragonhorde
+  '0xfbb87a6a4876820d996a9bbe106e4f73a5e4a71c': { start: 1, end: 2888 },  // Primordia Land
+  '0xb6d460ac51b93bca63b694f099c4a8b3b1cf73b4': { start: 1, end: 12 },    // Secrets (ERC1155)
+  '0xc05ba5529d964a9b2c46ebcd60564a4214ab7ba4': { start: 1, end: 1 },     // Chronicles
+  '0x4fdf87d4edae3fe323b8f6df502ccac6c8b4ba28': { start: 1, end: 3 },     // History
+};
 
-  try {
-    if (!fs.existsSync(fullPath)) return [];
-
-    const files = fs.readdirSync(fullPath);
-    return files
-      .filter(f => /\.(png|jpg|gif|webp)$/i.test(f))
-      .map(f => f.replace(/\.[^.]+$/, ''))
-      .sort((a, b) => parseInt(a) - parseInt(b));
-  } catch {
-    return [];
+function getTokenRange(contractAddress: string): { start: number; end: number } | null {
+  const lowerAddress = contractAddress.toLowerCase();
+  for (const [addr, range] of Object.entries(COLLECTION_TOKEN_RANGES)) {
+    if (addr.toLowerCase() === lowerAddress) {
+      return range;
+    }
   }
+  return null;
 }
 
 export default async function CollectionPage({ params, searchParams }: PageProps) {
@@ -34,21 +36,22 @@ export default async function CollectionPage({ params, searchParams }: PageProps
   const { page: pageParam } = await searchParams;
 
   const contract = findContract(contractAddress);
+  const tokenRange = getTokenRange(contractAddress);
 
-  if (!contract || !contract.nftImagesDir) {
+  if (!contract || !contract.nftImagesDir || !tokenRange) {
     notFound();
   }
 
   const page = Math.max(1, parseInt(pageParam || '1', 10));
-  const availableTokenIds = getAvailableImages(contract.nftImagesDir);
-  const totalItems = availableTokenIds.length || contract.items || 0;
+  const totalItems = tokenRange.end - tokenRange.start + 1;
   const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
 
   // Get tokens for current page
   const startIndex = (page - 1) * ITEMS_PER_PAGE;
-  const pageTokenIds = availableTokenIds.length > 0
-    ? availableTokenIds.slice(startIndex, startIndex + ITEMS_PER_PAGE)
-    : Array.from({ length: Math.min(ITEMS_PER_PAGE, totalItems - startIndex) }, (_, i) => String(startIndex + i + 1));
+  const pageTokenIds = Array.from(
+    { length: Math.min(ITEMS_PER_PAGE, totalItems - startIndex) },
+    (_, i) => tokenRange.start + startIndex + i
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-purple-900/20 to-gray-900">
@@ -94,7 +97,7 @@ export default async function CollectionPage({ params, searchParams }: PageProps
             >
               <div className="relative w-full h-full">
                 <Image
-                  src={`${contract.nftImagesDir}/${tokenId}.png`}
+                  src={`${NFT_ASSETS_BASE_URL}${contract.nftImagesDir}/${tokenId}.png`}
                   alt={`${contract.name} #${tokenId}`}
                   fill
                   className="object-cover"

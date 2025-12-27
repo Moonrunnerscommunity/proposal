@@ -1,3 +1,6 @@
+// NFT assets hosted on GitHub Pages
+export const NFT_ASSETS_BASE_URL = 'https://moonrunnerscommunity.github.io/proposal';
+
 export interface ContractInfo {
   name: string; // Name or label for the contract (not always a collection)
   description?: string;
