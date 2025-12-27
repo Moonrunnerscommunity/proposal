@@ -1,6 +1,4 @@
-export const config = {
-  runtime: 'edge', // Specify edge runtime
-};
+export const runtime = 'edge';
 interface NftTrait {
   trait_type: string;
   value: string | number | boolean;

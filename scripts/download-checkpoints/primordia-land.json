@@ -1,0 +1,13 @@
+{
+  "collection": "primordia-land",
+  "lastProcessedTokenId": 2888,
+  "totalDownloaded": 2883,
+  "failedTokenIds": [
+    1474,
+    1637,
+    1691,
+    1860
+  ],
+  "startedAt": "2025-12-27T03:30:02.179Z",
+  "lastUpdatedAt": "2025-12-27T07:08:42.316Z"
+}

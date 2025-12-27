@@ -26,22 +26,10 @@ The prompt is what I used to generate the animated image. It is not an exact sci
 */
 
 export const packLeadership: TeamMember[] = [
-    { 
-        name: 'Kshove', 
-        wolfName: 'Operations Wolf',
-        image: '/team/kshove.png', 
-        animatedImage: '/team/live/kshove.gif',
-        bio: 'A builder and operator with over 5 years of experience growing and operating a successful family business, plus a six-figure exit from a DJ company he started in high school. This pragmatic visionary has capitalized on multiple trends including the sneaker and trading card markets, and now focuses heavily on equities investing with strong returns. A jack-of-all-trades with deep roots in Moonrunners, he\'s focused on rebuilding the brand with sustainable Web2 cashflows and long-term community upside, ready to support every role and volunteer effort needed to protect and grow the pack.',
-        role: 'Business & Partnerships',
-        twitter: 'kshove_',
-        // walletAddress: '',
-        discord: 'kshove',
-        prompt: 'a wolf who\'s really happy to see you and wants to get this party started and really loves the music that\'s playing right now'
-  },
-  { 
-    name: 'Cartel', 
+  {
+    name: 'Cartel',
     wolfName: 'Strategy Wolf',
-    image: '/team/cartel.png', 
+    image: '/team/cartel.png',
     animatedImage: '/team/live/cartel.gif',
     bio: 'A seasoned pack leader with over two decades of experience navigating the digital wilderness. This Alpha has guided teams of 40+ wolves through complex technological terrain, successfully launching disruptive innovations that generated over $100M in value. Expert in emerging technologies like AI, Web3, and immersive media, she forges strategic alliances across vast digital territories while building scalable platforms that transform entire ecosystems.',
     role: 'Product & Engineering',
@@ -53,7 +41,18 @@ export const packLeadership: TeamMember[] = [
 ];
 
 export const wolfCouncil: TeamMember[] = [
-  { 
+  {
+    name: 'Kshove',
+    wolfName: 'Operations Wolf',
+    image: '/team/kshove.png',
+    animatedImage: '/team/live/kshove.gif',
+    bio: 'A builder and operator with over 5 years of experience growing and operating a successful family business, plus a six-figure exit from a DJ company he started in high school. This pragmatic visionary has capitalized on multiple trends including the sneaker and trading card markets, and now focuses heavily on equities investing with strong returns. A jack-of-all-trades with deep roots in Moonrunners, he\'s focused on rebuilding the brand with sustainable Web2 cashflows and long-term community upside, ready to support every role and volunteer effort needed to protect and grow the pack.',
+    role: 'Business & Partnerships',
+    twitter: 'kshove_',
+    discord: 'kshove',
+    prompt: 'a wolf who\'s really happy to see you and wants to get this party started and really loves the music that\'s playing right now'
+  },
+  {
     name: 'Kaladin', 
     wolfName: 'The Lore Keeper',
     image: '/team/kaladin.png', 

@@ -1,0 +1,16 @@
+{
+  "tokenId": "2",
+  "name": "Stone Tombstone",
+  "image": "https://i2c.seadn.io/ethereum/0x4fdf87d4edae3fe323b8f6df502ccac6c8b4ba28/01ba7a69862382e0ece2f6e16e698a40.png",
+  "description": "A regular tombstone, crafted by a stonemason, finely detailed with Tribal motifs. 2-3 sacrifices.",
+  "traits": [
+    {
+      "trait_type": "Rarity",
+      "display_type": null,
+      "max_value": null,
+      "value": "Rare"
+    }
+  ],
+  "collectionSlug": "moonrunners-history-of-primordia",
+  "downloadedAt": "2025-12-27T07:12:24.198Z"
+}

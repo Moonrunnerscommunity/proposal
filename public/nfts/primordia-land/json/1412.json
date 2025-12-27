@@ -1,0 +1,28 @@
+{
+  "tokenId": "1412",
+  "name": "Primordia Land #1412",
+  "image": "https://i2c.seadn.io/ethereum/0xfbb87a6a4876820d996a9bbe106e4f73a5e4a71c/5e05c11d300c6dc718f312efc222a9/385e05c11d300c6dc718f312efc222a9.gif",
+  "description": "Primordia, a planet built on fallen empires and dark magic, is letting you in. Built off the success of Moonrunners, we’re giving you a chance to not only be a part of our history, but to explore its virtual depths. Join an exclusive community creating endless value.",
+  "traits": [
+    {
+      "trait_type": "Loot",
+      "display_type": null,
+      "max_value": null,
+      "value": "Flagon of Ale"
+    },
+    {
+      "trait_type": "Relic",
+      "display_type": null,
+      "max_value": null,
+      "value": "Treasure Chest"
+    },
+    {
+      "trait_type": "Environment",
+      "display_type": null,
+      "max_value": null,
+      "value": "Roaming"
+    }
+  ],
+  "collectionSlug": "primordia-land",
+  "downloadedAt": "2025-12-27T06:04:19.977Z"
+}

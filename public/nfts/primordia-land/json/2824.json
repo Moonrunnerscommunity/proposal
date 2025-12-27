@@ -1,0 +1,40 @@
+{
+  "tokenId": "2824",
+  "name": "Primordia Land #2824",
+  "image": "https://i2c.seadn.io/ethereum/0xfbb87a6a4876820d996a9bbe106e4f73a5e4a71c/5644b496481248c9c9e55c9845c3ed/e25644b496481248c9c9e55c9845c3ed.gif",
+  "description": "Primordia, a planet built on fallen empires and dark magic, is letting you in. Built off the success of Moonrunners, we’re giving you a chance to not only be a part of our history, but to explore its virtual depths. Join an exclusive community creating endless value.",
+  "traits": [
+    {
+      "trait_type": "Loot",
+      "display_type": null,
+      "max_value": null,
+      "value": "Wizard’s Hat"
+    },
+    {
+      "trait_type": "Relic",
+      "display_type": null,
+      "max_value": null,
+      "value": "Spaceship"
+    },
+    {
+      "trait_type": "Relic",
+      "display_type": null,
+      "max_value": null,
+      "value": "Demon Skeleton"
+    },
+    {
+      "trait_type": "Relic",
+      "display_type": null,
+      "max_value": null,
+      "value": "Scrap Machinery Metal"
+    },
+    {
+      "trait_type": "Environment",
+      "display_type": null,
+      "max_value": null,
+      "value": "Labyrinth"
+    }
+  ],
+  "collectionSlug": "primordia-land",
+  "downloadedAt": "2025-12-27T07:02:54.699Z"
+}

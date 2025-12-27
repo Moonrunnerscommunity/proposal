@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Next.js 15 application for the Moonrunners Community Takeover Proposal. It includes:
+This is a Next.js 16 application for the Moonrunners Community Takeover Proposal. It includes:
 - A voting/proposal website for community governance
 - NFT unstaking functionality for Primordia Land, Moonrunners, and Dragonhorde collections
 - Audit tracking system for community assets
@@ -29,7 +29,7 @@ npm run lint
 ## Architecture
 
 ### Tech Stack
-- **Framework**: Next.js 15.3 with App Router and Turbopack
+- **Framework**: Next.js 16 with App Router and Turbopack
 - **Language**: TypeScript with strict mode
 - **Styling**: Tailwind CSS v4 with custom animations
 - **Web3**: Reown AppKit, wagmi, viem, ethers
@@ -87,7 +87,7 @@ Required:
 
 ### Development Notes
 
-- The app uses Next.js 15's Turbopack for faster development builds
+- The app uses Next.js 16's Turbopack for faster development builds
 - Tailwind CSS v4 is configured with custom animations
 - Images from OpenSea are proxied through `/api/opensea-proxy` to handle CORS
 - The audit system tracks community asset transfers with persistent JSON storage

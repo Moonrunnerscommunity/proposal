@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 @import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 
 /* Brand Color Variables */
@@ -553,6 +554,137 @@ appkit-overlay,
 [class*="modal-overlay"],
 [class*="modal-backdrop"] {
   z-index: 99997 !important;
+}
+
+/* Specs page markdown content */
+.specs-content h1 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: #e8e3f0;
+}
+
+.specs-content h2 {
+  font-size: 1.375rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #e8e3f0;
+}
+
+.specs-content h3 {
+  font-size: 1.125rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #e8e3f0;
+}
+
+.specs-content h4,
+.specs-content h5,
+.specs-content h6 {
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: #e8e3f0;
+}
+
+.specs-content p {
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+}
+
+.specs-content ul {
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.specs-content ol {
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  list-style-type: decimal;
+}
+
+.specs-content ul ul {
+  list-style-type: circle;
+}
+
+.specs-content ul ul ul {
+  list-style-type: square;
+}
+
+.specs-content li {
+  margin-bottom: 0.25rem;
+  display: list-item;
+}
+
+.specs-content a {
+  color: #8a6fb7;
+  text-decoration: underline;
+}
+
+.specs-content a:hover {
+  color: #b8a4d6;
+}
+
+.specs-content code {
+  background: #4a2b7b;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+  color: #ffd700;
+}
+
+.specs-content pre {
+  background: #3d2460;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.specs-content pre code {
+  background: none;
+  padding: 0;
+}
+
+.specs-content blockquote {
+  border-left: 3px solid #8a6fb7;
+  padding-left: 1rem;
+  margin-left: 0;
+  color: #b8a4d6;
+  font-style: italic;
+}
+
+.specs-content hr {
+  border: none;
+  border-top: 1px solid #8a6fb7;
+  margin: 1.5rem 0;
+}
+
+.specs-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.specs-content th,
+.specs-content td {
+  border: 1px solid #8a6fb7;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.specs-content th {
+  background-color: #4a2b7b;
+  font-weight: 600;
+  color: #e8e3f0;
+}
+
+.specs-content td {
+  background-color: #3d2460;
+}
+
+.specs-content tr:hover td {
+  background-color: #4a2b7b;
 }
 
 /* Print styles */

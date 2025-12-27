@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { CheckIcon, XMarkIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
+import { CheckIcon, XMarkIcon } from '@heroicons/react/24/outline';
 
 interface Domain {
   name: string;
@@ -18,9 +18,9 @@ const DomainsSection = () => {
       label: 'This Site',
       accounts: ['GoDaddy', 'Vercel', 'Github']
     },
-    { 
-      name: 'moonrunners.io', 
-      transferred: false,
+    {
+      name: 'moonrunners.io',
+      transferred: true,
       accounts: ['GoDaddy', 'Heroku', 'Others (TBD)']
     },
   ];
@@ -28,7 +28,7 @@ const DomainsSection = () => {
   return (
     <div className="glass-dark p-6 rounded-lg">
       <h4 className="text-lg font-semibold mb-4 flex items-center gap-2" style={{ color: 'var(--color-starlight)' }}>
-        <ExclamationTriangleIcon className="w-5 h-5 text-red-500" />
+        <CheckIcon className="w-5 h-5 text-green-500" />
         Domains
       </h4>
       

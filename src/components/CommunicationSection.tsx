@@ -39,8 +39,8 @@ const CommunicationSection = () => {
   ];
   
   return (
-    <section className="relative min-h-screen flex items-center justify-center py-20 px-4 z-50">
-      
+    <section className="relative py-4">
+
       <div className="max-w-6xl mx-auto w-full relative z-10">
 
       {/* Section Header */}

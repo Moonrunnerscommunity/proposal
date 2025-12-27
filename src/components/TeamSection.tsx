@@ -109,22 +109,16 @@ export default function TeamSection() {
   // }, []);
 
   return (
-    <section className="team-section relative min-h-screen py-16 sm:py-20 lg:py-24">
+    <section className="team-section relative py-4">
       {/* No background overlay - let parallax show through completely */}
-      
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div className="relative z-10 w-full max-w-6xl mx-auto">
         
         {/* Section Header */}
-        <div className="text-center mb-10 sm:mb-16 lg:mb-12 transition-all duration-1000">
-          <h2 className="text-responsive-3xl font-bold text-white mb-6">
+        <div className="text-center mb-8 transition-all duration-1000">
+          <h2 className="text-responsive-3xl font-bold text-white">
             🐺 Wolves of Many Talents 🌙
           </h2>
-          <div className="glass p-6 sm:p-8 max-w-4xl mx-auto">
-            <p className="text-lg text-gray-200 leading-relaxed mb-4">
-              Think of our team as <span className="text-gradient font-semibold">Wolf Council 2.0</span>, with each member having a special role to play in protecting and providing for the pack. 
-              We&apos;re keeping things agile - a small band of dedicated Moonrunners rather than a big corporate crew - so <strong className="text-white">every role counts</strong>.
-            </p>
-          </div>
         </div>
 
         {/* Pack Leadership */}
@@ -135,10 +129,10 @@ export default function TeamSection() {
               Pack Leadership
               <span className="text-3xl">👑</span>
             </h3>
-            <p className="text-lg text-purple-300 font-semibold">The Alpha Wolves leading the charge to protect and guide the pack</p>
+            <p className="text-lg text-purple-300 font-semibold">The Alpha Wolf leading the charge to protect and guide the pack</p>
           </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
+
+          <div className="flex justify-center gap-6 sm:gap-8 max-w-4xl mx-auto">
             {packLeadership.map((member, index) => (
               <div key={member.name} style={{ animationDelay: `${0.6 + index * 0.2}s` }}>
                 <TeamMemberCard {...member} />

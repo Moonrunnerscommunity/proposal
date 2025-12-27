@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ExclamationTriangleIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
+import { CheckIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 
 const SocialAccountsSection = () => {
   const discordInfo = {
@@ -21,7 +21,7 @@ const SocialAccountsSection = () => {
       {/* Discord */}
       <div className="glass-dark p-6 rounded-lg">
         <h4 className="text-lg font-semibold mb-4 flex items-center gap-2" style={{ color: 'var(--color-starlight)' }}>
-          <ExclamationTriangleIcon className="w-5 h-5 text-red-500" />
+          <CheckIcon className="w-5 h-5 text-green-500" />
           Discord
         </h4>
         
@@ -57,7 +57,7 @@ const SocialAccountsSection = () => {
       {/* Twitter */}
       <div className="glass-dark p-6 rounded-lg">
         <h4 className="text-lg font-semibold mb-4 flex items-center gap-2" style={{ color: 'var(--color-starlight)' }}>
-          <ExclamationTriangleIcon className="w-5 h-5 text-red-500" />
+          <CheckIcon className="w-5 h-5 text-green-500" />
           Twitter
         </h4>
         

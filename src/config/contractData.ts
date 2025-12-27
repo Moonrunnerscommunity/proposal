@@ -8,6 +8,16 @@ export interface ContractInfo {
   notIncluded?: boolean;
   imageUrl?: string;
   openseaUrl?: string;
+  // Enhanced on-chain data fields
+  tokenStandard?: 'ERC721' | 'ERC721A' | 'ERC1155' | 'Other';
+  deployedAt?: string; // ISO date string
+  deployedBlock?: number;
+  verified?: boolean; // Etherscan verification status
+  metadataBaseUri?: string; // Base URI for token metadata
+  totalSupply?: number; // On-chain total supply (may differ from items)
+  symbol?: string; // Token symbol
+  etherscanUrl?: string; // Direct link to Etherscan
+  nftImagesDir?: string; // Local path to NFT images (e.g., '/nfts/moonrunners/images')
   [key: string]: unknown; // Allow for future extensibility, but avoid 'any'
 }
 
@@ -20,7 +30,12 @@ export const contracts: ContractInfo[] = [
     contractAddress: '0x1485297e942ce64e0870ece60179dfda34b4c625',
     transferred: true,
     imageUrl: '/collections/moonrunners.png',
-    openseaUrl: 'https://opensea.io/collection/moonrunnersnft'
+    openseaUrl: 'https://opensea.io/collection/moonrunnersnft',
+    tokenStandard: 'ERC721A',
+    symbol: 'MR',
+    verified: true,
+    etherscanUrl: 'https://etherscan.io/address/0x1485297e942ce64e0870ece60179dfda34b4c625',
+    nftImagesDir: '/nfts/moonrunners/images'
   },
   {
     name: 'Dragonhorde',
@@ -30,17 +45,26 @@ export const contracts: ContractInfo[] = [
     contractAddress: '0x6b5483b55b362697000d8774d8ea9c4429B261BB',
     transferred: true,
     imageUrl: '/collections/dragonhorde.png',
-    openseaUrl: 'https://opensea.io/collection/moonrunners-dragonhorde-official'
+    openseaUrl: 'https://opensea.io/collection/moonrunners-dragonhorde-official',
+    tokenStandard: 'ERC721',
+    symbol: 'DRAGON',
+    verified: true,
+    etherscanUrl: 'https://etherscan.io/address/0x6b5483b55b362697000d8774d8ea9c4429B261BB',
+    nftImagesDir: '/nfts/dragonhorde/images'
   },
   {
     name: 'Moonrunners/Dragonhorde Staking Contract (Trophies)',
-    description: 'Staking contract for Moonrunners and Dragonhorde NFTs',
+    description: 'Not transferred. Users can unstake directly from the contract.',
     items: 0,
     currentOwner: 'Antix.eth',
     contractAddress: '0x717c6dd66be92e979001aee2ee169aaa8d6d4361',
     transferred: false,
+    notIncluded: true,
     imageUrl: '/collections/dragonhorde.png',
-    openseaUrl: ''
+    openseaUrl: '',
+    tokenStandard: 'Other',
+    verified: true,
+    etherscanUrl: 'https://etherscan.io/address/0x717c6dd66be92e979001aee2ee169aaa8d6d4361'
   },
   {
     name: 'Secrets of Primordia',
@@ -50,7 +74,11 @@ export const contracts: ContractInfo[] = [
     contractAddress: '0xb6d460ac51b93bca63b694f099c4a8b3b1cf73b4',
     transferred: true,
     imageUrl: '/collections/secrets.gif',
-    openseaUrl: 'https://opensea.io/collection/moonrunners-secrets-of-primordia'
+    openseaUrl: 'https://opensea.io/collection/moonrunners-secrets-of-primordia',
+    tokenStandard: 'ERC1155',
+    verified: true,
+    etherscanUrl: 'https://etherscan.io/address/0xb6d460ac51b93bca63b694f099c4a8b3b1cf73b4',
+    nftImagesDir: '/nfts/secrets/images'
   },
   {
     name: 'WeaponToBlood',
@@ -60,7 +88,10 @@ export const contracts: ContractInfo[] = [
     contractAddress: '0x57b2a85cbea7d5902edb94b8bed4b6b1025f210b',
     transferred: true,
     imageUrl: '/nft-weapons.svg',
-    openseaUrl: ''
+    openseaUrl: '',
+    tokenStandard: 'Other',
+    verified: true,
+    etherscanUrl: 'https://etherscan.io/address/0x57b2a85cbea7d5902edb94b8bed4b6b1025f210b'
   },
   {
     name: 'WeaponBurn',
@@ -70,17 +101,25 @@ export const contracts: ContractInfo[] = [
     contractAddress: '0xa492583f6fe2fbcd21797d0c2904f7249ced79f8',
     transferred: true,
     imageUrl: '/nft-weapons.svg',
-    openseaUrl: ''
+    openseaUrl: '',
+    tokenStandard: 'Other',
+    verified: true,
+    etherscanUrl: 'https://etherscan.io/address/0xa492583f6fe2fbcd21797d0c2904f7249ced79f8'
   },
   {
     name: 'History of Primordia',
-    description: 'Lore and storytelling NFTs documenting the ancient tales and chronicles of Primordia',
+    description: 'Not transferred. Will be reproduced if needed in the future.',
     items: 233,
     currentOwner: 'Antix.eth',
     contractAddress: '0x4fdF87d4Edae3Fe323b8F6dF502CCac6c8B4ba28',
     transferred: false,
+    notIncluded: true,
     imageUrl: '/collections/history.gif',
-    openseaUrl: 'https://opensea.io/collection/moonrunners-history-of-primordia'
+    openseaUrl: 'https://opensea.io/collection/moonrunners-history-of-primordia',
+    tokenStandard: 'ERC721',
+    verified: true,
+    etherscanUrl: 'https://etherscan.io/address/0x4fdF87d4Edae3Fe323b8F6dF502CCac6c8B4ba28',
+    nftImagesDir: '/nfts/history/images'
   },
   {
     name: 'Chronicles of Nogard',
@@ -90,7 +129,11 @@ export const contracts: ContractInfo[] = [
     contractAddress: '0xc05ba5529d964a9b2c46ebcd60564a4214ab7ba4',
     transferred: true,
     imageUrl: '/collections/chronicles_nogard_square.png',
-    openseaUrl: 'https://opensea.io/collection/chronicles-of-nogard'
+    openseaUrl: 'https://opensea.io/collection/chronicles-of-nogard',
+    tokenStandard: 'ERC721',
+    verified: true,
+    etherscanUrl: 'https://etherscan.io/address/0xc05ba5529d964a9b2c46ebcd60564a4214ab7ba4',
+    nftImagesDir: '/nfts/chronicles/images'
   },
   {
     name: 'Primordia Land',
@@ -101,7 +144,11 @@ export const contracts: ContractInfo[] = [
     transferred: false,
     notIncluded: true,
     imageUrl: '/collections/primordia_land.gif',
-    openseaUrl: 'https://opensea.io/collection/primordia-land'
+    openseaUrl: 'https://opensea.io/collection/primordia-land',
+    tokenStandard: 'ERC721',
+    verified: true,
+    etherscanUrl: 'https://etherscan.io/address/0xfbb87a6a4876820d996a9bbe106e4f73a5e4a71c',
+    nftImagesDir: '/nfts/primordia-land/images'
   }
 ];
 

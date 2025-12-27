@@ -1,0 +1,17 @@
+{
+  "collection": "dragonhorde",
+  "lastProcessedTokenId": 2311,
+  "totalDownloaded": 2297,
+  "failedTokenIds": [
+    347,
+    371,
+    1302,
+    1941,
+    2044,
+    2047,
+    2053,
+    2164
+  ],
+  "startedAt": "2025-12-27T02:44:42.584Z",
+  "lastUpdatedAt": "2025-12-27T07:08:39.857Z"
+}

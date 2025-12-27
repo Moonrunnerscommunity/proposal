@@ -1,21 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-// import CountdownRibbon from './CountdownRibbon';
-import HeaderSection from './HeaderSection';
-import HeroSection from './HeroSection';
-import TeamSection from './TeamSection';
-import CommunicationSection from './CommunicationSection';
-import OperationalSection from './OperationalSection';
-import WhatsNextSection from './WhatsNextSection';
-import ThatsAllFolksSection from './ThatsAllFolksSection';
+import TabLayout from './TabLayout';
 
 export default function ParallaxContainer() {
   return (
-    <div className="relative w-full">
-      {/* Countdown Ribbon - Fixed at top  -- Uncomment when vote goes live */}
-      {/* <CountdownRibbon /> */}
-      
+    <div className="relative w-full min-h-screen">
       {/* Background layer */}
       <div className="fixed inset-0 z-0">
         <Image
@@ -29,7 +19,7 @@ export default function ParallaxContainer() {
       </div>
 
       {/* Mountains layer - fixed at bottom */}
-      <div className="fixed sm:bottom-[-100px] bottom-[100px] left-0 right-0 z-10">
+      <div className="fixed sm:bottom-[-100px] bottom-[100px] left-0 right-0 z-10 pointer-events-none">
         <Image
           src="/parallax/mountains.png"
           alt="Mountains"
@@ -40,40 +30,21 @@ export default function ParallaxContainer() {
         />
       </div>
 
-      {/* Clouds layer - fixed at top */}
-      <div className="fixed top-5 sm:top-0 left-0 right-0 z-20">
+      {/* Clouds layer - fixed at top right (avoiding sidebar) */}
+      <div className="fixed top-5 sm:top-0 left-64 right-0 z-20 pointer-events-none">
         <Image
           src="/parallax/clouds.png"
           alt="Clouds"
           width={1200}
           height={600}
-          className="parallax-image object-contain w-full max-w-4xl mx-auto"
+          className="parallax-image object-contain w-full max-w-4xl mx-auto opacity-60"
           unoptimized
         />
       </div>
 
-      {/* Content overlay */}
+      {/* Tab Layout with sidebar */}
       <div className="relative z-40">
-        {/* Header Section - Moonrunners title and subtitle */}
-        <HeaderSection />
-        
-        {/* Operational Section */}
-        <OperationalSection />
-        
-        {/* Hero Section */}
-        <HeroSection />
-        
-        {/* Team Section */}
-        <TeamSection />
-        
-        {/* Communication Section */}
-        <CommunicationSection />
-        
-        {/* What's Next Section */}
-        <WhatsNextSection />
-        
-        {/* That's All Folks Section */}
-        <ThatsAllFolksSection />
+        <TabLayout />
       </div>
     </div>
   );

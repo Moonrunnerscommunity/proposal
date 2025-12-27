@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { CheckIcon, XMarkIcon, ExclamationTriangleIcon, NoSymbolIcon, ClipboardIcon } from '@heroicons/react/24/outline';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import { contracts, ContractInfo } from '@/config/contractData';
@@ -22,13 +23,13 @@ const ContractsSection = () => {
   return (
     <div className="glass-dark p-4 md:p-6 rounded-lg">
       <h4 className="text-lg font-semibold mb-4 flex items-center gap-2" style={{ color: 'var(--color-starlight)' }}>
-        <ExclamationTriangleIcon className="w-5 h-5 text-red-500" />
+        <CheckIcon className="w-5 h-5 text-green-500" />
         Contracts
       </h4>
       
       <div className="mb-6 p-4 rounded-lg" style={{ backgroundColor: 'rgba(138, 111, 183, 0.1)', border: '1px solid rgba(138, 111, 183, 0.2)' }}>
         <p className="text-sm leading-relaxed" style={{ color: 'var(--foreground)' }}>
-          Smart contract ownership controls the NFT collections and their utility functions. Transfer requires coordination with current technical administrators.
+          Contract transfer is complete. Two contracts were not transferred: the staking contract (users can unstake directly) and History of Primordia (can be reproduced if needed).
         </p>
       </div>
       
@@ -77,22 +78,16 @@ const ContractsSection = () => {
                         </div>
                       )}
                     </div>
-                    {contract.openseaUrl ? (
-                      <a
-                        href={contract.openseaUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`font-medium hover:underline transition-colors mobile-collection-title ${
-                          contract.notIncluded 
-                            ? 'text-gray-400' 
-                            : 'text-purple-300 hover:text-blue-400'
-                        }`}
-                      >
-                        {contract.name}
-                      </a>
-                    ) : (
-                      <span className={`font-medium mobile-collection-title ${contract.notIncluded ? 'text-gray-400' : 'text-purple-300'}`}>{contract.name}</span>
-                    )}
+                    <Link
+                      href={`/contracts/${contract.contractAddress}`}
+                      className={`font-medium hover:underline transition-colors mobile-collection-title ${
+                        contract.notIncluded
+                          ? 'text-gray-400'
+                          : 'text-purple-300 hover:text-blue-400'
+                      }`}
+                    >
+                      {contract.name}
+                    </Link>
                   </div>
                 </Td>
                 <Td className={`p-3 mobile-description ${contract.notIncluded ? 'text-gray-400' : 'text-gray-300'}`}>

@@ -24,7 +24,7 @@ export default function HeaderSection() {
             {/* Title - responsive typography */}
             <div className="mb-6 sm:mb-8 lg:mb-12 w-full flex justify-center transition-all duration-1000 delay-300">
               <h1 className="text-responsive-3xl font-bold text-white leading-tight text-center">
-                🐺 Community Takeover Progress 🌙
+                🐺 Protect the Pack 🌙
               </h1>
             </div>
           </div>
