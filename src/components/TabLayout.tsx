@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import TodoListTab from './TodoListTab';
 import OperationalSection from './OperationalSection';
 import TeamSection from './TeamSection';
@@ -94,6 +95,18 @@ const TabLayout: React.FC = () => {
                 </button>
               </li>
             ))}
+            {/* Lore Link - navigates to separate page */}
+            <li>
+              <Link
+                href="/lore"
+                className="w-full flex items-center gap-3 px-3 py-3 rounded-lg transition-all duration-200 group text-gray-300 hover:bg-purple-600/20 hover:text-white border border-transparent"
+              >
+                <span className="text-xl flex-shrink-0">📖</span>
+                <span className="hidden lg:block text-sm font-medium truncate">
+                  Lore
+                </span>
+              </Link>
+            </li>
           </ul>
         </nav>
 
