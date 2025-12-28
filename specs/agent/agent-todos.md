@@ -1,5 +1,52 @@
 # MR-Agents Development Plan
 
+## Priority Roadmap
+
+### Phase 1: Knowledge & Personality
+- [x] Modernize moonspeaker voice (less fantasy cringe, more chill)
+- [x] Update SKILL.md with new personality ("protect the pack" ethos)
+- [x] Update voice-guide.md with casual tone
+- [x] Test that agent can retrieve knowledge via tools (working!)
+- [ ] Add lore files to references/ or knowledge/
+- [ ] Add collection info (Moonrunners, Dragonhorde, etc.)
+
+### Phase 2: Persistence & Auth
+- [x] Connect Drizzle schema to database (local Postgres)
+- [x] Implement conversation history storage (messages table)
+- [x] Add session persistence (localStorage conversationId)
+- [x] Fix history loading flash (show loading indicator)
+- [x] Add wallet connect (wagmi + viem + RainbowKit)
+- [x] `/connect` command opens RainbowKit modal
+- [x] Show connected wallet address in command menu & chat
+- [ ] Detect NFT holder status on-chain
+- [ ] Implement rate limiting (free tier vs holder tier)
+
+### Phase 3: Multi-Agent
+- [ ] Create additional tribe Moonspeakers
+- [ ] Add agent selection UI (or auto-detect from NFT)
+- [ ] Shared knowledge base, different personalities
+
+### Phase 4: Commands & Features
+- [x] Implement `/` command system (menu, keyboard nav, filtering)
+- [x] `/new` - start fresh conversation (saves current to history)
+- [x] `/history` - browse & switch between past conversations
+- [x] `/connect` - wallet connect (placeholder)
+- [x] Multi-conversation localStorage (stores last 10 with previews)
+- [ ] `/lore` - deep dive into specific topics
+- [ ] `/tribe` - switch or learn about tribes
+- [ ] `/collection` - NFT collection info
+
+### Phase 5: Production
+- [x] Install Vercel CLI
+- [ ] Deploy to Vercel
+- [ ] Set up Vercel Postgres for production
+- [ ] Set up proper environment variables
+- [ ] Add error monitoring (Sentry)
+- [ ] Analytics for usage patterns
+- [ ] Rate limit enforcement
+
+---
+
 ## How the Read-Only Tools Work
 
 The Agent SDK has built-in tools. When you set `allowedTools: ["Read", "Glob", "Grep"]`:
@@ -52,53 +99,6 @@ Create a searchable knowledge base the agent can query:
 
 ---
 
-## Priority Roadmap
-
-### Phase 1: Knowledge & Personality
-- [x] Modernize moonspeaker voice (less fantasy cringe, more chill)
-- [x] Update SKILL.md with new personality ("protect the pack" ethos)
-- [x] Update voice-guide.md with casual tone
-- [ ] Add lore files to references/ or knowledge/
-- [ ] Add collection info (Moonrunners, Dragonhorde, etc.)
-- [x] Test that agent can retrieve knowledge via tools (working!)
-
-### Phase 2: Persistence & Auth
-- [ ] Connect Drizzle schema to database (Vercel Postgres or local)
-- [ ] Implement conversation history storage
-- [ ] Add wallet connect (wagmi/viem)
-- [ ] Detect NFT holder status on-chain
-- [ ] Implement rate limiting (free tier vs holder tier)
-
-### Phase 3: Multi-Agent
-- [ ] Create additional tribe Moonspeakers
-- [ ] Add agent selection UI (or auto-detect from NFT)
-- [ ] Shared knowledge base, different personalities
-
-### Phase 4: Commands & Features
-- [ ] Implement `/` command system
-- [ ] `/lore` - deep dive into specific topics
-- [ ] `/tribe` - switch or learn about tribes
-- [ ] `/collection` - NFT collection info
-- [ ] `/clear` - reset conversation
-
-### Phase 5: Production
-- [ ] Deploy to Vercel
-- [ ] Set up proper environment variables
-- [ ] Add error monitoring (Sentry)
-- [ ] Analytics for usage patterns
-- [ ] Rate limit enforcement
-
----
-
-## Immediate Next Steps
-
-1. **Fix Kira's personality** - Update SKILL.md to be more modern/chill
-2. **Add a knowledge file** - Start with `references/lore-overview.md`
-3. **Test tool usage** - Verify agent can Read files when asked about lore
-4. **Update system prompt** - Remove the cringe, tell it to search knowledge/
-
----
-
 ## Technical Notes
 
 ### Current API Route Setup
@@ -122,5 +122,5 @@ To let agent do more, expand `allowedTools`:
 
 ### Environment Variables Needed
 - `ANTHROPIC_API_KEY` - required for Agent SDK
-- `DATABASE_URL` - for Drizzle/Postgres (Phase 2)
+- `DATABASE_URL` - for Drizzle/Postgres (set up locally)
 - `NEXT_PUBLIC_WALLETCONNECT_ID` - for wallet connect (Phase 2)
