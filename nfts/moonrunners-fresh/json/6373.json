@@ -1,0 +1,58 @@
+{
+  "tokenId": "6373",
+  "name": "Moonrunners #6373",
+  "image": "https://i2c.seadn.io/ethereum/0x1485297e942ce64e0870ece60179dfda34b4c625/1d69b9ab1c1ae18dff2e4c618e53aa/8d1d69b9ab1c1ae18dff2e4c618e53aa.png",
+  "description": "Moonrunners is an entertainment, storytelling NFT brand that grant their holders access to our Moonrunners ecosystem and utility. CC0",
+  "traits": [
+    {
+      "trait_type": "Fur",
+      "display_type": null,
+      "max_value": null,
+      "value": "Red"
+    },
+    {
+      "trait_type": "Body",
+      "display_type": null,
+      "max_value": null,
+      "value": "Brave"
+    },
+    {
+      "trait_type": "Eyes",
+      "display_type": null,
+      "max_value": null,
+      "value": "Side Eyed Blue"
+    },
+    {
+      "trait_type": "Mouth",
+      "display_type": null,
+      "max_value": null,
+      "value": "Happy"
+    },
+    {
+      "trait_type": "Headwear",
+      "display_type": null,
+      "max_value": null,
+      "value": "Goblin"
+    },
+    {
+      "trait_type": "Outerwear",
+      "display_type": null,
+      "max_value": null,
+      "value": "Diamond Chain"
+    },
+    {
+      "trait_type": "Background",
+      "display_type": null,
+      "max_value": null,
+      "value": "Blue"
+    },
+    {
+      "trait_type": "Moon Cycle",
+      "display_type": null,
+      "max_value": null,
+      "value": "Default Moon Cycle"
+    }
+  ],
+  "collectionSlug": "moonrunnersnft",
+  "downloadedAt": "2025-12-28T09:54:18.451Z"
+}

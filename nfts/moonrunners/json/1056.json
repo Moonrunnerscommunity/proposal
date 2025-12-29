@@ -1,1 +1,40 @@
-{"image":"https://moonrunners.herokuapp.com/api/1056/image","name":"Moonrunners #1056","description":"A collection of 10,000 PFPs. Free mint. No discord. No roadmap. CCO. Protect the Moonrunners at all costs.","attributes":[{"trait_type":"Background","value":"Yellow"},{"trait_type":"Body","value":"Brave"},{"trait_type":"Fur","value":"Lofi"},{"trait_type":"Mouth","value":"Happy"},{"trait_type":"Eyes","value":"Bored Grey"},{"trait_type":"Eyewear","value":"3D glasses"},{"trait_type":"Headwear","value":"Bone Crown"},{"trait_type":"Moon Cycle","value":"Full Moon"}],"dna":"e758e5c15186b5285c8dd5e0e59f4385d71cb016"}
+{
+  "image": "https://moonrunnerscommunity.github.io/proposal/nfts/moonrunners/images/1056.png",
+  "name": "Moonrunners #1056",
+  "description": "A collection of 10,000 PFPs. Free mint. No discord. No roadmap. CCO. Protect the Moonrunners at all costs.",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Yellow"
+    },
+    {
+      "trait_type": "Body",
+      "value": "Brave"
+    },
+    {
+      "trait_type": "Fur",
+      "value": "Lofi"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Happy"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Bored Grey"
+    },
+    {
+      "trait_type": "Eyewear",
+      "value": "3D glasses"
+    },
+    {
+      "trait_type": "Headwear",
+      "value": "Bone Crown"
+    },
+    {
+      "trait_type": "Moon Cycle",
+      "value": "Full Moon"
+    }
+  ],
+  "dna": "e758e5c15186b5285c8dd5e0e59f4385d71cb016"
+}

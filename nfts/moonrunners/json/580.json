@@ -1,1 +1,36 @@
-{"image":"https://moonrunners.herokuapp.com/api/580/image","name":"Moonrunners #580","description":"A collection of 10,000 PFPs. Free mint. No discord. No roadmap. CCO. Protect the Moonrunners at all costs.","attributes":[{"trait_type":"Background","value":"Green"},{"trait_type":"Body","value":"Stealth"},{"trait_type":"Fur","value":"Ice"},{"trait_type":"Mouth","value":"Angry"},{"trait_type":"Eyes","value":"Angry Grey"},{"trait_type":"Headwear","value":"Goblin"},{"trait_type":"Moon Cycle","value":"Full Moon"}],"dna":"1d7d36fe1a31d8cb5b3e441fff6f8673ac246f46"}
+{
+  "image": "https://moonrunnerscommunity.github.io/proposal/nfts/moonrunners/images/580.png",
+  "name": "Moonrunners #580",
+  "description": "A collection of 10,000 PFPs. Free mint. No discord. No roadmap. CCO. Protect the Moonrunners at all costs.",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Green"
+    },
+    {
+      "trait_type": "Body",
+      "value": "Stealth"
+    },
+    {
+      "trait_type": "Fur",
+      "value": "Ice"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Angry"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Angry Grey"
+    },
+    {
+      "trait_type": "Headwear",
+      "value": "Goblin"
+    },
+    {
+      "trait_type": "Moon Cycle",
+      "value": "Full Moon"
+    }
+  ],
+  "dna": "1d7d36fe1a31d8cb5b3e441fff6f8673ac246f46"
+}

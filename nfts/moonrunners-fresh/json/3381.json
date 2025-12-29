@@ -1,0 +1,28 @@
+{
+  "tokenId": "3381",
+  "name": "Moonrunners #3381",
+  "image": "https://i2c.seadn.io/ethereum/0x1485297e942ce64e0870ece60179dfda34b4c625/2bc5bff656d67a48ac043244b06686/492bc5bff656d67a48ac043244b06686.png",
+  "description": "Moonrunners is an entertainment, storytelling NFT brand that grant their holders access to our Moonrunners ecosystem and utility. CC0",
+  "traits": [
+    {
+      "trait_type": "Body",
+      "display_type": null,
+      "max_value": null,
+      "value": "Predator"
+    },
+    {
+      "trait_type": "Legendary",
+      "display_type": null,
+      "max_value": null,
+      "value": "Snow Blizzard"
+    },
+    {
+      "trait_type": "Moon Cycle",
+      "display_type": null,
+      "max_value": null,
+      "value": "Default Moon Cycle"
+    }
+  ],
+  "collectionSlug": "moonrunnersnft",
+  "downloadedAt": "2025-12-28T00:14:58.697Z"
+}

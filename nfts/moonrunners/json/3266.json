@@ -1,1 +1,36 @@
-{"image":"https://moonrunners.herokuapp.com/api/3266/image","name":"Moonrunners #3266","description":"A collection of 10,000 PFPs. Free mint. No discord. No roadmap. CCO. Protect the Moonrunners at all costs.","attributes":[{"trait_type":"Background","value":"Grey"},{"trait_type":"Body","value":"Stealth"},{"trait_type":"Fur","value":"Brown"},{"trait_type":"Mouth","value":"Hungry"},{"trait_type":"Eyes","value":"White Glow"},{"trait_type":"Headwear","value":"Bone Crown"},{"trait_type":"Moon Cycle","value":"Default Moon Cycle"}],"dna":"6690873a4529355a20d9dc144dc599ceace6003e"}
+{
+  "image": "https://moonrunnerscommunity.github.io/proposal/nfts/moonrunners/images/3266.png",
+  "name": "Moonrunners #3266",
+  "description": "A collection of 10,000 PFPs. Free mint. No discord. No roadmap. CCO. Protect the Moonrunners at all costs.",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Grey"
+    },
+    {
+      "trait_type": "Body",
+      "value": "Stealth"
+    },
+    {
+      "trait_type": "Fur",
+      "value": "Brown"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Hungry"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "White Glow"
+    },
+    {
+      "trait_type": "Headwear",
+      "value": "Bone Crown"
+    },
+    {
+      "trait_type": "Moon Cycle",
+      "value": "Default Moon Cycle"
+    }
+  ],
+  "dna": "6690873a4529355a20d9dc144dc599ceace6003e"
+}

@@ -1,1 +1,36 @@
-{"image":"https://moonrunners.herokuapp.com/api/581/image","name":"Moonrunners #581","description":"A collection of 10,000 PFPs. Free mint. No discord. No roadmap. CCO. Protect the Moonrunners at all costs.","attributes":[{"trait_type":"Background","value":"Grey"},{"trait_type":"Body","value":"Brave"},{"trait_type":"Fur","value":"Bone"},{"trait_type":"Mouth","value":"Neutral"},{"trait_type":"Eyes","value":"Bone eyes"},{"trait_type":"Headwear","value":"Primordia Lord Crown"},{"trait_type":"Moon Cycle","value":"Full Moon"}],"dna":"ea153fbb149ad98fbc3bc31ffefd7a97b4eea2f6"}
+{
+  "image": "https://moonrunnerscommunity.github.io/proposal/nfts/moonrunners/images/581.png",
+  "name": "Moonrunners #581",
+  "description": "A collection of 10,000 PFPs. Free mint. No discord. No roadmap. CCO. Protect the Moonrunners at all costs.",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Grey"
+    },
+    {
+      "trait_type": "Body",
+      "value": "Brave"
+    },
+    {
+      "trait_type": "Fur",
+      "value": "Bone"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Neutral"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Bone eyes"
+    },
+    {
+      "trait_type": "Headwear",
+      "value": "Primordia Lord Crown"
+    },
+    {
+      "trait_type": "Moon Cycle",
+      "value": "Full Moon"
+    }
+  ],
+  "dna": "ea153fbb149ad98fbc3bc31ffefd7a97b4eea2f6"
+}

@@ -1,1 +1,36 @@
-{"image":"https://moonrunners.herokuapp.com/api/4699/image","name":"Moonrunners #4699","description":"A collection of 10,000 PFPs. Free mint. No discord. No roadmap. CCO. Protect the Moonrunners at all costs.","attributes":[{"trait_type":"Background","value":"Green"},{"trait_type":"Body","value":"Stealth"},{"trait_type":"Fur","value":"Gray"},{"trait_type":"Mouth","value":"Neutral"},{"trait_type":"Eyes","value":"Golden Glow"},{"trait_type":"Headwear","value":"Wolf Skull"},{"trait_type":"Moon Cycle","value":"Default Moon Cycle"}],"dna":"aa8e979bbdce4362a38928086564bf126d606533"}
+{
+  "image": "https://moonrunnerscommunity.github.io/proposal/nfts/moonrunners/images/4699.png",
+  "name": "Moonrunners #4699",
+  "description": "A collection of 10,000 PFPs. Free mint. No discord. No roadmap. CCO. Protect the Moonrunners at all costs.",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Green"
+    },
+    {
+      "trait_type": "Body",
+      "value": "Stealth"
+    },
+    {
+      "trait_type": "Fur",
+      "value": "Gray"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Neutral"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Golden Glow"
+    },
+    {
+      "trait_type": "Headwear",
+      "value": "Wolf Skull"
+    },
+    {
+      "trait_type": "Moon Cycle",
+      "value": "Default Moon Cycle"
+    }
+  ],
+  "dna": "aa8e979bbdce4362a38928086564bf126d606533"
+}

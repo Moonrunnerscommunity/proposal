@@ -1,1 +1,40 @@
-{"image":"https://moonrunners.herokuapp.com/api/95/image","name":"Moonrunners #95","description":"A collection of 10,000 PFPs. Free mint. No discord. No roadmap. CCO. Protect the Moonrunners at all costs.","attributes":[{"trait_type":"Background","value":"Yellow"},{"trait_type":"Body","value":"Brave"},{"trait_type":"Fur","value":"Black"},{"trait_type":"Outerwear","value":"Karate Suit"},{"trait_type":"Mouth","value":"Neutral"},{"trait_type":"Eyes","value":"Angry Grey"},{"trait_type":"Headwear","value":"Alien"},{"trait_type":"Moon Cycle","value":"Full Moon"}],"dna":"e380b4e1a6ec05cc3183a58b7ca3c2eda7be28e0"}
+{
+  "image": "https://moonrunnerscommunity.github.io/proposal/nfts/moonrunners/images/95.png",
+  "name": "Moonrunners #95",
+  "description": "A collection of 10,000 PFPs. Free mint. No discord. No roadmap. CCO. Protect the Moonrunners at all costs.",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Yellow"
+    },
+    {
+      "trait_type": "Body",
+      "value": "Brave"
+    },
+    {
+      "trait_type": "Fur",
+      "value": "Black"
+    },
+    {
+      "trait_type": "Outerwear",
+      "value": "Karate Suit"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Neutral"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Angry Grey"
+    },
+    {
+      "trait_type": "Headwear",
+      "value": "Alien"
+    },
+    {
+      "trait_type": "Moon Cycle",
+      "value": "Full Moon"
+    }
+  ],
+  "dna": "e380b4e1a6ec05cc3183a58b7ca3c2eda7be28e0"
+}

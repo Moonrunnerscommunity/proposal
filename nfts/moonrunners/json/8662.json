@@ -1,1 +1,36 @@
-{"image":"https://moonrunners.herokuapp.com/api/8662/image","name":"Moonrunners #8662","description":"A collection of 10,000 PFPs. Free mint. No discord. No roadmap. CCO. Protect the Moonrunners at all costs.","attributes":[{"trait_type":"Background","value":"Green"},{"trait_type":"Body","value":"Stealth"},{"trait_type":"Fur","value":"Bone"},{"trait_type":"Outerwear","value":"Wizard Robe"},{"trait_type":"Mouth","value":"Neutral"},{"trait_type":"Eyes","value":"Bone eyes"},{"trait_type":"Moon Cycle","value":"Default Moon Cycle"}],"dna":"fd9caf46ae351e29746ba8fd3bcb8059cfdbaa52"}
+{
+  "image": "https://moonrunnerscommunity.github.io/proposal/nfts/moonrunners/images/8662.png",
+  "name": "Moonrunners #8662",
+  "description": "A collection of 10,000 PFPs. Free mint. No discord. No roadmap. CCO. Protect the Moonrunners at all costs.",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Green"
+    },
+    {
+      "trait_type": "Body",
+      "value": "Stealth"
+    },
+    {
+      "trait_type": "Fur",
+      "value": "Bone"
+    },
+    {
+      "trait_type": "Outerwear",
+      "value": "Wizard Robe"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Neutral"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Bone eyes"
+    },
+    {
+      "trait_type": "Moon Cycle",
+      "value": "Default Moon Cycle"
+    }
+  ],
+  "dna": "fd9caf46ae351e29746ba8fd3bcb8059cfdbaa52"
+}

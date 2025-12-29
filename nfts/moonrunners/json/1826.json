@@ -1,1 +1,36 @@
-{"image":"https://moonrunners.herokuapp.com/api/1826/image","name":"Moonrunners #1826","description":"A collection of 10,000 PFPs. Free mint. No discord. No roadmap. CCO. Protect the Moonrunners at all costs.","attributes":[{"trait_type":"Background","value":"Yellow"},{"trait_type":"Body","value":"Stealth"},{"trait_type":"Fur","value":"White"},{"trait_type":"Mouth","value":"Neutral"},{"trait_type":"Eyes","value":"Evil"},{"trait_type":"Headwear","value":"Goblin"},{"trait_type":"Moon Cycle","value":"Default Moon Cycle"}],"dna":"13f8371b585762f03845102194cbf5c11a4a0d51"}
+{
+  "image": "https://moonrunnerscommunity.github.io/proposal/nfts/moonrunners/images/1826.png",
+  "name": "Moonrunners #1826",
+  "description": "A collection of 10,000 PFPs. Free mint. No discord. No roadmap. CCO. Protect the Moonrunners at all costs.",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Yellow"
+    },
+    {
+      "trait_type": "Body",
+      "value": "Stealth"
+    },
+    {
+      "trait_type": "Fur",
+      "value": "White"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Neutral"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Evil"
+    },
+    {
+      "trait_type": "Headwear",
+      "value": "Goblin"
+    },
+    {
+      "trait_type": "Moon Cycle",
+      "value": "Default Moon Cycle"
+    }
+  ],
+  "dna": "13f8371b585762f03845102194cbf5c11a4a0d51"
+}

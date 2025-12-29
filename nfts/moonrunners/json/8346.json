@@ -1,1 +1,36 @@
-{"image":"https://moonrunners.herokuapp.com/api/8346/image","name":"Moonrunners #8346","description":"A collection of 10,000 PFPs. Free mint. No discord. No roadmap. CCO. Protect the Moonrunners at all costs.","attributes":[{"trait_type":"Background","value":"Purple"},{"trait_type":"Body","value":"Stealth"},{"trait_type":"Fur","value":"Blue"},{"trait_type":"Mouth","value":"Neutral"},{"trait_type":"Eyes","value":"Side Eyed Brown"},{"trait_type":"Headwear","value":"Diamond"},{"trait_type":"Moon Cycle","value":"Default Moon Cycle"}],"dna":"a0c7c1b8cf3b6efc2fbc2572a1b44f101ac67f19"}
+{
+  "image": "https://moonrunnerscommunity.github.io/proposal/nfts/moonrunners/images/8346.png",
+  "name": "Moonrunners #8346",
+  "description": "A collection of 10,000 PFPs. Free mint. No discord. No roadmap. CCO. Protect the Moonrunners at all costs.",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Purple"
+    },
+    {
+      "trait_type": "Body",
+      "value": "Stealth"
+    },
+    {
+      "trait_type": "Fur",
+      "value": "Blue"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Neutral"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Side Eyed Brown"
+    },
+    {
+      "trait_type": "Headwear",
+      "value": "Diamond"
+    },
+    {
+      "trait_type": "Moon Cycle",
+      "value": "Default Moon Cycle"
+    }
+  ],
+  "dna": "a0c7c1b8cf3b6efc2fbc2572a1b44f101ac67f19"
+}

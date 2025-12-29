@@ -1,1 +1,36 @@
-{"image":"https://moonrunners.herokuapp.com/api/5296/image","name":"Moonrunners #5296","description":"A collection of 10,000 PFPs. Free mint. No discord. No roadmap. CCO. Protect the Moonrunners at all costs.","attributes":[{"trait_type":"Background","value":"Blue"},{"trait_type":"Body","value":"Pack"},{"trait_type":"Fur","value":"Green"},{"trait_type":"Outerwear","value":"Bulletproof Vest"},{"trait_type":"Mouth","value":"Hungry"},{"trait_type":"Eyes","value":"Tired Brown"},{"trait_type":"Moon Cycle","value":"Default Moon Cycle"}],"dna":"75a1efd8a69e20fdb30dbcf1746e0604e796f08a"}
+{
+  "image": "https://moonrunnerscommunity.github.io/proposal/nfts/moonrunners/images/5296.png",
+  "name": "Moonrunners #5296",
+  "description": "A collection of 10,000 PFPs. Free mint. No discord. No roadmap. CCO. Protect the Moonrunners at all costs.",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Blue"
+    },
+    {
+      "trait_type": "Body",
+      "value": "Pack"
+    },
+    {
+      "trait_type": "Fur",
+      "value": "Green"
+    },
+    {
+      "trait_type": "Outerwear",
+      "value": "Bulletproof Vest"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Hungry"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Tired Brown"
+    },
+    {
+      "trait_type": "Moon Cycle",
+      "value": "Default Moon Cycle"
+    }
+  ],
+  "dna": "75a1efd8a69e20fdb30dbcf1746e0604e796f08a"
+}

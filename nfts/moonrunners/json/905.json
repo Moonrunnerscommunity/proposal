@@ -1,1 +1,40 @@
-{"image":"https://moonrunners.herokuapp.com/api/905/image","name":"Moonrunners #905","description":"A collection of 10,000 PFPs. Free mint. No discord. No roadmap. CCO. Protect the Moonrunners at all costs.","attributes":[{"trait_type":"Background","value":"Pink"},{"trait_type":"Body","value":"Pack"},{"trait_type":"Fur","value":"Black"},{"trait_type":"Mouth","value":"Neutral"},{"trait_type":"Eyes","value":"Closed"},{"trait_type":"Eyewear","value":"Aviators"},{"trait_type":"Headwear","value":"Fire"},{"trait_type":"Moon Cycle","value":"Full Moon"}],"dna":"d0d580281558ddd28b1ae5ff3a8b2fc8b3284b73"}
+{
+  "image": "https://moonrunnerscommunity.github.io/proposal/nfts/moonrunners/images/905.png",
+  "name": "Moonrunners #905",
+  "description": "A collection of 10,000 PFPs. Free mint. No discord. No roadmap. CCO. Protect the Moonrunners at all costs.",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Pink"
+    },
+    {
+      "trait_type": "Body",
+      "value": "Pack"
+    },
+    {
+      "trait_type": "Fur",
+      "value": "Black"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Neutral"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Closed"
+    },
+    {
+      "trait_type": "Eyewear",
+      "value": "Aviators"
+    },
+    {
+      "trait_type": "Headwear",
+      "value": "Fire"
+    },
+    {
+      "trait_type": "Moon Cycle",
+      "value": "Full Moon"
+    }
+  ],
+  "dna": "d0d580281558ddd28b1ae5ff3a8b2fc8b3284b73"
+}
