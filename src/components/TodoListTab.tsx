@@ -1,6 +1,7 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
+import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 
 interface CollectionStatus {
   name: string;
@@ -12,8 +13,8 @@ interface CollectionStatus {
 }
 
 const collections: CollectionStatus[] = [
-  { name: 'Moonrunners', downloadCurrent: 10000, downloadTotal: 10000, downloadComplete: true, uploadComplete: true, contractUpdated: false },
-  { name: 'Dragonhorde', downloadCurrent: 2303, downloadTotal: 2311, downloadComplete: true, uploadComplete: true, contractUpdated: false },
+  { name: 'Moonrunners', downloadCurrent: 10000, downloadTotal: 10000, downloadComplete: true, uploadComplete: true, contractUpdated: true },
+  { name: 'Dragonhorde', downloadCurrent: 2311, downloadTotal: 2311, downloadComplete: true, uploadComplete: true, contractUpdated: true },
   { name: 'Primordia Land', downloadCurrent: 2884, downloadTotal: 2888, downloadComplete: true, uploadComplete: true, contractUpdated: 'n/a' },
   { name: 'Secrets of Primordia', downloadCurrent: 12, downloadTotal: 12, downloadComplete: true, uploadComplete: true, contractUpdated: false },
   { name: 'Chronicles of Nogard', downloadCurrent: 1, downloadTotal: 1, downloadComplete: true, uploadComplete: true, contractUpdated: false },
@@ -25,8 +26,10 @@ interface TodoItem {
   title: string;
   description: string;
   icon: string;
+  parentId?: number; // Parent task ID for subtasks
   hasSubtasks?: boolean;
   hasContractLinks?: boolean;
+  hasFailedDownloads?: boolean;
   completed?: boolean;
 }
 
@@ -35,6 +38,13 @@ interface ContractLink {
   address: string;
   transferred: boolean;
   hasNFTs: boolean;
+}
+
+interface FailedDownload {
+  tokenId: number;
+  collection: string;
+  status: 'pending' | 'exists' | 'burned' | 'error' | 'downloaded' | 'no_metadata';
+  notes?: string;
 }
 
 const contractLinks: ContractLink[] = [
@@ -47,6 +57,21 @@ const contractLinks: ContractLink[] = [
   { name: 'Staking Contract', address: '0x717c6dd66be92e979001aee2ee169aaa8d6d4361', transferred: false, hasNFTs: false },
   { name: 'WeaponToBlood', address: '0x57b2a85cbea7d5902edb94b8bed4b6b1025f210b', transferred: true, hasNFTs: false },
   { name: 'WeaponBurn', address: '0xa492583f6fe2fbcd21797d0c2904f7249ced79f8', transferred: true, hasNFTs: false },
+];
+
+const failedDownloads: FailedDownload[] = [
+  { tokenId: 347, collection: 'Dragonhorde', status: 'downloaded', notes: 'Downloaded from OpenSea CDN' },
+  { tokenId: 371, collection: 'Dragonhorde', status: 'downloaded', notes: 'Downloaded from OpenSea CDN' },
+  { tokenId: 1302, collection: 'Dragonhorde', status: 'downloaded', notes: 'Downloaded from OpenSea CDN' },
+  { tokenId: 1941, collection: 'Dragonhorde', status: 'downloaded', notes: 'Downloaded from OpenSea CDN' },
+  { tokenId: 2044, collection: 'Dragonhorde', status: 'downloaded', notes: 'Downloaded from OpenSea CDN' },
+  { tokenId: 2047, collection: 'Dragonhorde', status: 'downloaded', notes: 'Downloaded from OpenSea CDN' },
+  { tokenId: 2053, collection: 'Dragonhorde', status: 'downloaded', notes: 'Downloaded from OpenSea CDN' },
+  { tokenId: 2164, collection: 'Dragonhorde', status: 'no_metadata', notes: 'OpenSea shows "Content not available yet" - rare rank #9 token' },
+  { tokenId: 1474, collection: 'Primordia Land', status: 'downloaded', notes: 'Downloaded from OpenSea CDN' },
+  { tokenId: 1637, collection: 'Primordia Land', status: 'downloaded', notes: 'Downloaded from OpenSea CDN' },
+  { tokenId: 1691, collection: 'Primordia Land', status: 'downloaded', notes: 'Downloaded from OpenSea CDN' },
+  { tokenId: 1860, collection: 'Primordia Land', status: 'downloaded', notes: 'Downloaded from OpenSea CDN' },
 ];
 
 const todoItems: TodoItem[] = [
@@ -67,33 +92,40 @@ const todoItems: TodoItem[] = [
   {
     id: '2a',
     title: 'Retry Failed Downloads',
-    description: '12 tokens exist but failed to download (network timeouts). Dragonhorde: 347, 371, 1302, 1941, 2044, 2047, 2053, 2164 | Primordia Land: 1474, 1637, 1691, 1860',
-    icon: '🔍'
+    description: '11/12 tokens downloaded. #2164 has no metadata available on OpenSea.',
+    icon: '🔍',
+    parentId: 2,
+    hasFailedDownloads: true,
+    completed: true
   },
   {
     id: '2b',
     title: 'Repair Moonrunners Wolves',
     description: 'Fix wolf backgrounds, small-pixelated status trait, and dynamic JSON metadata',
     icon: '🐺',
+    parentId: 2,
     completed: true
   },
   {
     id: '2c',
     title: 'Moon-Phase Backgrounds',
     description: 'Stretch goal: Restore moon-phase aligned dynamic backgrounds',
-    icon: '🌙'
+    icon: '🌙',
+    parentId: 2
   },
   {
     id: 3,
     title: 'Cleanup Contracts',
     description: 'Enhanced contract tracking with on-chain data. Remaining: add dynamic RPC info',
-    icon: '📜'
+    icon: '📜',
+    hasSubtasks: true
   },
   {
     id: '3a',
     title: 'Contract & NFT Detail Pages',
     description: 'Created detail pages for contracts and NFT collections',
     icon: '📄',
+    parentId: 3,
     completed: true,
     hasContractLinks: true
   },
@@ -110,6 +142,18 @@ const todoItems: TodoItem[] = [
     icon: '🎯'
   }
 ];
+
+// Helper to check if a task can be collapsed (completed + all subtasks completed)
+function canCollapse(item: TodoItem, allItems: TodoItem[]): boolean {
+  if (!item.completed) return false;
+
+  // Check if this item has subtasks
+  const subtasks = allItems.filter(t => t.parentId === item.id);
+  if (subtasks.length === 0) return true;
+
+  // All subtasks must be completed
+  return subtasks.every(sub => sub.completed);
+}
 
 function StatusCell({ complete, current, total }: { complete: boolean; current?: number; total?: number }) {
   if (complete) {
@@ -156,7 +200,39 @@ function SimpleStatus({ complete }: { complete: boolean | 'n/a' }) {
   );
 }
 
+function FailedDownloadStatus({ status }: { status: FailedDownload['status'] }) {
+  switch (status) {
+    case 'downloaded':
+      return <span className="text-green-400">✅ Downloaded</span>;
+    case 'exists':
+      return <span className="text-blue-400">🔍 Exists</span>;
+    case 'no_metadata':
+      return <span className="text-yellow-400">⚠️ No Metadata</span>;
+    case 'burned':
+      return <span className="text-red-400">🔥 Burned</span>;
+    case 'error':
+      return <span className="text-red-400">❌ Error</span>;
+    default:
+      return <span className="text-gray-400">⏳ Pending</span>;
+  }
+}
+
 const TodoListTab: React.FC = () => {
+  // Track which completed items are expanded (default: all collapsed)
+  const [expandedItems, setExpandedItems] = useState<Set<string | number>>(new Set());
+
+  const toggleExpand = (id: string | number) => {
+    setExpandedItems(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  };
+
   return (
     <div className="w-full">
       {/* Section Header */}
@@ -170,21 +246,103 @@ const TodoListTab: React.FC = () => {
       <div className="space-y-3 sm:space-y-4 max-w-4xl mx-auto">
         {todoItems.map((item, index) => {
           const isSubItem = typeof item.id === 'string';
+          const isCollapsible = canCollapse(item, todoItems);
+          const isExpanded = expandedItems.has(item.id);
+          const showCollapsed = isCollapsible && !isExpanded;
+
           return (
           <div key={item.id} className={isSubItem ? 'ml-2 sm:ml-6' : ''}>
-            <div
-              className="glass p-3 sm:p-4 rounded-lg border border-purple-500/30 hover:border-purple-400/50 transition-all duration-300 group"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              {/* Mobile: stacked centered layout, Desktop: horizontal */}
-              <div className="flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left gap-2 sm:gap-3">
-                {/* Number Badge + Status (mobile: same row) */}
-                <div className="flex items-center gap-2 sm:block">
-                  <div className="w-8 h-8 sm:w-9 sm:h-9 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm border-2 border-purple-400/50 group-hover:border-purple-300 transition-colors">
+            {/* Collapsed View */}
+            {showCollapsed ? (
+              <button
+                onClick={() => toggleExpand(item.id)}
+                className="w-full glass p-2 sm:p-3 rounded-lg border border-gray-600/30 hover:border-gray-500/50 transition-all duration-300 group cursor-pointer"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="flex items-center gap-2 sm:gap-3">
+                  {/* Small grey number badge */}
+                  <div className="w-6 h-6 bg-gray-700/50 rounded-full flex items-center justify-center text-gray-400 font-bold text-xs border border-gray-600/50">
                     {item.id}
                   </div>
-                  {/* Status indicator - visible on mobile next to badge */}
-                  <div className="sm:hidden">
+
+                  {/* Muted strikethrough title */}
+                  <span className="flex-1 text-left text-gray-500 italic line-through text-sm">
+                    {item.title}
+                  </span>
+
+                  {/* Green check + Expand caret */}
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                      <span className="text-white text-[10px]">✓</span>
+                    </div>
+                    <ChevronDownIcon className="w-4 h-4 text-gray-500 group-hover:text-gray-400 transition-colors" />
+                  </div>
+                </div>
+              </button>
+            ) : (
+              /* Expanded View */
+              <div
+                className="glass rounded-lg border border-purple-500/30 hover:border-purple-400/50 transition-all duration-300 group overflow-hidden"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                {/* Collapse button for collapsible items */}
+                {isCollapsible && (
+                  <button
+                    onClick={() => toggleExpand(item.id)}
+                    className="w-full flex items-center gap-2 px-3 sm:px-4 py-2 bg-gray-800/30 cursor-pointer hover:bg-gray-700/30 transition-colors border-b border-purple-500/20"
+                  >
+                    <div className="w-5 h-5 bg-gray-700/50 rounded-full flex items-center justify-center text-gray-400 font-bold text-[10px] border border-gray-600/50">
+                      {item.id}
+                    </div>
+                    <span className="flex-1 text-left text-gray-400 italic line-through text-xs">
+                      {item.title}
+                    </span>
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                        <span className="text-white text-[10px]">✓</span>
+                      </div>
+                      <ChevronUpIcon className="w-4 h-4 text-gray-400" />
+                    </div>
+                  </button>
+                )}
+
+                {/* Card content */}
+                <div className="p-3 sm:p-4">
+
+                {/* Mobile: stacked centered layout, Desktop: horizontal */}
+                <div className="flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left gap-2 sm:gap-3">
+                  {/* Number Badge + Status (mobile: same row) */}
+                  <div className="flex items-center gap-2 sm:block">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm border-2 border-purple-400/50 group-hover:border-purple-300 transition-colors">
+                      {item.id}
+                    </div>
+                    {/* Status indicator - visible on mobile next to badge */}
+                    <div className="sm:hidden">
+                      {item.completed ? (
+                        <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center" title="Completed">
+                          <span className="text-white text-xs">✓</span>
+                        </div>
+                      ) : (
+                        <div className="w-3 h-3 bg-yellow-400 rounded-full animate-pulse" title="In Progress" />
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 mb-0.5 sm:mb-1">
+                      <span className="text-lg sm:text-xl">{item.icon}</span>
+                      <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-purple-200 transition-colors leading-tight">
+                        {item.title}
+                      </h3>
+                    </div>
+                    <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+
+                  {/* Status indicator - desktop only */}
+                  <div className="hidden sm:block flex-shrink-0">
                     {item.completed ? (
                       <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center" title="Completed">
                         <span className="text-white text-xs">✓</span>
@@ -194,35 +352,12 @@ const TodoListTab: React.FC = () => {
                     )}
                   </div>
                 </div>
-
-                {/* Content */}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 mb-0.5 sm:mb-1">
-                    <span className="text-lg sm:text-xl">{item.icon}</span>
-                    <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-purple-200 transition-colors leading-tight">
-                      {item.title}
-                    </h3>
-                  </div>
-                  <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-
-                {/* Status indicator - desktop only */}
-                <div className="hidden sm:block flex-shrink-0">
-                  {item.completed ? (
-                    <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center" title="Completed">
-                      <span className="text-white text-xs">✓</span>
-                    </div>
-                  ) : (
-                    <div className="w-3 h-3 bg-yellow-400 rounded-full animate-pulse" title="In Progress" />
-                  )}
                 </div>
               </div>
-            </div>
+            )}
 
-            {/* NFT Collections Sub-table */}
-            {item.hasSubtasks && (
+            {/* NFT Collections Sub-table - only show if expanded or not collapsible */}
+            {item.hasSubtasks && !showCollapsed && (
               <div className="mt-2 sm:ml-6">
                 <div className="glass rounded-lg border border-purple-500/20 overflow-hidden">
                   <table className="w-full text-xs sm:text-sm">
@@ -268,8 +403,38 @@ const TodoListTab: React.FC = () => {
               </div>
             )}
 
+            {/* Failed Downloads Sub-table */}
+            {item.hasFailedDownloads && !showCollapsed && (
+              <div className="mt-2 sm:ml-6">
+                <div className="glass rounded-lg border border-purple-500/20 overflow-hidden">
+                  <table className="w-full text-xs sm:text-sm">
+                    <thead>
+                      <tr className="border-b border-purple-500/20 bg-purple-900/20">
+                        <th className="text-left py-1.5 sm:py-2 px-2 sm:px-3 text-purple-300 font-medium">Token ID</th>
+                        <th className="text-left py-1.5 sm:py-2 px-2 sm:px-3 text-purple-300 font-medium">Collection</th>
+                        <th className="text-center py-1.5 sm:py-2 px-1 sm:px-3 text-purple-300 font-medium">Status</th>
+                        <th className="text-left py-1.5 sm:py-2 px-2 sm:px-3 text-purple-300 font-medium hidden sm:table-cell">Notes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {failedDownloads.map((dl) => (
+                        <tr key={`${dl.collection}-${dl.tokenId}`} className="border-b border-purple-500/10 last:border-0">
+                          <td className="py-1.5 sm:py-2 px-2 sm:px-3 text-white font-mono">#{dl.tokenId}</td>
+                          <td className="py-1.5 sm:py-2 px-2 sm:px-3 text-white">{dl.collection}</td>
+                          <td className="py-1.5 sm:py-2 px-1 sm:px-3 text-center">
+                            <FailedDownloadStatus status={dl.status} />
+                          </td>
+                          <td className="py-1.5 sm:py-2 px-2 sm:px-3 text-gray-400 text-xs hidden sm:table-cell">{dl.notes}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+
             {/* Contract Links Sub-table */}
-            {item.hasContractLinks && (
+            {item.hasContractLinks && !showCollapsed && (
               <div className="mt-2 sm:ml-6">
                 <div className="glass rounded-lg border border-purple-500/20 overflow-hidden">
                   <table className="w-full text-xs sm:text-sm">

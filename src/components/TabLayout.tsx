@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import OverviewTab from './OverviewTab';
 import TodoListTab from './TodoListTab';
 import OperationalSection from './OperationalSection';
 import TeamSection from './TeamSection';
@@ -11,7 +12,7 @@ import CommunicationSection from './CommunicationSection';
 import UnstakeTab from './UnstakeTab';
 import ContractsTab from './ContractsTab';
 
-type TabId = 'todo' | 'operations' | 'contracts' | 'team' | 'vision' | 'communications' | 'unstaking';
+type TabId = 'overview' | 'todo' | 'operations' | 'contracts' | 'team' | 'vision' | 'communications' | 'unstaking';
 
 interface Tab {
   id: TabId;
@@ -20,6 +21,7 @@ interface Tab {
 }
 
 const tabs: Tab[] = [
+  { id: 'overview', label: 'Overview', icon: '🏠' },
   { id: 'todo', label: 'Todo List', icon: '📋' },
   { id: 'operations', label: 'Operations', icon: '⚙️' },
   { id: 'contracts', label: 'Contracts', icon: '📜' },
@@ -30,10 +32,12 @@ const tabs: Tab[] = [
 ];
 
 const TabLayout: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<TabId>('todo');
+  const [activeTab, setActiveTab] = useState<TabId>('overview');
 
   const renderContent = () => {
     switch (activeTab) {
+      case 'overview':
+        return <OverviewTab onNavigate={(tabId) => setActiveTab(tabId as TabId)} />;
       case 'todo':
         return <TodoListTab />;
       case 'operations':
@@ -54,7 +58,7 @@ const TabLayout: React.FC = () => {
       case 'unstaking':
         return <UnstakeTab />;
       default:
-        return <TodoListTab />;
+        return <OverviewTab onNavigate={(tabId) => setActiveTab(tabId as TabId)} />;
     }
   };
 

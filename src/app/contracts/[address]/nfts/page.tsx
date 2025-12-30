@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { contracts, findContract, NFT_ASSETS_BASE_URL } from '@/config/contractData';
+import { contracts, findContract, NFT_ASSETS_BASE_URL, ContractInfo } from '@/config/contractData';
 
 interface PageProps {
   params: Promise<{ address: string }>;
@@ -34,6 +34,41 @@ function getTokenRange(contractAddress: string): { start: number; end: number } 
 const collections = contracts.filter(c => c.items && c.items > 0);
 const miscContracts = contracts.filter(c => !c.items || c.items === 0);
 
+// Fetch image URLs from JSON metadata for collections with mixed extensions
+async function fetchImageUrls(contract: ContractInfo, tokenIds: number[]): Promise<Record<number, string>> {
+  const imageUrls: Record<number, string> = {};
+
+  if (!contract.nftImagesDir) return imageUrls;
+
+  const jsonDir = contract.nftImagesDir.replace('/images', '/json');
+
+  await Promise.all(
+    tokenIds.map(async (tokenId) => {
+      try {
+        const response = await fetch(
+          `${NFT_ASSETS_BASE_URL}${jsonDir}/${tokenId}.json`,
+          { cache: 'no-store' }
+        );
+        if (response.ok) {
+          const data = await response.json();
+          if (data.image) {
+            imageUrls[tokenId] = data.image;
+          }
+        }
+      } catch {
+        // Fallback to config-based URL
+      }
+    })
+  );
+
+  return imageUrls;
+}
+
+function getImageUrl(contract: ContractInfo, tokenId: number, imageUrls: Record<number, string>): string {
+  // Use JSON metadata URL if available, otherwise fall back to config-based URL
+  return imageUrls[tokenId] || `${NFT_ASSETS_BASE_URL}${contract.nftImagesDir}/${tokenId}.${contract.nftImageExt || 'png'}`;
+}
+
 export default async function CollectionNftsPage({ params, searchParams }: PageProps) {
   const { address } = await params;
   const { page: pageParam } = await searchParams;
@@ -56,6 +91,9 @@ export default async function CollectionNftsPage({ params, searchParams }: PageP
     (_, i) => tokenRange.start + startIndex + i
   );
 
+  // Fetch image URLs from JSON metadata (for collections with mixed file extensions)
+  const imageUrls = await fetchImageUrls(contract, pageTokenIds);
+
   return (
     <div className="flex min-h-screen">
       {/* Left Sidebar - Contract Navigation */}
@@ -75,6 +113,12 @@ export default async function CollectionNftsPage({ params, searchParams }: PageP
 
         {/* Contract List */}
         <nav className="flex-1 py-3 overflow-y-auto">
+          {/* Contracts Header */}
+          <div className="hidden lg:flex items-center gap-2 px-3 mb-3">
+            <span className="text-lg">📜</span>
+            <span className="text-sm font-bold text-white">Contracts</span>
+          </div>
+
           {/* Collections */}
           <div className="hidden lg:block px-3 mb-1">
             <span className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider">Collections</span>
@@ -212,7 +256,7 @@ export default async function CollectionNftsPage({ params, searchParams }: PageP
               >
                 <div className="relative w-full h-full">
                   <Image
-                    src={`${NFT_ASSETS_BASE_URL}${contract.nftImagesDir}/${tokenId}.${contract.nftImageExt || 'png'}`}
+                    src={getImageUrl(contract, tokenId, imageUrls)}
                     alt={`${contract.name} #${tokenId}`}
                     fill
                     className="object-cover"

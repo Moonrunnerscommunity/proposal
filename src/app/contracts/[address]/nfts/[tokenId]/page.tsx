@@ -47,7 +47,7 @@ async function fetchMetadata(contractAddress: string, tokenId: string): Promise<
   const jsonUrl = `${NFT_ASSETS_BASE_URL}${jsonDir}/${tokenId}.json`;
 
   try {
-    const response = await fetch(jsonUrl, { next: { revalidate: 3600 } });
+    const response = await fetch(jsonUrl, { cache: 'no-store' });
     if (response.ok) {
       return await response.json();
     }
@@ -103,6 +103,12 @@ export default async function NftDetailPage({ params }: PageProps) {
 
         {/* Contract List */}
         <nav className="flex-1 py-3 overflow-y-auto">
+          {/* Contracts Header */}
+          <div className="hidden lg:flex items-center gap-2 px-3 mb-3">
+            <span className="text-lg">📜</span>
+            <span className="text-sm font-bold text-white">Contracts</span>
+          </div>
+
           {/* Collections */}
           <div className="hidden lg:block px-3 mb-1">
             <span className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider">Collections</span>

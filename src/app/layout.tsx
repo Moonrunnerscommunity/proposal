@@ -25,48 +25,41 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://moonrunners.ai'),
   title: "Moonrunners 2.0 | 🐺 Wolves of Many Talents",
-  description: "Join the pack! A community-driven proposal to take over the Moonrunners project with our Wolf Council leadership team. Vote now to shape the future of Moonrunners.",
-  keywords: ["Moonrunners", "NFT", "Community", "Takeover", "Proposal", "Wolf Council", "Web3", "Cryptocurrency"],
+  description: "The pack is back. Community-owned and building forward. Protect the Pack.",
+  keywords: ["Moonrunners", "NFT", "Community", "Wolf Council", "Web3", "Cryptocurrency"],
   authors: [{ name: "Moonrunners Wolf Council" }],
   creator: "Moonrunners Wolf Council",
   publisher: "Moonrunners Community",
-  
-  // Open Graph tags for Facebook, LinkedIn, etc.
+
+  // Open Graph tags for Facebook, LinkedIn, Discord, etc.
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://moonrunners.ai',
-    siteName: 'Moonrunners Community Proposal',
-    title: 'Moonrunners 2.0 | 🐺 Wolves of Many Talents',
-    description: 'Join the pack! A community-driven proposal to take over the Moonrunners project with our Wolf Council leadership team. Vote now to shape the future of Moonrunners.',
+    siteName: 'Moonrunners Community',
+    title: 'Moonrunners 2.0 | Wolves of Many Talents',
+    description: 'The pack is back. Community-owned and building forward. Protect the Pack.',
     images: [
-      {
-        url: '/social-card.svg',
-        width: 1200,
-        height: 630,
-        alt: 'Moonrunners Community Takeover Proposal - Wolves of Many Talents',
-        type: 'image/svg+xml',
-      },
       {
         url: '/social-card.png',
         width: 1200,
         height: 630,
-        alt: 'Moonrunners Community Takeover Proposal - Wolves of Many Talents',
+        alt: 'Moonrunners Community - Wolves of Many Talents',
         type: 'image/png',
       }
     ],
   },
-  
+
   // Twitter Card tags
   twitter: {
     card: 'summary_large_image',
     site: '@MoonrunnersNFT',
     creator: '@MoonrunnersNFT',
-    title: 'Moonrunners 2.0 | 🐺 Wolves of Many Talents',
-    description: 'Join the pack! A community-driven proposal to take over the Moonrunners project with our Wolf Council leadership team. Vote now! 🗳️',
-    images: ['/social-card.svg', '/social-card.png'],
+    title: 'Moonrunners 2.0 | Wolves of Many Talents',
+    description: 'The pack is back. Community-owned and building forward. Protect the Pack.',
+    images: ['/social-card.png'],
   },
-  
+
   // Additional meta tags
   robots: {
     index: true,
@@ -79,20 +72,10 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  
-  // Verification and other tags
-  verification: {
-    // Add verification codes here if needed
-    // google: 'your-google-verification-code',
-    // yandex: 'your-yandex-verification-code',
-  },
-  
+
   // App-specific metadata
-  applicationName: 'Moonrunners Proposal',
+  applicationName: 'Moonrunners',
   referrer: 'origin-when-cross-origin',
-  
-  // Manifest
-  manifest: '/manifest.json', // You might want to create this later
 };
 
 export default function RootLayout({
