@@ -1,4 +1,27 @@
-// NFT assets hosted on GitHub Pages
+/**
+ * NFT Assets URL Configuration
+ *
+ * Images and JSON metadata are hosted on GitHub Pages.
+ *
+ * URL Patterns:
+ * - Images: {base}/nfts/{collection}/images/{tokenId}.{ext}
+ * - JSON:   {base}/nfts/{collection}/json/{tokenId}.json
+ *
+ * Examples:
+ * - https://moonrunnerscommunity.github.io/proposal/nfts/moonrunners/images/1.png
+ * - https://moonrunnerscommunity.github.io/proposal/nfts/moonrunners/json/1.json
+ *
+ * Collections:
+ * - moonrunners (10,000 tokens, .png)
+ * - dragonhorde (2,311 tokens, .png)
+ * - secrets (12 tokens, .gif)
+ * - chronicles (1 token, .png)
+ * - primordia-land (2,888 tokens, .gif) - not transferred
+ * - history (3 tokens, .png) - not transferred
+ *
+ * Contract Base URI (after on-chain update):
+ * - https://moonrunners.ai/nfts/{collection}/json/
+ */
 export const NFT_ASSETS_BASE_URL = 'https://moonrunnerscommunity.github.io/proposal';
 
 export interface ContractInfo {

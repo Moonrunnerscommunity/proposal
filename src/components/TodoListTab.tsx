@@ -12,11 +12,11 @@ interface CollectionStatus {
 }
 
 const collections: CollectionStatus[] = [
-  { name: 'Moonrunners', downloadCurrent: 10000, downloadTotal: 10000, downloadComplete: true, uploadComplete: false, contractUpdated: false },
-  { name: 'Dragonhorde', downloadCurrent: 2297, downloadTotal: 2311, downloadComplete: true, uploadComplete: true, contractUpdated: false },
-  { name: 'Primordia Land', downloadCurrent: 2883, downloadTotal: 2888, downloadComplete: true, uploadComplete: true, contractUpdated: 'n/a' },
-  { name: 'Secrets of Primordia', downloadCurrent: 12, downloadTotal: 12, downloadComplete: true, uploadComplete: false, contractUpdated: false },
-  { name: 'Chronicles of Nogard', downloadCurrent: 1, downloadTotal: 1, downloadComplete: true, uploadComplete: false, contractUpdated: false },
+  { name: 'Moonrunners', downloadCurrent: 10000, downloadTotal: 10000, downloadComplete: true, uploadComplete: true, contractUpdated: false },
+  { name: 'Dragonhorde', downloadCurrent: 2303, downloadTotal: 2311, downloadComplete: true, uploadComplete: true, contractUpdated: false },
+  { name: 'Primordia Land', downloadCurrent: 2884, downloadTotal: 2888, downloadComplete: true, uploadComplete: true, contractUpdated: 'n/a' },
+  { name: 'Secrets of Primordia', downloadCurrent: 12, downloadTotal: 12, downloadComplete: true, uploadComplete: true, contractUpdated: false },
+  { name: 'Chronicles of Nogard', downloadCurrent: 1, downloadTotal: 1, downloadComplete: true, uploadComplete: true, contractUpdated: false },
   { name: 'History of Primordia', downloadCurrent: 3, downloadTotal: 3, downloadComplete: true, uploadComplete: 'n/a', contractUpdated: 'n/a' },
 ];
 
@@ -66,15 +66,16 @@ const todoItems: TodoItem[] = [
   },
   {
     id: '2a',
-    title: 'Research Failed Downloads',
-    description: 'Investigate 12 failed NFT downloads (Dragonhorde: 347, 371, 1302, 1941, 2044, 2047, 2053, 2164 | Primordia Land: 1474, 1637, 1691, 1860)',
+    title: 'Retry Failed Downloads',
+    description: '12 tokens exist but failed to download (network timeouts). Dragonhorde: 347, 371, 1302, 1941, 2044, 2047, 2053, 2164 | Primordia Land: 1474, 1637, 1691, 1860',
     icon: '🔍'
   },
   {
     id: '2b',
     title: 'Repair Moonrunners Wolves',
     description: 'Fix wolf backgrounds, small-pixelated status trait, and dynamic JSON metadata',
-    icon: '🐺'
+    icon: '🐺',
+    completed: true
   },
   {
     id: '2c',

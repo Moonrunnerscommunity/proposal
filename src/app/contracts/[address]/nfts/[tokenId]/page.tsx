@@ -251,17 +251,15 @@ export default async function NftDetailPage({ params }: PageProps) {
 
                 {/* Links */}
                 <div className="flex flex-wrap gap-2 mt-3">
-                  {contract.openseaUrl && (
-                    <a
-                      href={`${contract.openseaUrl}/${tokenId}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 px-2 py-1 bg-blue-600 hover:bg-blue-500 rounded text-white text-xs transition-colors"
-                    >
-                      <ArrowTopRightOnSquareIcon className="h-3 w-3" />
-                      OpenSea
-                    </a>
-                  )}
+                  <a
+                    href={`https://opensea.io/item/ethereum/${address}/${tokenId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 px-2 py-1 bg-blue-600 hover:bg-blue-500 rounded text-white text-xs transition-colors"
+                  >
+                    <ArrowTopRightOnSquareIcon className="h-3 w-3" />
+                    OpenSea
+                  </a>
                   <a
                     href={`https://etherscan.io/nft/${address}/${tokenId}`}
                     target="_blank"
@@ -307,6 +305,20 @@ export default async function NftDetailPage({ params }: PageProps) {
                     </div>
                   )}
                 </div>
+                {/* View JSON Button */}
+                {contract.nftImagesDir && (
+                  <div className="mt-3 pt-3 border-t border-purple-500/20">
+                    <a
+                      href={`${NFT_ASSETS_BASE_URL}${contract.nftImagesDir.replace('/images', '/json')}/${tokenId}.json`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-purple-600/30 hover:bg-purple-600/50 border border-purple-500/30 rounded text-purple-300 hover:text-white text-xs transition-colors w-full justify-center"
+                    >
+                      <span className="font-mono">{'{}'}</span>
+                      View JSON Metadata
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </div>
