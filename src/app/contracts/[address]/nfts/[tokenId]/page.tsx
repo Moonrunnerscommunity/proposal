@@ -81,7 +81,7 @@ export default async function NftDetailPage({ params }: PageProps) {
   const metadata = await fetchMetadata(address, tokenId);
   const imageUrl = getImageUrl(address, tokenId);
 
-  const imageSrc = imageUrl || metadata?.image || null;
+  const imageSrc = metadata?.image || imageUrl || null;
   const name = metadata?.name || `${contract.name} #${tokenId}`;
 
   return (
