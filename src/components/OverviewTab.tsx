@@ -1,9 +1,12 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 interface NavigationCard {
   id: string;
+  href: string;
   icon: string;
   title: string;
   description: string;
@@ -13,6 +16,7 @@ interface NavigationCard {
 const navigationCards: NavigationCard[] = [
   {
     id: 'contracts',
+    href: '/contracts',
     icon: '📜',
     title: 'Contracts',
     description: 'Smart contracts, ownership status, and on-chain assets',
@@ -20,6 +24,7 @@ const navigationCards: NavigationCard[] = [
   },
   {
     id: 'operations',
+    href: '/operations',
     icon: '⚙️',
     title: 'Operations',
     description: 'Domains, socials, and infrastructure handover',
@@ -27,6 +32,7 @@ const navigationCards: NavigationCard[] = [
   },
   {
     id: 'team',
+    href: '/team',
     icon: '🐺',
     title: 'Team',
     description: 'Meet the pack leading this community initiative',
@@ -34,6 +40,7 @@ const navigationCards: NavigationCard[] = [
   },
   {
     id: 'todo',
+    href: '/todo',
     icon: '📋',
     title: 'Progress',
     description: 'Track what we\'ve done and what\'s next',
@@ -41,6 +48,7 @@ const navigationCards: NavigationCard[] = [
   },
   {
     id: 'unstaking',
+    href: '/unstake',
     icon: '🔓',
     title: 'Unstaking',
     description: 'Retrieve staked NFTs from legacy contracts',
@@ -48,6 +56,7 @@ const navigationCards: NavigationCard[] = [
   },
   {
     id: 'vision',
+    href: '/vision',
     icon: '✨',
     title: 'Vision',
     description: 'Our goals and direction for the community',
@@ -55,11 +64,7 @@ const navigationCards: NavigationCard[] = [
   },
 ];
 
-interface OverviewTabProps {
-  onNavigate?: (tabId: string) => void;
-}
-
-const OverviewTab: React.FC<OverviewTabProps> = ({ onNavigate }) => {
+const OverviewTab: React.FC = () => {
   return (
     <div className="w-full max-w-5xl mx-auto">
       {/* Hero Section */}
@@ -107,33 +112,73 @@ const OverviewTab: React.FC<OverviewTabProps> = ({ onNavigate }) => {
         </div>
       </div>
 
-      {/* Status Summary */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-12 animate-fade-in-up-delay-2">
-        <div className="glass p-4 rounded-xl text-center">
-          <div className="text-2xl sm:text-3xl font-bold text-emerald-400 mb-1">6/9</div>
-          <div className="text-xs sm:text-sm text-gray-400">Contracts Transferred</div>
+      {/* Lore Callout */}
+      <Link
+        href="/lore"
+        className="block mb-12 animate-fade-in-up-delay-2 group"
+      >
+        <div className="relative rounded-2xl overflow-hidden border border-purple-500/30 hover:border-purple-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
+          {/* Background image collage */}
+          <div className="absolute inset-0 flex">
+            <div className="relative w-1/3 h-full">
+              <Image
+                src="/lore/season1/lycan-transformation.jpeg"
+                alt="Lycan Transformation"
+                fill
+                className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                unoptimized
+              />
+            </div>
+            <div className="relative w-1/3 h-full">
+              <Image
+                src="/lore/season2/dragon-awakens.png"
+                alt="Dragon Awakens"
+                fill
+                className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                unoptimized
+              />
+            </div>
+            <div className="relative w-1/3 h-full">
+              <Image
+                src="/lore/season3/mountain-top.png"
+                alt="Mountain Top"
+                fill
+                className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                unoptimized
+              />
+            </div>
+          </div>
+
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-900/60 via-black/50 to-purple-900/60" />
+
+          {/* Content */}
+          <div className="relative z-10 p-6 sm:p-8 text-center">
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <span className="text-3xl">📖</span>
+              <h3 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-purple-200 transition-colors">
+                Discover the Lore
+              </h3>
+              <span className="text-3xl">🐺</span>
+            </div>
+            <p className="text-gray-300 group-hover:text-gray-200 transition-colors max-w-2xl mx-auto mb-4">
+              Dive into the epic saga of Moonrunners — from ancient wolf tribes to dragon battles and the mysteries of Primordia.
+            </p>
+            <span className="inline-flex items-center gap-2 text-purple-400 group-hover:text-purple-300 font-semibold transition-colors">
+              Read the full story
+              <span className="group-hover:translate-x-1 transition-transform">→</span>
+            </span>
+          </div>
         </div>
-        <div className="glass p-4 rounded-xl text-center">
-          <div className="text-2xl sm:text-3xl font-bold text-amber-400 mb-1">15K+</div>
-          <div className="text-xs sm:text-sm text-gray-400">NFTs Preserved</div>
-        </div>
-        <div className="glass p-4 rounded-xl text-center">
-          <div className="text-2xl sm:text-3xl font-bold text-purple-400 mb-1">100%</div>
-          <div className="text-xs sm:text-sm text-gray-400">Metadata Restored</div>
-        </div>
-        <div className="glass p-4 rounded-xl text-center">
-          <div className="text-2xl sm:text-3xl font-bold text-blue-400 mb-1">Open</div>
-          <div className="text-xs sm:text-sm text-gray-400">Governance</div>
-        </div>
-      </div>
+      </Link>
 
       {/* Navigation Cards */}
       <div className="animate-fade-in-up-delay-3">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {navigationCards.map((card, index) => (
-            <button
+            <Link
               key={card.id}
-              onClick={() => onNavigate?.(card.id)}
+              href={card.href}
               className={`
                 group relative p-5 rounded-xl text-left
                 bg-gradient-to-br ${card.accent}
@@ -166,7 +211,7 @@ const OverviewTab: React.FC<OverviewTabProps> = ({ onNavigate }) => {
                   {card.description}
                 </p>
               </div>
-            </button>
+            </Link>
           ))}
         </div>
       </div>

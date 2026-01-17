@@ -12,29 +12,33 @@ const CommunicationSection = () => {
   }, []);
 
   const commitments = [
-    { 
-      period: 'Daily', 
-      title: 'Gms', 
-      description: 'Daily gms and community engagement to keep the vibes high and connections strong', 
-      icon: '☀️' 
+    {
+      period: 'Daily',
+      title: 'Gms',
+      description: 'Daily gms and community engagement to keep the vibes high and connections strong',
+      icon: '☀️',
+      subtext: null
     },
-    { 
-      period: 'Weekly', 
-      title: 'Discord Announcements', 
-      description: 'Regular updates and discussions on Discord to keep everyone in the loop', 
-      icon: '💬' 
+    {
+      period: 'Weekly',
+      title: 'Discord Announcements',
+      description: 'Regular updates and discussions on Discord to keep everyone in the loop',
+      icon: '💬',
+      subtext: 'Updates posted every Friday'
     },
-    { 
-      period: 'Monthly', 
-      title: 'Community Events', 
-      description: 'Virtual gatherings, gaming sessions, and special activities to bring us together', 
-      icon: '🎮' 
+    {
+      period: 'Monthly',
+      title: 'Community Events',
+      description: 'Virtual gatherings, gaming sessions, and special activities to bring us together',
+      icon: '🎮',
+      subtext: 'Next Meetup: January 31, details posted on Discord.'
     },
-    { 
-      period: 'Quarterly', 
-      title: 'Business Updates', 
-      description: 'Comprehensive reports on progress, plans, and roadmap transparency', 
-      icon: '📊' 
+    {
+      period: 'Quarterly',
+      title: 'Business Updates',
+      description: 'Comprehensive reports on progress, plans, and roadmap transparency',
+      icon: '📊',
+      subtext: null
     }
   ];
   
@@ -77,13 +81,19 @@ const CommunicationSection = () => {
                 </div>
                 
                 {/* Content */}
-                <div className="text-center flex-1 flex flex-col justify-center">
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    <span className="text-purple-300">{item.period}:</span><br />{item.title}
+                <div className="text-center flex-1 flex flex-col justify-start">
+                  <h3 className="font-bold text-white mb-2 leading-tight">
+                    <span className="text-purple-300 text-lg">{item.period}:</span><br />
+                    <span className="text-xl">{item.title}</span>
                   </h3>
                   <p className="text-purple-200 text-sm leading-relaxed">
                     {item.description}
                   </p>
+                  {item.subtext && (
+                    <p className="mt-3 text-xs text-amber-300 bg-amber-500/10 border border-amber-500/30 rounded-md px-3 py-1.5 italic">
+                      {item.subtext}
+                    </p>
+                  )}
                 </div>
 
                 {/* Decorative corner elements */}

@@ -52,3 +52,6 @@ audit*
 
 # Playwright
 .playwright-mcp/
+
+# Large media files
+public/videos/

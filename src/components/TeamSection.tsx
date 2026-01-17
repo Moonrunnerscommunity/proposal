@@ -140,10 +140,10 @@ export default function TeamSection() {
               Pack Leadership
               <span className="text-3xl">👑</span>
             </h3>
-            <p className="text-lg text-purple-300 font-semibold">The Alpha Wolf leading the charge to protect and guide the pack</p>
+            <p className="text-lg text-purple-300 font-semibold">The Alpha Wolves leading the charge to protect and guide the pack</p>
           </div>
 
-          <div className="flex justify-center gap-6 sm:gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
             {packLeadership.map((member, index) => (
               <div key={member.name} style={{ animationDelay: `${0.6 + index * 0.2}s` }}>
                 <TeamMemberCard {...member} />
@@ -157,7 +157,7 @@ export default function TeamSection() {
           <div className="text-center mb-8 sm:mb-12">
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 flex items-center justify-center gap-3">
               <span className="text-3xl">⚡</span>
-              The Wolf Council
+              Pack Admin
               <span className="text-3xl">⚡</span>
             </h3>
             <p className="text-lg text-purple-300 font-semibold">Specialized wolves making the magic happen</p>
@@ -177,7 +177,7 @@ export default function TeamSection() {
           <div className="text-center mb-8 sm:mb-12">
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 flex items-center justify-center gap-3">
               <span className="text-3xl">🤝</span>
-              The Pack Support
+              Pack Support
               <span className="text-3xl">🤝</span>
             </h3>
           </div>

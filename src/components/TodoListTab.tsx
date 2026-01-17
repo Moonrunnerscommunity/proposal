@@ -16,8 +16,8 @@ const collections: CollectionStatus[] = [
   { name: 'Moonrunners', downloadCurrent: 10000, downloadTotal: 10000, downloadComplete: true, uploadComplete: true, contractUpdated: true },
   { name: 'Dragonhorde', downloadCurrent: 2311, downloadTotal: 2311, downloadComplete: true, uploadComplete: true, contractUpdated: true },
   { name: 'Primordia Land', downloadCurrent: 2884, downloadTotal: 2888, downloadComplete: true, uploadComplete: true, contractUpdated: 'n/a' },
-  { name: 'Secrets of Primordia', downloadCurrent: 12, downloadTotal: 12, downloadComplete: true, uploadComplete: true, contractUpdated: false },
-  { name: 'Chronicles of Nogard', downloadCurrent: 1, downloadTotal: 1, downloadComplete: true, uploadComplete: true, contractUpdated: false },
+  { name: 'Secrets of Primordia', downloadCurrent: 12, downloadTotal: 12, downloadComplete: true, uploadComplete: true, contractUpdated: true },
+  { name: 'Chronicles of Nogard', downloadCurrent: 1, downloadTotal: 1, downloadComplete: true, uploadComplete: true, contractUpdated: true },
   { name: 'History of Primordia', downloadCurrent: 3, downloadTotal: 3, downloadComplete: true, uploadComplete: 'n/a', contractUpdated: 'n/a' },
 ];
 
@@ -87,7 +87,8 @@ const todoItems: TodoItem[] = [
     title: 'Restore NFT Images',
     description: 'Fix broken NFT metadata and restore images across all collections',
     icon: '🖼️',
-    hasSubtasks: true
+    hasSubtasks: true,
+    completed: true
   },
   {
     id: '2a',
@@ -143,16 +144,9 @@ const todoItems: TodoItem[] = [
   }
 ];
 
-// Helper to check if a task can be collapsed (completed + all subtasks completed)
-function canCollapse(item: TodoItem, allItems: TodoItem[]): boolean {
-  if (!item.completed) return false;
-
-  // Check if this item has subtasks
-  const subtasks = allItems.filter(t => t.parentId === item.id);
-  if (subtasks.length === 0) return true;
-
-  // All subtasks must be completed
-  return subtasks.every(sub => sub.completed);
+// Helper to check if a task can be collapsed (parent marked completed)
+function canCollapse(item: TodoItem): boolean {
+  return !!item.completed;
 }
 
 function StatusCell({ complete, current, total }: { complete: boolean; current?: number; total?: number }) {
@@ -246,9 +240,19 @@ const TodoListTab: React.FC = () => {
       <div className="space-y-3 sm:space-y-4 max-w-4xl mx-auto">
         {todoItems.map((item, index) => {
           const isSubItem = typeof item.id === 'string';
-          const isCollapsible = canCollapse(item, todoItems);
+          const isCollapsible = canCollapse(item);
           const isExpanded = expandedItems.has(item.id);
           const showCollapsed = isCollapsible && !isExpanded;
+
+          // Hide subtasks when their parent is collapsed
+          if (item.parentId !== undefined) {
+            const parent = todoItems.find(t => t.id === item.parentId);
+            const parentCollapsible = parent ? canCollapse(parent) : false;
+            const parentExpanded = parent ? expandedItems.has(parent.id) : true;
+            if (parentCollapsible && !parentExpanded) {
+              return null;
+            }
+          }
 
           return (
           <div key={item.id} className={isSubItem ? 'ml-2 sm:ml-6' : ''}>
